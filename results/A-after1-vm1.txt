@@ -1,0 +1,27 @@
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm2                 eth1        2  Up            28       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00            *     93   0x00000003  0x1562     874    0/0/0
+vm2.00-00                  93   0x00000003  0x4a1c     830    0/0/0
+    2 LSPs
+
+--RT--
+Codes: K - kernel route, C - connected, S - static, R - RIP,
+       O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+I>* 2.2.2.2/32 [115/20] via 10.0.0.2, eth1, weight 1, 00:19:51
+I   10.0.0.0/30 [115/20] via 10.0.0.2, eth1 inactive, weight 1, 00:19:51
+--BFD--
+Session count: 0
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+--DATE--
+2026-08-20 11:28:57 UTC

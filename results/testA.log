@@ -1,0 +1,283 @@
+[11:27:11] === TEST A: wait=900s post=120s ===
+[11:27:11] === BASELINE ===
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm2                 eth1        2  Up            28       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00            *     93   0x00000003  0x1562    1001    0/0/0
+vm2.00-00                  93   0x00000003  0x4a1c     957    0/0/0
+    2 LSPs
+
+--RT--
+Codes: K - kernel route, C - connected, S - static, R - RIP,
+       O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+I>* 2.2.2.2/32 [115/20] via 10.0.0.2, eth1, weight 1, 00:17:41
+I   10.0.0.0/30 [115/20] via 10.0.0.2, eth1 inactive, weight 1, 00:17:41
+--BFD--
+Session count: 0
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+--DATE--
+2026-08-20 11:26:47 UTC
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm1                 eth1        2  Up            29       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00                  93   0x00000003  0x1562    1001    0/0/0
+vm2.00-00            *     93   0x00000003  0x4a1c     956    0/0/0
+    2 LSPs
+
+--RT--
+Codes: K - kernel route, C - connected, S - static, R - RIP,
+       O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+I>* 1.1.1.1/32 [115/20] via 10.0.0.1, eth1, weight 1, 00:17:46
+I   10.0.0.0/30 [115/20] via 10.0.0.1, eth1 inactive, weight 1, 00:17:46
+--BFD--
+Session count: 0
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+--DATE--
+2026-08-20 11:26:49 UTC
+[11:27:14] === DELVM (cleanup) ===
+ELAPSED_SEC=0.054
+d[K[Dde[K[D[Ddel[K[D[D[Ddelv[K[D[D[D[Ddelvm[K[D[D[D[D[Ddelvm [K[D[D[D[D[D[Ddelvm s[K[D[D[D[D[D[D[Ddelvm sn[K[D[D[D[D[D[D[D[Ddelvm sna[K[D[D[D[D[D[D[D[D[Ddelvm snap[K[D[D[D[D[D[D[D[D[D[Ddelvm snap1[K
+(qemu) 
+ELAPSED_SEC=0.054
+d[K[Dde[K[D[Ddel[K[D[D[Ddelv[K[D[D[D[Ddelvm[K[D[D[D[D[Ddelvm [K[D[D[D[D[D[Ddelvm s[K[D[D[D[D[D[D[Ddelvm sn[K[D[D[D[D[D[D[D[Ddelvm sna[K[D[D[D[D[D[D[D[D[Ddelvm snap[K[D[D[D[D[D[D[D[D[D[Ddelvm snap1[K
+(qemu) 
+[11:27:14] === SAVEVM snap1 (parallel) ===
+vm1 savevm: ELAPSED_SEC=4.008
+vm2 savevm: ELAPSED_SEC=3.774
+--- qemu-img info vm1 ---
+image: vm1.qcow2
+file format: qcow2
+virtual size: 8 GiB (8589934592 bytes)
+disk size: 3.22 GiB
+cluster_size: 65536
+Snapshot list:
+ID      TAG               VM_SIZE                DATE        VM_CLOCK     ICOUNT
+1       snap1             938 MiB 2026-08-20 13:27:14  0000:20:53.840         --
+Format specific information:
+    compat: 1.1
+    compression type: zlib
+    lazy refcounts: false
+    refcount bits: 16
+    corrupt: false
+    extended l2: false
+Child node '/file':
+    filename: vm1.qcow2
+    protocol type: file
+    file length: 3.22 GiB (3456892928 bytes)
+    disk size: 3.22 GiB
+--- qemu-img info vm2 ---
+image: vm2.qcow2
+file format: qcow2
+virtual size: 8 GiB (8589934592 bytes)
+disk size: 3.23 GiB
+cluster_size: 65536
+Snapshot list:
+ID      TAG               VM_SIZE                DATE        VM_CLOCK     ICOUNT
+1       snap1             950 MiB 2026-08-20 13:27:14  0000:20:53.698         --
+Format specific information:
+    compat: 1.1
+    compression type: zlib
+    lazy refcounts: false
+    refcount bits: 16
+    corrupt: false
+    extended l2: false
+Child node '/file':
+    filename: vm2.qcow2
+    protocol type: file
+    file length: 3.23 GiB (3470393344 bytes)
+    disk size: 3.23 GiB
+-rw-r--r-- 1 root root 3456892928 Aug 20 13:27 vm1.qcow2
+-rw-r--r-- 1 root root 3470393344 Aug 20 13:27 vm2.qcow2
+[11:27:19] === WAITING 900s ===
+[11:42:19] === state just BEFORE loadvm ===
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm2                 eth1        2  Up            28       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00            *     93   0x00000004  0x1363     942    0/0/0
+vm2.00-00                  93   0x00000004  0x481d     936    0/0/0
+    2 LSPs
+
+--RT--
+Codes: K - kernel route, C - connected, S - static, R - RIP,
+       O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+I>* 2.2.2.2/32 [115/20] via 10.0.0.2, eth1, weight 1, 00:32:48
+I   10.0.0.0/30 [115/20] via 10.0.0.2, eth1 inactive, weight 1, 00:32:48
+--BFD--
+Session count: 0
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+--DATE--
+2026-08-20 11:41:54 UTC
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm1                 eth1        2  Up            29       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00                  93   0x00000004  0x1363     941    0/0/0
+vm2.00-00            *     93   0x00000004  0x481d     934    0/0/0
+    2 LSPs
+
+--RT--
+Codes: K - kernel route, C - connected, S - static, R - RIP,
+       O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+I>* 1.1.1.1/32 [115/20] via 10.0.0.1, eth1, weight 1, 00:32:53
+I   10.0.0.0/30 [115/20] via 10.0.0.1, eth1 inactive, weight 1, 00:32:53
+--BFD--
+Session count: 0
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+--DATE--
+2026-08-20 11:41:56 UTC
+[11:42:21] === LOADVM snap1 (parallel) ===
+vm1 loadvm: ELAPSED_SEC=2.966
+vm2 loadvm: ELAPSED_SEC=3.184
+[11:42:25] WALL_BOTH_LOADVM_SEC=3.217
+[11:42:25] host date at restore: 2026-08-20 11:42:25 UTC
+[11:42:25] === state IMMEDIATELY after loadvm ===
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm2                 eth1        2  Up            29       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00            *     93   0x00000003  0x1562     997    0/0/0
+vm2.00-00                  93   0x00000003  0x4a1c     953    0/0/0
+    2 LSPs
+
+--RT--
+Codes: K - kernel route, C - connected, S - static, R - RIP,
+       O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+I>* 2.2.2.2/32 [115/20] via 10.0.0.2, eth1, weight 1, 00:17:48
+I   10.0.0.0/30 [115/20] via 10.0.0.2, eth1 inactive, weight 1, 00:17:48
+--BFD--
+Session count: 0
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+--DATE--
+2026-08-20 11:26:54 UTC
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm1                 eth1        2  Up            29       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00                  93   0x00000003  0x1562     997    0/0/0
+vm2.00-00            *     93   0x00000003  0x4a1c     952    0/0/0
+    2 LSPs
+
+--RT--
+Codes: K - kernel route, C - connected, S - static, R - RIP,
+       O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+I>* 1.1.1.1/32 [115/20] via 10.0.0.1, eth1, weight 1, 00:17:53
+I   10.0.0.0/30 [115/20] via 10.0.0.1, eth1 inactive, weight 1, 00:17:53
+--BFD--
+Session count: 0
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+--DATE--
+2026-08-20 11:26:56 UTC
+[11:42:27] === +120s ===
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm2                 eth1        2  Up            28       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00            *     93   0x00000003  0x1562     874    0/0/0
+vm2.00-00                  93   0x00000003  0x4a1c     830    0/0/0
+    2 LSPs
+
+--RT--
+Codes: K - kernel route, C - connected, S - static, R - RIP,
+       O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+I>* 2.2.2.2/32 [115/20] via 10.0.0.2, eth1, weight 1, 00:19:51
+I   10.0.0.0/30 [115/20] via 10.0.0.2, eth1 inactive, weight 1, 00:19:51
+--BFD--
+Session count: 0
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+--DATE--
+2026-08-20 11:28:57 UTC
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm1                 eth1        2  Up            29       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00                  93   0x00000003  0x1562     874    0/0/0
+vm2.00-00            *     93   0x00000003  0x4a1c     829    0/0/0
+    2 LSPs
+
+--RT--
+Codes: K - kernel route, C - connected, S - static, R - RIP,
+       O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+I>* 1.1.1.1/32 [115/20] via 10.0.0.1, eth1, weight 1, 00:19:55
+I   10.0.0.0/30 [115/20] via 10.0.0.1, eth1 inactive, weight 1, 00:19:55
+--BFD--
+Session count: 0
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+--DATE--
+2026-08-20 11:28:58 UTC
+[11:44:30] host date: 2026-08-20 11:44:30 UTC
+[11:44:30] === TEST A DONE ===

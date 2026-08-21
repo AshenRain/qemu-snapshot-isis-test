@@ -1,0 +1,17 @@
+[?2004lvtysh: error reading from zebra: Connection reset by peer (104)Warning: closing connection to zebra because of an I/O error!
+Warning: closing connection to isisd because of an I/O error!
+Warning: connecting to isisd...failed!
+vtysh: error reading from watchfrr: Connection reset by peer (104)Warning: closing connection to watchfrr because of an I/O error!
+vtysh: error reading from staticd: Connection reset by peer (104)Warning: closing connection to staticd because of an I/O error!
+Warning: closing connection to bfdd because of an I/O error!
+Warning: connecting to bfdd...failed!
+Warning: connecting to isisd...failed!
+isisd is not running
+--DB--
+Exiting: failed to connect to any daemons.
+--RT--
+Exiting: failed to connect to any daemons.
+--BFD--
+Exiting: failed to connect to any daemons.
+--DATE--
+2026-08-20 11:32:26 UTC

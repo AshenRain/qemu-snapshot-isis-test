@@ -1,0 +1,434 @@
+[12:50:57] === TEST C (BFD + cold restart): wait=900s post=120s ===
+[12:50:57] === configuring BFD 300ms x3 on both VMs ===
+[?2004lNote: this version of vtysh never writes vtysh.conf
+Building Configuration...
+Integrated configuration saved to /etc/frr/frr.conf
+[OK]
+[?2004lNote: this version of vtysh never writes vtysh.conf
+Building Configuration...
+Integrated configuration saved to /etc/frr/frr.conf
+[OK]
+[12:51:00] === waiting for BFD to come Up ===
+--- vm1 bfd ---
+[?2004lBFD Peers:
+	peer 10.0.0.2 local-address 10.0.0.1 vrf default interface eth1
+		ID: 1359347979
+		Remote ID: 2043750824
+		Active mode
+		Status: up
+		Uptime: 3 minute(s), 38 second(s)
+		Diagnostics: ok
+		Remote diagnostics: ok
+		Peer Type: dynamic
+		RTT min/avg/max: 0/0/0 usec
+		Local timers:
+			Detect-multiplier: 3
+			Receive interval: 300ms
+			Transmission interval: 300ms
+			Echo receive interval: 50ms
+			Echo transmission interval: disabled
+		Remote timers:
+			Detect-multiplier: 3
+			Receive interval: 300ms
+			Transmission interval: 300ms
+			Echo receive interval: 50ms
+--- vm2 bfd ---
+[?2004lBFD Peers:
+	peer 10.0.0.1 local-address 10.0.0.2 vrf default interface eth1
+		ID: 2043750824
+		Remote ID: 1359347979
+		Active mode
+		Status: up
+		Uptime: 3 minute(s), 39 second(s)
+		Diagnostics: ok
+		Remote diagnostics: ok
+		Peer Type: dynamic
+		RTT min/avg/max: 0/0/0 usec
+		Local timers:
+			Detect-multiplier: 3
+			Receive interval: 300ms
+			Transmission interval: 300ms
+			Echo receive interval: 50ms
+			Echo transmission interval: disabled
+		Remote timers:
+			Detect-multiplier: 3
+			Receive interval: 300ms
+			Transmission interval: 300ms
+			Echo receive interval: 50ms
+[12:53:35] === BASELINE ===
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm2                 eth1        2  Up            27       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00            *     93   0x0000000e  0xda91     974    0/0/0
+vm2.00-00                  93   0x0000000d  0x3626     969    0/0/0
+    2 LSPs
+
+--RT--
+Codes: K - kernel route, C - connected, S - static, R - RIP,
+       O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+I>* 2.2.2.2/32 [115/20] via 10.0.0.2, eth1, weight 1, 00:03:43
+I   10.0.0.0/30 [115/20] via 10.0.0.2, eth1 inactive, weight 1, 00:03:43
+--BFD--
+Session count: 1
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+1359347979 10.0.0.1                                 10.0.0.2                                up             
+--DATE--
+2026-08-20 12:04:32 UTC
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm1                 eth1        2  Up            28       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00                  93   0x0000000e  0xda91     973    0/0/0
+vm2.00-00            *     93   0x0000000d  0x3626     968    0/0/0
+    2 LSPs
+
+--RT--
+Codes: K - kernel route, C - connected, S - static, R - RIP,
+       O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+I>* 1.1.1.1/32 [115/20] via 10.0.0.1, eth1, weight 1, 00:03:43
+I   10.0.0.0/30 [115/20] via 10.0.0.1, eth1 inactive, weight 1, 00:03:43
+--BFD--
+Session count: 1
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+2043750824 10.0.0.2                                 10.0.0.1                                up             
+--DATE--
+2026-08-20 12:04:35 UTC
+[?2004lBFD Peers:
+	peer 10.0.0.2 local-address 10.0.0.1 vrf default interface eth1
+		ID: 1359347979
+		Remote ID: 2043750824
+		Active mode
+		Status: up
+		Uptime: 4 minute(s), 13 second(s)
+		Diagnostics: ok
+		Remote diagnostics: ok
+		Peer Type: dynamic
+		RTT min/avg/max: 0/0/0 usec
+		Local timers:
+			Detect-multiplier: 3
+			Receive interval: 300ms
+			Transmission interval: 300ms
+			Echo receive interval: 50ms
+			Echo transmission interval: disabled
+		Remote timers:
+			Detect-multiplier: 3
+			Receive interval: 300ms
+			Transmission interval: 300ms
+			Echo receive interval: 50ms
+[?2004lBFD Peers:
+	peer 10.0.0.1 local-address 10.0.0.2 vrf default interface eth1
+		ID: 2043750824
+		Remote ID: 1359347979
+		Active mode
+		Status: up
+		Uptime: 4 minute(s), 14 second(s)
+		Diagnostics: ok
+		Remote diagnostics: ok
+		Peer Type: dynamic
+		RTT min/avg/max: 0/0/0 usec
+		Local timers:
+			Detect-multiplier: 3
+			Receive interval: 300ms
+			Transmission interval: 300ms
+			Echo receive interval: 50ms
+			Echo transmission interval: disabled
+		Remote timers:
+			Detect-multiplier: 3
+			Receive interval: 300ms
+			Transmission interval: 300ms
+			Echo receive interval: 50ms
+[12:53:40] === DELVM + SAVEVM snapC (parallel) ===
+ELAPSED_SEC=0.000
+d[K[Dde[K[D[Ddel[K[D[D[Ddelv[K[D[D[D[Ddelvm[K[D[D[D[D[Ddelvm [K[D[D[D[D[D[Ddelvm s[K[D[D[D[D[D[D[Ddelvm sn[K[D[D[D[D[D[D[D[Ddelvm sna[K[D[D[D[D[D[D[D[D[Ddelvm snap[K[D[D[D[D[D[D[D[D[D[Ddelvm snapC[K
+(qemu) 
+ELAPSED_SEC=0.000
+d[K[Dde[K[D[Ddel[K[D[D[Ddelv[K[D[D[D[Ddelvm[K[D[D[D[D[Ddelvm [K[D[D[D[D[D[Ddelvm s[K[D[D[D[D[D[D[Ddelvm sn[K[D[D[D[D[D[D[D[Ddelvm sna[K[D[D[D[D[D[D[D[D[Ddelvm snap[K[D[D[D[D[D[D[D[D[D[Ddelvm snapC[K
+(qemu) 
+vm1 savevm: ELAPSED_SEC=2.054
+vm2 savevm: ELAPSED_SEC=2.085
+[12:53:42] === KILL QEMU ===
+ELAPSED_SEC=0.011
+q[K[Dqu[K[D[Dqui[K[D[D[Dquit[K
+
+ELAPSED_SEC=0.013
+q[K[Dqu[K[D[Dqui[K[D[D[Dquit[K
+
+qemu processes left: 0
+[12:53:50] === WAITING 900s with QEMU fully stopped ===
+[13:08:50] === COLD START with -loadvm snapC ===
+vm1_qemu_start_sec=2.71
+vm2_qemu_start_sec=2.79
+[13:08:53] WALL_BOTH_COLDSTART_SEC=2.808
+[13:08:53] === BFD POLL: 60 samples, 1/s, starting immediately ===
+[?2004l12:04:39.07 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:39.16 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:39.24 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:39.31 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:39.39 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:39.46 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:39.54 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:39.63 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:39.87 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:39.95 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:40.03 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:40.11 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:40.19 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:40.26 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:40.34 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:40.42 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:40.49 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:40.58 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:40.66 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:40.74 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:40.81 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:40.88 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:40.95 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:41.03 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:41.10 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:41.17 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:41.24 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:41.32 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:41.39 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:41.46 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:41.53 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:41.62 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:41.70 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:41.77 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:41.85 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:41.94 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:42.01 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:42.08 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:42.15 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:42.22 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:42.29 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:42.36 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:42.44 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:42.51 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:42.60 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:42.67 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:42.75 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:42.84 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:42.91 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:42.99 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:43.06 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:43.13 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:43.20 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:43.27 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:43.34 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:43.42 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:43.49 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:43.57 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:43.64 BFD=up ISIS_ADJ=1 ROUTE=0
+12:04:43.72 BFD=up ISIS_ADJ=1 ROUTE=0
+[13:08:59] === full state after cold start ===
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm2                 eth1        2  Up            29       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00            *     80   0x0000000f  0x5e3a    1146    0/0/0
+vm2.00-00                  80   0x0000000e  0x7512    1136    0/0/0
+    2 LSPs
+
+--RT--
+--BFD--
+Session count: 1
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+2529162241 10.0.0.1                                 10.0.0.2                                up             
+--DATE--
+2026-08-20 12:04:45 UTC
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm1                 eth1        2  Up            28       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00                  80   0x0000000f  0x5e3a    1145    0/0/0
+vm2.00-00            *     80   0x0000000e  0x7512    1134    0/0/0
+    2 LSPs
+
+--RT--
+--BFD--
+Session count: 1
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+2457190823 10.0.0.2                                 10.0.0.1                                up             
+--DATE--
+2026-08-20 12:04:47 UTC
+[?2004lBFD Peers:
+	peer 10.0.0.2 local-address 10.0.0.1 vrf default interface eth1
+		ID: 2529162241
+		Remote ID: 2457190823
+		Active mode
+		Status: up
+		Uptime: 9 second(s)
+		Diagnostics: ok
+		Remote diagnostics: ok
+		Peer Type: dynamic
+		RTT min/avg/max: 0/0/0 usec
+		Local timers:
+			Detect-multiplier: 3
+			Receive interval: 300ms
+			Transmission interval: 300ms
+			Echo receive interval: 50ms
+			Echo transmission interval: disabled
+		Remote timers:
+			Detect-multiplier: 3
+			Receive interval: 300ms
+			Transmission interval: 300ms
+			Echo receive interval: 50ms
+[?2004lBFD Peers:
+	peer 10.0.0.1 local-address 10.0.0.2 vrf default interface eth1
+		ID: 2457190823
+		Remote ID: 2529162241
+		Active mode
+		Status: up
+		Uptime: 9 second(s)
+		Diagnostics: ok
+		Remote diagnostics: ok
+		Peer Type: dynamic
+		RTT min/avg/max: 0/0/0 usec
+		Local timers:
+			Detect-multiplier: 3
+			Receive interval: 300ms
+			Transmission interval: 300ms
+			Echo receive interval: 50ms
+			Echo transmission interval: disabled
+		Remote timers:
+			Detect-multiplier: 3
+			Receive interval: 300ms
+			Transmission interval: 300ms
+			Echo receive interval: 50ms
+[13:09:04] === +120s ===
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm2                 eth1        2  Up            30       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00            *     93   0x00000010  0xd693    1095    0/0/0
+vm2.00-00                  93   0x0000000f  0x3228    1085    0/0/0
+    2 LSPs
+
+--RT--
+Codes: K - kernel route, C - connected, S - static, R - RIP,
+       O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+I>* 2.2.2.2/32 [115/20] via 10.0.0.2, eth1, weight 1, 00:01:42
+I   10.0.0.0/30 [115/20] via 10.0.0.2, eth1 inactive, weight 1, 00:01:42
+--BFD--
+Session count: 1
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+2529162241 10.0.0.1                                 10.0.0.2                                up             
+--DATE--
+2026-08-20 12:06:49 UTC
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm1                 eth1        2  Up            28       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00                  93   0x00000010  0xd693    1093    0/0/0
+vm2.00-00            *     93   0x0000000f  0x3228    1083    0/0/0
+    2 LSPs
+
+--RT--
+Codes: K - kernel route, C - connected, S - static, R - RIP,
+       O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+I>* 1.1.1.1/32 [115/20] via 10.0.0.1, eth1, weight 1, 00:01:42
+I   10.0.0.0/30 [115/20] via 10.0.0.1, eth1 inactive, weight 1, 00:01:42
+--BFD--
+Session count: 1
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+2457190823 10.0.0.2                                 10.0.0.1                                up             
+--DATE--
+2026-08-20 12:06:52 UTC
+[?2004lBFD Peers:
+	peer 10.0.0.2 local-address 10.0.0.1 vrf default interface eth1
+		ID: 2529162241
+		Remote ID: 2457190823
+		Active mode
+		Status: up
+		Uptime: 2 minute(s), 14 second(s)
+		Diagnostics: ok
+		Remote diagnostics: ok
+		Peer Type: dynamic
+		RTT min/avg/max: 0/0/0 usec
+		Local timers:
+			Detect-multiplier: 3
+			Receive interval: 300ms
+			Transmission interval: 300ms
+			Echo receive interval: 50ms
+			Echo transmission interval: disabled
+		Remote timers:
+			Detect-multiplier: 3
+			Receive interval: 300ms
+			Transmission interval: 300ms
+			Echo receive interval: 50ms
+[?2004lBFD Peers:
+	peer 10.0.0.1 local-address 10.0.0.2 vrf default interface eth1
+		ID: 2457190823
+		Remote ID: 2529162241
+		Active mode
+		Status: up
+		Uptime: 2 minute(s), 14 second(s)
+		Diagnostics: ok
+		Remote diagnostics: ok
+		Peer Type: dynamic
+		RTT min/avg/max: 0/0/0 usec
+		Local timers:
+			Detect-multiplier: 3
+			Receive interval: 300ms
+			Transmission interval: 300ms
+			Echo receive interval: 50ms
+			Echo transmission interval: disabled
+		Remote timers:
+			Detect-multiplier: 3
+			Receive interval: 300ms
+			Transmission interval: 300ms
+			Echo receive interval: 50ms
+[?2004lPING 2.2.2.2 (2.2.2.2) 56(84) bytes of data.
+64 bytes from 2.2.2.2: icmp_seq=1 ttl=64 time=0.397 ms
+64 bytes from 2.2.2.2: icmp_seq=2 ttl=64 time=0.485 ms
+64 bytes from 2.2.2.2: icmp_seq=3 ttl=64 time=0.956 ms
+
+--- 2.2.2.2 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2004ms
+rtt min/avg/max/mdev = 0.397/0.612/0.956/0.245 ms
+[13:11:12] === TEST C DONE ===

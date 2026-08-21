@@ -1,0 +1,2225 @@
+[    0.000000] Linux version 6.8.0-137-generic (buildd@lcy02-amd64-064) (x86_64-linux-gnu-gcc-13 (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, GNU ld (GNU Binutils for Ubuntu) 2.42) #137-Ubuntu SMP PREEMPT_DYNAMIC Fri Jul 17 20:28:23 UTC 2026 (Ubuntu 6.8.0-137.137-generic 6.8.12)
+[    0.000000] Command line: BOOT_IMAGE=/vmlinuz-6.8.0-137-generic root=LABEL=cloudimg-rootfs ro console=tty1 console=ttyS0
+[    0.000000] KERNEL supported cpus:
+[    0.000000]   Intel GenuineIntel
+[    0.000000]   AMD AuthenticAMD
+[    0.000000]   Hygon HygonGenuine
+[    0.000000]   Centaur CentaurHauls
+[    0.000000]   zhaoxin   Shanghai  
+[    0.000000] BIOS-provided physical RAM map:
+[    0.000000] BIOS-e820: [mem 0x0000000000000000-0x000000000009fbff] usable
+[    0.000000] BIOS-e820: [mem 0x000000000009fc00-0x000000000009ffff] reserved
+[    0.000000] BIOS-e820: [mem 0x00000000000f0000-0x00000000000fffff] reserved
+[    0.000000] BIOS-e820: [mem 0x0000000000100000-0x000000003ffdbfff] usable
+[    0.000000] BIOS-e820: [mem 0x000000003ffdc000-0x000000003fffffff] reserved
+[    0.000000] BIOS-e820: [mem 0x00000000b0000000-0x00000000bfffffff] reserved
+[    0.000000] BIOS-e820: [mem 0x00000000fed1c000-0x00000000fed1ffff] reserved
+[    0.000000] BIOS-e820: [mem 0x00000000feffc000-0x00000000feffffff] reserved
+[    0.000000] BIOS-e820: [mem 0x00000000fffc0000-0x00000000ffffffff] reserved
+[    0.000000] NX (Execute Disable) protection: active
+[    0.000000] APIC: Static calls initialized
+[    0.000000] SMBIOS 2.8 present.
+[    0.000000] DMI: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.17.0-debian-1.17.0-1ubuntu1 04/01/2014
+[    0.000000] Hypervisor detected: KVM
+[    0.000000] kvm-clock: Using msrs 4b564d01 and 4b564d00
+[    0.000001] kvm-clock: using sched offset of 2230053198 cycles
+[    0.000015] clocksource: kvm-clock: mask: 0xffffffffffffffff max_cycles: 0x1cd42e4dffb, max_idle_ns: 881590591483 ns
+[    0.000019] tsc: Detected 2496.010 MHz processor
+[    0.000397] last_pfn = 0x3ffdc max_arch_pfn = 0x400000000
+[    0.000539] MTRR map: 4 entries (3 fixed + 1 variable; max 19), built from 8 variable MTRRs
+[    0.000546] x86/PAT: Configuration [0-7]: WB  WC  UC- UC  WB  WP  UC- WT  
+[    0.008931] found SMP MP-table at [mem 0x000f5450-0x000f545f]
+[    0.008954] Using GB pages for direct mapping
+[    0.009036] RAMDISK: [mem 0x34561000-0x362a7fff]
+[    0.009293] ACPI: Early table checksum verification disabled
+[    0.009298] ACPI: RSDP 0x00000000000F5280 000014 (v00 BOCHS )
+[    0.009305] ACPI: RSDT 0x000000003FFE23A2 000038 (v01 BOCHS  BXPC     00000001 BXPC 00000001)
+[    0.009312] ACPI: FACP 0x000000003FFE2192 0000F4 (v03 BOCHS  BXPC     00000001 BXPC 00000001)
+[    0.009319] ACPI: DSDT 0x000000003FFE0040 002152 (v01 BOCHS  BXPC     00000001 BXPC 00000001)
+[    0.009323] ACPI: FACS 0x000000003FFE0000 000040
+[    0.009327] ACPI: APIC 0x000000003FFE2286 000080 (v03 BOCHS  BXPC     00000001 BXPC 00000001)
+[    0.009330] ACPI: HPET 0x000000003FFE2306 000038 (v01 BOCHS  BXPC     00000001 BXPC 00000001)
+[    0.009334] ACPI: MCFG 0x000000003FFE233E 00003C (v01 BOCHS  BXPC     00000001 BXPC 00000001)
+[    0.009337] ACPI: WAET 0x000000003FFE237A 000028 (v01 BOCHS  BXPC     00000001 BXPC 00000001)
+[    0.009340] ACPI: Reserving FACP table memory at [mem 0x3ffe2192-0x3ffe2285]
+[    0.009341] ACPI: Reserving DSDT table memory at [mem 0x3ffe0040-0x3ffe2191]
+[    0.009342] ACPI: Reserving FACS table memory at [mem 0x3ffe0000-0x3ffe003f]
+[    0.009343] ACPI: Reserving APIC table memory at [mem 0x3ffe2286-0x3ffe2305]
+[    0.009344] ACPI: Reserving HPET table memory at [mem 0x3ffe2306-0x3ffe233d]
+[    0.009344] ACPI: Reserving MCFG table memory at [mem 0x3ffe233e-0x3ffe2379]
+[    0.009345] ACPI: Reserving WAET table memory at [mem 0x3ffe237a-0x3ffe23a1]
+[    0.010216] No NUMA configuration found
+[    0.010217] Faking a node at [mem 0x0000000000000000-0x000000003ffdbfff]
+[    0.010224] NODE_DATA(0) allocated [mem 0x3ffb1000-0x3ffdbfff]
+[    0.010405] Zone ranges:
+[    0.010406]   DMA      [mem 0x0000000000001000-0x0000000000ffffff]
+[    0.010408]   DMA32    [mem 0x0000000001000000-0x000000003ffdbfff]
+[    0.010409]   Normal   empty
+[    0.010410]   Device   empty
+[    0.010411] Movable zone start for each node
+[    0.010413] Early memory node ranges
+[    0.010413]   node   0: [mem 0x0000000000001000-0x000000000009efff]
+[    0.010415]   node   0: [mem 0x0000000000100000-0x000000003ffdbfff]
+[    0.010416] Initmem setup node 0 [mem 0x0000000000001000-0x000000003ffdbfff]
+[    0.010424] On node 0, zone DMA: 1 pages in unavailable ranges
+[    0.010460] On node 0, zone DMA: 97 pages in unavailable ranges
+[    0.011824] On node 0, zone DMA32: 36 pages in unavailable ranges
+[    0.012911] ACPI: PM-Timer IO Port: 0x608
+[    0.012932] ACPI: LAPIC_NMI (acpi_id[0xff] dfl dfl lint[0x1])
+[    0.013002] IOAPIC[0]: apic_id 0, version 17, address 0xfec00000, GSI 0-23
+[    0.013006] ACPI: INT_SRC_OVR (bus 0 bus_irq 0 global_irq 2 dfl dfl)
+[    0.013008] ACPI: INT_SRC_OVR (bus 0 bus_irq 5 global_irq 5 high level)
+[    0.013009] ACPI: INT_SRC_OVR (bus 0 bus_irq 9 global_irq 9 high level)
+[    0.013010] ACPI: INT_SRC_OVR (bus 0 bus_irq 10 global_irq 10 high level)
+[    0.013011] ACPI: INT_SRC_OVR (bus 0 bus_irq 11 global_irq 11 high level)
+[    0.013016] ACPI: Using ACPI (MADT) for SMP configuration information
+[    0.013017] ACPI: HPET id: 0x8086a201 base: 0xfed00000
+[    0.013021] TSC deadline timer available
+[    0.013022] smpboot: Allowing 2 CPUs, 0 hotplug CPUs
+[    0.013050] kvm-guest: APIC: eoi() replaced with kvm_guest_apic_eoi_write()
+[    0.013078] kvm-guest: KVM setup pv remote TLB flush
+[    0.013091] kvm-guest: setup PV sched yield
+[    0.013098] PM: hibernation: Registered nosave memory: [mem 0x00000000-0x00000fff]
+[    0.013099] PM: hibernation: Registered nosave memory: [mem 0x0009f000-0x000fffff]
+[    0.013101] [mem 0x40000000-0xafffffff] available for PCI devices
+[    0.013102] Booting paravirtualized kernel on KVM
+[    0.013105] clocksource: refined-jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 1910969940391419 ns
+[    0.013112] setup_percpu: NR_CPUS:8192 nr_cpumask_bits:2 nr_cpu_ids:2 nr_node_ids:1
+[    0.013318] percpu: Embedded 86 pages/cpu s229376 r8192 d114688 u1048576
+[    0.013398] kvm-guest: PV spinlocks enabled
+[    0.013401] PV qspinlock hash table entries: 256 (order: 0, 4096 bytes, linear)
+[    0.013404] Kernel command line: BOOT_IMAGE=/vmlinuz-6.8.0-137-generic root=LABEL=cloudimg-rootfs ro console=tty1 console=ttyS0
+[    0.013458] random: crng init done
+[    0.013535] Dentry cache hash table entries: 131072 (order: 8, 1048576 bytes, linear)
+[    0.013577] Inode-cache hash table entries: 65536 (order: 7, 524288 bytes, linear)
+[    0.013672] Fallback order for Node 0: 0 
+[    0.013675] Built 1 zonelists, mobility grouping on.  Total pages: 257756
+[    0.013677] Policy zone: DMA32
+[    0.013681] mem auto-init: stack:all(zero), heap alloc:on, heap free:off
+[    0.015626] Memory: 944992K/1048040K available (22528K kernel code, 4441K rwdata, 14428K rodata, 4932K init, 4776K bss, 102788K reserved, 0K cma-reserved)
+[    0.016478] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=2, Nodes=1
+[    0.016504] ftrace: allocating 58334 entries in 228 pages
+[    0.024782] ftrace: allocated 228 pages with 4 groups
+[    0.025533] Dynamic Preempt: voluntary
+[    0.025593] rcu: Preemptible hierarchical RCU implementation.
+[    0.025594] rcu: 	RCU restricting CPUs from NR_CPUS=8192 to nr_cpu_ids=2.
+[    0.025595] 	Trampoline variant of Tasks RCU enabled.
+[    0.025596] 	Rude variant of Tasks RCU enabled.
+[    0.025596] 	Tracing variant of Tasks RCU enabled.
+[    0.025597] rcu: RCU calculated value of scheduler-enlistment delay is 100 jiffies.
+[    0.025598] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=2
+[    0.025606] RCU Tasks: Setting shift to 1 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=2.
+[    0.025608] RCU Tasks Rude: Setting shift to 1 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=2.
+[    0.025609] RCU Tasks Trace: Setting shift to 1 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=2.
+[    0.028436] NR_IRQS: 524544, nr_irqs: 440, preallocated irqs: 16
+[    0.028708] rcu: srcu_init: Setting srcu_struct sizes based on contention.
+[    0.030525] Console: colour VGA+ 80x25
+[    0.030528] printk: legacy console [tty1] enabled
+[    0.052143] printk: legacy console [ttyS0] enabled
+[    0.224492] ACPI: Core revision 20230628
+[    0.225813] clocksource: hpet: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604467 ns
+[    0.228354] APIC: Switch to symmetric I/O mode setup
+[    0.256941] x2apic enabled
+[    0.259410] APIC: Switched APIC routing to: physical x2apic
+[    0.261576] kvm-guest: APIC: send_IPI_mask() replaced with kvm_send_ipi_mask()
+[    0.264023] kvm-guest: APIC: send_IPI_mask_allbutself() replaced with kvm_send_ipi_mask_allbutself()
+[    0.267210] kvm-guest: setup PV IPIs
+[    0.275443] ..TIMER: vector=0x30 apic1=0 pin1=2 apic2=-1 pin2=-1
+[    0.277745] clocksource: tsc-early: mask: 0xffffffffffffffff max_cycles: 0x23fa80a809f, max_idle_ns: 440795273818 ns
+[    0.281525] Calibrating delay loop (skipped) preset value.. 4992.02 BogoMIPS (lpj=2496010)
+[    0.283987] x86/cpu: User Mode Instruction Prevention (UMIP) activated
+[    0.285988] Last level iTLB entries: 4KB 0, 2MB 0, 4MB 0
+[    0.287524] Last level dTLB entries: 4KB 0, 2MB 0, 4MB 0, 1GB 0
+[    0.288731] Spectre V1 : Mitigation: usercopy/swapgs barriers and __user pointer sanitization
+[    0.290531] Spectre V2 : Mitigation: Enhanced / Automatic IBRS
+[    0.291738] Spectre V2 : Spectre v2 / PBRSB-eIBRS: Retire a single CALL on VMEXIT
+[    0.292718] RETBleed: Mitigation: Enhanced IBRS
+[    0.293772] Spectre V2 : mitigation: Enabling conditional Indirect Branch Prediction Barrier
+[    0.294717] Speculative Store Bypass: Mitigation: Speculative Store Bypass disabled via prctl
+[    0.295758] Register File Data Sampling: Vulnerable: No microcode
+[    0.297596] x86/fpu: Supporting XSAVE feature 0x001: 'x87 floating point registers'
+[    0.298746] x86/fpu: Supporting XSAVE feature 0x002: 'SSE registers'
+[    0.299726] x86/fpu: Supporting XSAVE feature 0x004: 'AVX registers'
+[    0.300743] x86/fpu: xstate_offset[2]:  576, xstate_sizes[2]:  256
+[    0.301726] x86/fpu: Enabled xstate features 0x7, context size is 832 bytes, using 'compacted' format.
+[    0.324732] Freeing SMP alternatives memory: 48K
+[    0.325751] pid_max: default: 32768 minimum: 301
+[    0.326870] LSM: initializing lsm=lockdown,capability,landlock,yama,apparmor,integrity
+[    0.327915] landlock: Up and running.
+[    0.328738] Yama: becoming mindful.
+[    0.330572] AppArmor: AppArmor initialized
+[    0.331778] Mount-cache hash table entries: 2048 (order: 2, 16384 bytes, linear)
+[    0.332747] Mountpoint-cache hash table entries: 2048 (order: 2, 16384 bytes, linear)
+[    0.334970] smpboot: CPU0: 12th Gen Intel(R) Core(TM) i5-12450H (family: 0x6, model: 0x9a, stepping: 0x3)
+[    0.336112] Performance Events: unsupported p6 CPU model 154 no PMU driver, software events only.
+[    0.336865] signal: max sigframe size: 1776
+[    0.337801] rcu: Hierarchical SRCU implementation.
+[    0.338848] rcu: 	Max phase no-delay instances is 400.
+[    0.340293] NMI watchdog: Perf NMI watchdog permanently disabled
+[    0.340829] smp: Bringing up secondary CPUs ...
+[    0.341967] smpboot: x86: Booting SMP configuration:
+[    0.343300] .... node  #0, CPUs:      #1
+[    0.345688] smp: Brought up 1 node, 2 CPUs
+[    0.347885] smpboot: Max logical packages: 1
+[    0.348744] smpboot: Total of 2 processors activated (9984.04 BogoMIPS)
+[    0.350800] devtmpfs: initialized
+[    0.351932] x86/mm: Memory block size: 128MB
+[    0.353104] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 1911260446275000 ns
+[    0.353808] futex hash table entries: 512 (order: 3, 32768 bytes, linear)
+[    0.354839] pinctrl core: initialized pinctrl subsystem
+[    0.356049] PM: RTC time: 13:05:54, date: 2026-08-20
+[    0.357455] NET: Registered PF_NETLINK/PF_ROUTE protocol family
+[    0.357928] DMA: preallocated 128 KiB GFP_KERNEL pool for atomic allocations
+[    0.358774] DMA: preallocated 128 KiB GFP_KERNEL|GFP_DMA pool for atomic allocations
+[    0.359766] DMA: preallocated 128 KiB GFP_KERNEL|GFP_DMA32 pool for atomic allocations
+[    0.360812] audit: initializing netlink subsys (disabled)
+[    0.361842] audit: type=2000 audit(1787223954.417:1): state=initialized audit_enabled=0 res=1
+[    0.361842] thermal_sys: Registered thermal governor 'fair_share'
+[    0.362885] thermal_sys: Registered thermal governor 'bang_bang'
+[    0.363755] thermal_sys: Registered thermal governor 'step_wise'
+[    0.364734] thermal_sys: Registered thermal governor 'user_space'
+[    0.365735] thermal_sys: Registered thermal governor 'power_allocator'
+[    0.366761] cpuidle: using governor ladder
+[    0.368960] cpuidle: using governor menu
+[    0.370015] acpiphp: ACPI Hot Plug PCI Controller Driver version: 0.5
+[    0.371045] PCI: ECAM [mem 0xb0000000-0xbfffffff] (base 0xb0000000) for domain 0000 [bus 00-ff]
+[    0.371756] PCI: ECAM [mem 0xb0000000-0xbfffffff] reserved as E820 entry
+[    0.372760] PCI: Using configuration type 1 for base access
+[    0.374013] kprobes: kprobe jump-optimization is enabled. All kprobes are optimized if possible.
+[    0.381634] HugeTLB: registered 1.00 GiB page size, pre-allocated 0 pages
+[    0.383734] HugeTLB: 16380 KiB vmemmap can be freed for a 1.00 GiB page
+[    0.385767] HugeTLB: registered 2.00 MiB page size, pre-allocated 0 pages
+[    0.387729] HugeTLB: 28 KiB vmemmap can be freed for a 2.00 MiB page
+[    0.394786] ACPI: Added _OSI(Module Device)
+[    0.396832] ACPI: Added _OSI(Processor Device)
+[    0.398824] ACPI: Added _OSI(Processor Aggregator Device)
+[    0.401731] ACPI: 1 ACPI AML tables successfully acquired and loaded
+[    0.408107] ACPI: _OSC evaluation for CPUs failed, trying _PDC
+[    0.409958] ACPI: Interpreter enabled
+[    0.411793] ACPI: PM: (supports S0 S3 S4 S5)
+[    0.412805] ACPI: Using IOAPIC for interrupt routing
+[    0.413863] PCI: Using host bridge windows from ACPI; if necessary, use "pci=nocrs" and report a bug
+[    0.416789] PCI: Using E820 reservations for host bridge windows
+[    0.418862] ACPI: Enabled 2 GPEs in block 00 to 3F
+[    0.423636] ACPI: PCI Root Bridge [PCI0] (domain 0000 [bus 00-ff])
+[    0.425803] acpi PNP0A08:00: _OSC: OS supports [ExtendedConfig ASPM ClockPM Segments MSI EDR HPX-Type3]
+[    0.428866] acpi PNP0A08:00: _OSC: platform does not support [PCIeHotplug LTR DPC]
+[    0.430828] acpi PNP0A08:00: _OSC: OS now controls [SHPCHotplug PME AER PCIeCapability]
+[    0.433218] PCI host bridge to bus 0000:00
+[    0.434783] pci_bus 0000:00: root bus resource [io  0x0000-0x0cf7 window]
+[    0.436823] pci_bus 0000:00: root bus resource [io  0x0d00-0xffff window]
+[    0.438754] pci_bus 0000:00: root bus resource [mem 0x000a0000-0x000bffff window]
+[    0.440762] pci_bus 0000:00: root bus resource [mem 0x40000000-0xafffffff window]
+[    0.443867] pci_bus 0000:00: root bus resource [mem 0xc0000000-0xfebfffff window]
+[    0.445840] pci_bus 0000:00: root bus resource [mem 0x100000000-0x8ffffffff window]
+[    0.448754] pci_bus 0000:00: root bus resource [bus 00-ff]
+[    0.449858] pci 0000:00:00.0: [8086:29c0] type 00 class 0x060000 conventional PCI endpoint
+[    0.454289] pci 0000:00:01.0: [1af4:1000] type 00 class 0x020000 conventional PCI endpoint
+[    0.459554] pci 0000:00:01.0: BAR 0 [io  0xc0c0-0xc0df]
+[    0.460805] pci 0000:00:01.0: BAR 1 [mem 0xfeb80000-0xfeb80fff]
+[    0.462858] pci 0000:00:01.0: BAR 4 [mem 0xfebf4000-0xfebf7fff 64bit pref]
+[    0.464888] pci 0000:00:01.0: ROM [mem 0xfea80000-0xfeafffff pref]
+[    0.468723] pci 0000:00:02.0: [1af4:1000] type 00 class 0x020000 conventional PCI endpoint
+[    0.473567] pci 0000:00:02.0: BAR 0 [io  0xc0e0-0xc0ff]
+[    0.474795] pci 0000:00:02.0: BAR 1 [mem 0xfeb81000-0xfeb81fff]
+[    0.476890] pci 0000:00:02.0: BAR 4 [mem 0xfebf8000-0xfebfbfff 64bit pref]
+[    0.478820] pci 0000:00:02.0: ROM [mem 0xfeb00000-0xfeb7ffff pref]
+[    0.482928] pci 0000:00:03.0: [1af4:1001] type 00 class 0x010000 conventional PCI endpoint
+[    0.487591] pci 0000:00:03.0: BAR 0 [io  0xc000-0xc07f]
+[    0.488930] pci 0000:00:03.0: BAR 1 [mem 0xfeb82000-0xfeb82fff]
+[    0.490856] pci 0000:00:03.0: BAR 4 [mem 0xfebfc000-0xfebfffff 64bit pref]
+[    0.534095] pci 0000:00:1f.0: [8086:2918] type 00 class 0x060100 conventional PCI endpoint
+[    0.536827] pci 0000:00:1f.0: quirk: [io  0x0600-0x067f] claimed by ICH6 ACPI/GPIO/TCO
+[    0.539527] pci 0000:00:1f.2: [8086:2922] type 00 class 0x010601 conventional PCI endpoint
+[    0.543519] pci 0000:00:1f.2: BAR 4 [io  0xc100-0xc11f]
+[    0.545762] pci 0000:00:1f.2: BAR 5 [mem 0xfeb83000-0xfeb83fff]
+[    0.548991] pci 0000:00:1f.3: [8086:2930] type 00 class 0x0c0500 conventional PCI endpoint
+[    0.552240] pci 0000:00:1f.3: BAR 4 [io  0x0700-0x073f]
+[    0.557295] ACPI: PCI: Interrupt link LNKA configured for IRQ 10
+[    0.558970] ACPI: PCI: Interrupt link LNKB configured for IRQ 10
+[    0.560948] ACPI: PCI: Interrupt link LNKC configured for IRQ 11
+[    0.563230] ACPI: PCI: Interrupt link LNKD configured for IRQ 11
+[    0.565050] ACPI: PCI: Interrupt link LNKE configured for IRQ 10
+[    0.566872] ACPI: PCI: Interrupt link LNKF configured for IRQ 10
+[    0.568894] ACPI: PCI: Interrupt link LNKG configured for IRQ 11
+[    0.570867] ACPI: PCI: Interrupt link LNKH configured for IRQ 11
+[    0.572812] ACPI: PCI: Interrupt link GSIA configured for IRQ 16
+[    0.574775] ACPI: PCI: Interrupt link GSIB configured for IRQ 17
+[    0.575850] ACPI: PCI: Interrupt link GSIC configured for IRQ 18
+[    0.577781] ACPI: PCI: Interrupt link GSID configured for IRQ 19
+[    0.581189] ACPI: PCI: Interrupt link GSIE configured for IRQ 20
+[    0.583787] ACPI: PCI: Interrupt link GSIF configured for IRQ 21
+[    0.585740] ACPI: PCI: Interrupt link GSIG configured for IRQ 22
+[    0.587760] ACPI: PCI: Interrupt link GSIH configured for IRQ 23
+[    0.590558] iommu: Default domain type: Translated
+[    0.591748] iommu: DMA domain TLB invalidation policy: lazy mode
+[    0.592951] SCSI subsystem initialized
+[    0.593894] ACPI: bus type USB registered
+[    0.594849] usbcore: registered new interface driver usbfs
+[    0.596808] usbcore: registered new interface driver hub
+[    0.597751] usbcore: registered new device driver usb
+[    0.599759] pps_core: LinuxPPS API ver. 1 registered
+[    0.600740] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.603816] PTP clock support registered
+[    0.605582] EDAC MC: Ver: 3.0.0
+[    0.608900] NetLabel: Initializing
+[    0.609863] NetLabel:  domain hash size = 128
+[    0.610741] NetLabel:  protocols = UNLABELED CIPSOv4 CALIPSO
+[    0.611803] NetLabel:  unlabeled traffic allowed by default
+[    0.612840] mctp: management component transport protocol core
+[    0.613794] NET: Registered PF_MCTP protocol family
+[    0.614751] PCI: Using ACPI for IRQ routing
+[    1.170064] vgaarb: loaded
+[    1.170788] hpet0: at MMIO 0xfed00000, IRQs 2, 8, 0
+[    1.171736] hpet0: 3 comparators, 64-bit 100.000000 MHz counter
+[    1.176646] clocksource: Switched to clocksource kvm-clock
+[    1.178714] VFS: Disk quotas dquot_6.6.0
+[    1.180321] VFS: Dquot-cache hash table entries: 512 (order 0, 4096 bytes)
+[    1.182668] AppArmor: AppArmor Filesystem Enabled
+[    1.184303] pnp: PnP ACPI init
+[    1.185461] system 00:05: [mem 0xb0000000-0xbfffffff window] has been reserved
+[    1.188312] pnp: PnP ACPI: found 6 devices
+[    1.196933] clocksource: acpi_pm: mask: 0xffffff max_cycles: 0xffffff, max_idle_ns: 2085701024 ns
+[    1.199418] NET: Registered PF_INET protocol family
+[    1.201670] IP idents hash table entries: 16384 (order: 5, 131072 bytes, linear)
+[    1.216704] tcp_listen_portaddr_hash hash table entries: 512 (order: 1, 8192 bytes, linear)
+[    1.219284] Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+[    1.222207] TCP established hash table entries: 8192 (order: 4, 65536 bytes, linear)
+[    1.224714] TCP bind hash table entries: 8192 (order: 6, 262144 bytes, linear)
+[    1.226841] TCP: Hash tables configured (established 8192 bind 8192)
+[    1.228701] MPTCP token hash table entries: 1024 (order: 3, 24576 bytes, linear)
+[    1.230763] UDP hash table entries: 512 (order: 2, 16384 bytes, linear)
+[    1.232829] UDP-Lite hash table entries: 512 (order: 2, 16384 bytes, linear)
+[    1.234871] NET: Registered PF_UNIX/PF_LOCAL protocol family
+[    1.236510] NET: Registered PF_XDP protocol family
+[    1.238653] pci_bus 0000:00: resource 4 [io  0x0000-0x0cf7 window]
+[    1.240718] pci_bus 0000:00: resource 5 [io  0x0d00-0xffff window]
+[    1.242534] pci_bus 0000:00: resource 6 [mem 0x000a0000-0x000bffff window]
+[    1.244591] pci_bus 0000:00: resource 7 [mem 0x40000000-0xafffffff window]
+[    1.246483] pci_bus 0000:00: resource 8 [mem 0xc0000000-0xfebfffff window]
+[    1.248549] pci_bus 0000:00: resource 9 [mem 0x100000000-0x8ffffffff window]
+[    1.250779] PCI: CLS 0 bytes, default 64
+[    1.252259] clocksource: tsc: mask: 0xffffffffffffffff max_cycles: 0x23fa80a809f, max_idle_ns: 440795273818 ns
+[    1.252333] Trying to unpack rootfs image as initramfs...
+[    1.260088] Initialise system trusted keyrings
+[    1.261758] Key type blacklist registered
+[    1.264177] workingset: timestamp_bits=36 max_order=18 bucket_order=0
+[    1.266203] zbud: loaded
+[    1.267327] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    1.269981] fuse: init (API version 7.39)
+[    1.273118] integrity: Platform Keyring initialized
+[    1.274712] integrity: Machine keyring initialized
+[    1.284008] Key type asymmetric registered
+[    1.285984] Asymmetric key parser 'x509' registered
+[    1.287429] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 243)
+[    1.290512] io scheduler mq-deadline registered
+[    1.292390] shpchp: Standard Hot Plug PCI Controller Driver version: 0.4
+[    1.294350] input: Power Button as /devices/LNXSYSTM:00/LNXPWRBN:00/input/input0
+[    1.296552] ACPI: button: Power Button [PWRF]
+[    1.298200] ACPI: \_SB_.GSIF: Enabled at IRQ 21
+[    1.301982] ACPI: \_SB_.GSIG: Enabled at IRQ 22
+[    1.307443] ACPI: \_SB_.GSIH: Enabled at IRQ 23
+[    1.311140] Serial: 8250/16550 driver, 32 ports, IRQ sharing enabled
+[    1.341504] 00:03: ttyS0 at I/O 0x3f8 (irq = 4, base_baud = 115200) is a 16550A
+[    1.346053] Linux agpgart interface v0.103
+[    1.348425] Freeing initrd memory: 29980K
+[    1.351581] loop: module loaded
+[    1.352764] virtio_blk virtio2: 2/0/0 default/read/poll queues
+[    1.356356] virtio_blk virtio2: [vda] 16777216 512-byte logical blocks (8.59 GB/8.00 GiB)
+[    1.393119] GPT:Primary header thinks Alt. header is not at the end of the disk.
+[    1.395778] GPT:7340031 != 16777215
+[    1.397552] GPT:Alternate GPT header not at the end of the disk.
+[    1.400057] GPT:7340031 != 16777215
+[    1.401523] GPT: Use GNU Parted to correct GPT errors.
+[    1.404666]  vda: vda1 vda14 vda15 vda16
+[    1.408327] ACPI: bus type drm_connector registered
+[    1.410496] tun: Universal TUN/TAP device driver, 1.6
+[    1.418165] PPP generic driver version 2.4.2
+[    1.419776] i8042: PNP: PS/2 Controller [PNP0303:KBD,PNP0f13:MOU] at 0x60,0x64 irq 1,12
+[    1.425788] serio: i8042 KBD port at 0x60,0x64 irq 1
+[    1.427369] serio: i8042 AUX port at 0x60,0x64 irq 12
+[    1.429685] mousedev: PS/2 mouse device common for all mice
+[    1.431632] rtc_cmos 00:04: RTC can wake from S4
+[    1.433595] input: AT Translated Set 2 keyboard as /devices/platform/i8042/serio0/input/input1
+[    1.435239] rtc_cmos 00:04: registered as rtc0
+[    1.440012] rtc_cmos 00:04: setting system clock to 2026-08-20T13:05:55 UTC (1787231155)
+[    1.442670] rtc_cmos 00:04: alarms up to one day, y3k, 242 bytes nvram, hpet irqs
+[    1.444931] i2c_dev: i2c /dev entries driver
+[    1.446303] device-mapper: core: CONFIG_IMA_DISABLE_HTABLE is disabled. Duplicate IMA measurements will not be recorded in the IMA log.
+[    1.449602] device-mapper: uevent: version 1.0.3
+[    1.451232] device-mapper: ioctl: 4.48.0-ioctl (2023-03-01) initialised: dm-devel@redhat.com
+[    1.453718] intel_pstate: CPU model not supported
+[    1.457246] ledtrig-cpu: registered to indicate activity on CPUs
+[    1.459210] drop_monitor: Initializing network drop monitor service
+[    1.461213] NET: Registered PF_INET6 protocol family
+[    1.469608] Segment Routing with IPv6
+[    1.472182] In-situ OAM (IOAM) with IPv6
+[    1.473717] NET: Registered PF_PACKET protocol family
+[    1.475494] Key type dns_resolver registered
+[    1.477363] IPI shorthand broadcast: enabled
+[    1.480005] sched_clock: Marking stable (1237017504, 242798889)->(1580336036, -100519643)
+[    1.482535] registered taskstats version 1
+[    1.484292] Loading compiled-in X.509 certificates
+[    1.486372] Loaded X.509 cert 'Build time autogenerated kernel key: 4a473740fca40948019ddafa8d6b1656106fd311'
+[    1.490439] Loaded X.509 cert 'Canonical Ltd. Live Patch Signing 2025 Kmod: d541cef61dc7e793b7eb7e899970a2eef0b5dc8c'
+[    1.493756] Loaded X.509 cert 'Canonical Ltd. Live Patch Signing: 14df34d1a87cf37625abec039ef2bf521249b969'
+[    1.496903] Loaded X.509 cert 'Canonical Ltd. Kernel Module Signing 2025 Kmod: 4627603d2357a2a3f81006370894c221175893e9'
+[    1.500310] Loaded X.509 cert 'Canonical Ltd. Kernel Module Signing: 88f752e560a1e0737e31163a466ad7b70a850c19'
+[    1.503679] blacklist: Loading compiled-in revocation X.509 certificates
+[    1.506300] Loaded X.509 cert 'Canonical Ltd. Secure Boot Signing: 61482aa2830d0ab2ad5af10b7250da9033ddcef0'
+[    1.509190] Loaded X.509 cert 'Canonical Ltd. Secure Boot Signing (2017): 242ade75ac4a15e50d50c84b0d45ff3eae707a03'
+[    1.512022] Loaded X.509 cert 'Canonical Ltd. Secure Boot Signing (ESM 2018): 365188c1d374d6b07c3c8f240f8ef722433d6a8b'
+[    1.515061] Loaded X.509 cert 'Canonical Ltd. Secure Boot Signing (2019): c0746fd6c5da3ae827864651ad66ae47fe24b3e8'
+[    1.518101] Loaded X.509 cert 'Canonical Ltd. Secure Boot Signing (2021 v1): a8d54bbb3825cfb94fa13c9f8a594a195c107b8d'
+[    1.521752] Loaded X.509 cert 'Canonical Ltd. Secure Boot Signing (2021 v2): 4cf046892d6fd3c9a5b03f98d845f90851dc6a8c'
+[    1.525100] Loaded X.509 cert 'Canonical Ltd. Secure Boot Signing (2021 v3): 100437bb6de6e469b581e61cd66bce3ef4ed53af'
+[    1.528108] Loaded X.509 cert 'Canonical Ltd. Secure Boot Signing (Ubuntu Core 2019): c1d57b8f6b743f23ee41f4f7ee292f06eecadfb9'
+[    1.533867] Key type .fscrypt registered
+[    1.534989] Key type fscrypt-provisioning registered
+[    1.543511] cryptd: max_cpu_qlen set to 1000
+[    1.548450] AVX2 version of gcm_enc/dec engaged.
+[    1.550239] AES CTR mode by8 optimization enabled
+[    1.569706] Key type encrypted registered
+[    1.572660] AppArmor: AppArmor sha256 policy hashing enabled
+[    1.574562] ima: No TPM chip found, activating TPM-bypass!
+[    1.576362] Loading compiled-in module X.509 certificates
+[    1.578453] Loaded X.509 cert 'Build time autogenerated kernel key: 4a473740fca40948019ddafa8d6b1656106fd311'
+[    1.581493] ima: Allocated hash algorithm: sha256
+[    1.583107] ima: No architecture policies found
+[    1.584633] evm: Initialising EVM extended attributes:
+[    1.586231] evm: security.selinux
+[    1.587353] evm: security.SMACK64
+[    1.588919] evm: security.SMACK64EXEC
+[    1.590165] evm: security.SMACK64TRANSMUTE
+[    1.591563] evm: security.SMACK64MMAP
+[    1.592760] evm: security.apparmor
+[    1.593908] evm: security.ima
+[    1.594912] evm: security.capability
+[    1.596098] evm: HMAC attrs: 0x1
+[    1.598665] PM:   Magic number: 6:407:79
+[    1.604215] RAS: Correctable Errors collector initialized.
+[    1.606124] clk: Disabling unused clocks
+[    1.616153] Freeing unused decrypted memory: 2028K
+[    1.618481] Freeing unused kernel image (initmem) memory: 4932K
+[    1.619551] Write protecting the kernel read-only data: 38912k
+[    1.621420] Freeing unused kernel image (rodata/data gap) memory: 1956K
+[    1.631342] x86/mm: Checked W+X mappings: passed, no W+X pages found.
+[    1.632403] Run /init as init process
+Loading, please wait...
+Starting systemd-udevd version 255.4-1ubuntu8.17
+[    1.701481] virtio_net virtio1 enp0s2: renamed from eth1
+[    1.709525] ACPI: \_SB_.GSIA: Enabled at IRQ 16
+[    1.745085] ahci 0000:00:1f.2: AHCI 0001.0000 32 slots 6 ports 1.5 Gbps 0x3f impl SATA mode
+[    1.747206] ahci 0000:00:1f.2: flags: 64bit ncq only 
+[    1.751186] input: VirtualPS/2 VMware VMMouse as /devices/platform/i8042/serio1/input/input4
+[    1.753106] virtio_net virtio0 enp0s1: renamed from eth0
+[    1.758839] input: VirtualPS/2 VMware VMMouse as /devices/platform/i8042/serio1/input/input3
+[    1.779094] scsi host0: ahci
+[    1.784206] scsi host1: ahci
+[    1.800662] scsi host2: ahci
+[    1.812066] scsi host3: ahci
+[    1.816414] scsi host4: ahci
+[    1.819257] scsi host5: ahci
+[    1.824597] ata1: SATA max UDMA/133 abar m4096@0xfeb83000 port 0xfeb83100 irq 33 lpm-pol 0
+[    1.826338] ata2: SATA max UDMA/133 abar m4096@0xfeb83000 port 0xfeb83180 irq 33 lpm-pol 0
+[    1.828144] ata3: SATA max UDMA/133 abar m4096@0xfeb83000 port 0xfeb83200 irq 33 lpm-pol 0
+[    1.829613] ata4: SATA max UDMA/133 abar m4096@0xfeb83000 port 0xfeb83280 irq 33 lpm-pol 0
+[    1.831095] ata5: SATA max UDMA/133 abar m4096@0xfeb83000 port 0xfeb83300 irq 33 lpm-pol 0
+[    1.832624] ata6: SATA max UDMA/133 abar m4096@0xfeb83000 port 0xfeb83380 irq 33 lpm-pol 0
+[    2.140162] ata6: SATA link up 1.5 Gbps (SStatus 113 SControl 300)
+[    2.141509] ata6.00: ATAPI: QEMU DVD-ROM, 2.5+, max UDMA/100
+[    2.142554] ata6.00: applying bridge limits
+[    2.143712] ata2: SATA link down (SStatus 0 SControl 300)
+[    2.145140] ata5: SATA link down (SStatus 0 SControl 300)
+[    2.146404] ata1: SATA link down (SStatus 0 SControl 300)
+[    2.148019] ata3: SATA link down (SStatus 0 SControl 300)
+[    2.149386] ata4: SATA link down (SStatus 0 SControl 300)
+[    2.150499] ata6.00: configured for UDMA/100
+[    2.152009] scsi 5:0:0:0: CD-ROM            QEMU     QEMU DVD-ROM     2.5+ PQ: 0 ANSI: 5
+[    2.166740] sr 5:0:0:0: [sr0] scsi3-mmc drive: 4x/4x cd/rw xa/form2 tray
+[    2.192255] cdrom: Uniform CD-ROM driver Revision: 3.20
+[    2.209670] sr 5:0:0:0: Attached scsi generic sg0 type 5
+Begin: Loading essential drivers ... [    3.331813] raid6: avx2x4   gen() 34932 MB/s
+[    3.348812] raid6: avx2x2   gen() 36517 MB/s
+[    3.365819] raid6: avx2x1   gen() 31215 MB/s
+[    3.366679] raid6: using algorithm avx2x2 gen() 36517 MB/s
+[    3.384863] raid6: .... xor() 22698 MB/s, rmw enabled
+[    3.385738] raid6: using avx2x2 recovery algorithm
+[    3.388526] xor: automatically using best checksumming function   avx       
+[    3.390871] async_tx: api initialized (async)
+done.
+Begin: Running /scripts/init-premount ... done.
+Begin: Mounting root file system ... Begin: Running /scripts/local-top ... done.
+Begin: Running /scripts/local-premount ... [    3.500278] Btrfs loaded, zoned=yes, fsverity=yes
+Scanning for Btrfs filesystems
+done.
+Warning: fsck not present, so skipping root file system
+[    3.548312] EXT4-fs (vda1): mounted filesystem 92327a9a-dabf-4d28-a338-bc96b268f068 ro with ordered data mode. Quota mode: none.
+done.
+Begin: Running /scripts/local-bottom ... done.
+Begin: Running /scripts/init-bottom ... done.
+[    3.736402] systemd[1]: Inserted module 'autofs4'
+[    3.760750] systemd[1]: systemd 255.4-1ubuntu8.17 running in system mode (+PAM +AUDIT +SELINUX +APPARMOR +IMA +SMACK +SECCOMP +GCRYPT -GNUTLS +OPENSSL +ACL +BLKID +CURL +ELFUTILS +FIDO2 +IDN2 -IDN +IPTC +KMOD +LIBCRYPTSETUP +LIBFDISK +PCRE2 -PWQUALITY +P11KIT +QRENCODE +TPM2 +BZIP2 +LZ4 +XZ +ZLIB +ZSTD -BPF_FRAMEWORK -XKBCOMMON +UTMP +SYSVINIT default-hierarchy=unified)
+[    3.766458] systemd[1]: Detected virtualization kvm.
+[    3.767967] systemd[1]: Detected architecture x86-64.
+
+Welcome to [1mUbuntu 24.04.4 LTS[0m!
+
+[    3.776085] systemd[1]: Hostname set to <ubuntu>.
+[    3.781513] systemd[1]: Initializing machine ID from random generator.
+[    3.783384] systemd[1]: Installed transient /etc/machine-id file.
+[    4.088386] systemd[1]: Queued start job for default target graphical.target.
+[    4.102788] systemd[1]: Created slice system-modprobe.slice - Slice /system/modprobe.
+[[0;32m  OK  [0m] Created slice [0;1;39msystem-modprobe.slice[0m - Slice /system/modprobe.
+[    4.106742] systemd[1]: Created slice system-serial\x2dgetty.slice - Slice /system/serial-getty.
+[[0;32m  OK  [0m] Created slice [0;1;39msystem-serial\x2dget…slice[0m - Slice /system/serial-getty.
+[    4.111028] systemd[1]: Created slice system-systemd\x2dfsck.slice - Slice /system/systemd-fsck.
+[[0;32m  OK  [0m] Created slice [0;1;39msystem-systemd\x2dfs…slice[0m - Slice /system/systemd-fsck.
+[    4.115116] systemd[1]: Created slice user.slice - User and Session Slice.
+[[0;32m  OK  [0m] Created slice [0;1;39muser.slice[0m - User and Session Slice.
+[    4.118317] systemd[1]: Started systemd-ask-password-wall.path - Forward Password Requests to Wall Directory Watch.
+[[0;32m  OK  [0m] Started [0;1;39msystemd-ask-password-wall.…[0md Requests to Wall Directory Watch.
+[    4.122974] systemd[1]: Set up automount proc-sys-fs-binfmt_misc.automount - Arbitrary Executable File Formats File System Automount Point.
+[[0;32m  OK  [0m] Set up automount [0;1;39mproc-sys-fs-binfm…[0mormats File System Automount Point.
+[    4.128159] systemd[1]: Expecting device dev-disk-by\x2dlabel-BOOT.device - /dev/disk/by-label/BOOT...
+         Expecting device [0;1;39mdev-disk-by\x2dla…device[0m - /dev/disk/by-label/BOOT...
+[    4.131497] systemd[1]: Expecting device dev-disk-by\x2dlabel-UEFI.device - /dev/disk/by-label/UEFI...
+         Expecting device [0;1;39mdev-disk-by\x2dla…device[0m - /dev/disk/by-label/UEFI...
+[    4.134696] systemd[1]: Expecting device dev-ttyS0.device - /dev/ttyS0...
+         Expecting device [0;1;39mdev-ttyS0.device[0m - /dev/ttyS0...
+[    4.137494] systemd[1]: Reached target integritysetup.target - Local Integrity Protected Volumes.
+[[0;32m  OK  [0m] Reached target [0;1;39mintegritysetup.targ…[0m Local Integrity Protected Volumes.
+[    4.141384] systemd[1]: Reached target slices.target - Slice Units.
+[[0;32m  OK  [0m] Reached target [0;1;39mslices.target[0m - Slice Units.
+[    4.143834] systemd[1]: Reached target snapd.mounts-pre.target - Mounting snaps.
+[[0;32m  OK  [0m] Reached target [0;1;39msnapd.mounts-pre.target[0m - Mounting snaps.
+[    4.146760] systemd[1]: Reached target snapd.mounts.target - Mounted snaps.
+[[0;32m  OK  [0m] Reached target [0;1;39msnapd.mounts.target[0m - Mounted snaps.
+[    4.149624] systemd[1]: Reached target swap.target - Swaps.
+[[0;32m  OK  [0m] Reached target [0;1;39mswap.target[0m - Swaps.
+[    4.152343] systemd[1]: Reached target veritysetup.target - Local Verity Protected Volumes.
+[[0;32m  OK  [0m] Reached target [0;1;39mveritysetup.target[0m - Local Verity Protected Volumes.
+[    4.156314] systemd[1]: Listening on dm-event.socket - Device-mapper event daemon FIFOs.
+[[0;32m  OK  [0m] Listening on [0;1;39mdm-event.socket[0m - Device-mapper event daemon FIFOs.
+[    4.159658] systemd[1]: Listening on lvm2-lvmpolld.socket - LVM2 poll daemon socket.
+[[0;32m  OK  [0m] Listening on [0;1;39mlvm2-lvmpolld.socket[0m - LVM2 poll daemon socket.
+[    4.162979] systemd[1]: Listening on multipathd.socket - multipathd control socket.
+[[0;32m  OK  [0m] Listening on [0;1;39mmultipathd.socket[0m - multipathd control socket.
+[    4.166132] systemd[1]: Listening on syslog.socket - Syslog Socket.
+[[0;32m  OK  [0m] Listening on [0;1;39msyslog.socket[0m - Syslog Socket.
+[    4.169000] systemd[1]: Listening on systemd-fsckd.socket - fsck to fsckd communication Socket.
+[[0;32m  OK  [0m] Listening on [0;1;39msystemd-fsckd.socket[0m …fsck to fsckd communication Socket.
+[    4.174713] systemd[1]: Listening on systemd-initctl.socket - initctl Compatibility Named Pipe.
+[[0;32m  OK  [0m] Listening on [0;1;39msystemd-initctl.socke…[0m- initctl Compatibility Named Pipe.
+[    4.178779] systemd[1]: Listening on systemd-journald-dev-log.socket - Journal Socket (/dev/log).
+[[0;32m  OK  [0m] Listening on [0;1;39msystemd-journald-dev-…socket[0m - Journal Socket (/dev/log).
+[    4.182785] systemd[1]: Listening on systemd-journald.socket - Journal Socket.
+[[0;32m  OK  [0m] Listening on [0;1;39msystemd-journald.socket[0m - Journal Socket.
+[    4.186220] systemd[1]: Listening on systemd-networkd.socket - Network Service Netlink Socket.
+[[0;32m  OK  [0m] Listening on [0;1;39msystemd-networkd.socket[0m - Network Service Netlink Socket.
+[    4.190278] systemd[1]: systemd-pcrextend.socket - TPM2 PCR Extension (Varlink) was skipped because of an unmet condition check (ConditionSecurity=measured-uki).
+[    4.193032] systemd[1]: Listening on systemd-udevd-control.socket - udev Control Socket.
+[[0;32m  OK  [0m] Listening on [0;1;39msystemd-udevd-control.socket[0m - udev Control Socket.
+[    4.196348] systemd[1]: Listening on systemd-udevd-kernel.socket - udev Kernel Socket.
+[[0;32m  OK  [0m] Listening on [0;1;39msystemd-udevd-kernel.socket[0m - udev Kernel Socket.
+[    4.211021] systemd[1]: Mounting dev-hugepages.mount - Huge Pages File System...
+         Mounting [0;1;39mdev-hugepages.mount[0m - Huge Pages File System...
+[    4.216885] systemd[1]: Mounting dev-mqueue.mount - POSIX Message Queue File System...
+         Mounting [0;1;39mdev-mqueue.mount[0m - POSIX Message Queue File System...
+[    4.222721] systemd[1]: Mounting sys-kernel-debug.mount - Kernel Debug File System...
+         Mounting [0;1;39msys-kernel-debug.mount[0m - Kernel Debug File System...
+[    4.227932] systemd[1]: Mounting sys-kernel-tracing.mount - Kernel Trace File System...
+         Mounting [0;1;39msys-kernel-tracing.mount[0m - Kernel Trace File System...
+[    4.235088] systemd[1]: Starting systemd-journald.service - Journal Service...
+         Starting [0;1;39msystemd-journald.service[0m - Journal Service...
+[    4.246143] systemd[1]: Starting keyboard-setup.service - Set the console keyboard layout...
+         Starting [0;1;39mkeyboard-setup.service[0m - Set the console keyboard layout...
+[    4.254029] systemd[1]: Starting kmod-static-nodes.service - Create List of Static Device Nodes...
+         Starting [0;1;39mkmod-static-nodes.service[0m…eate List of Static Device Nodes...
+[    4.267562] systemd-journald[303]: Collecting audit messages is disabled.
+[    4.267989] systemd[1]: Starting lvm2-monitor.service - Monitoring of LVM2 mirrors, snapshots etc. using dmeventd or progress polling...
+         Starting [0;1;39mlvm2-monitor.service[0m - Mo…ing dmeventd or progress polling...
+[    4.289029] systemd[1]: Starting modprobe@configfs.service - Load Kernel Module configfs...
+         Starting [0;1;39mmodprobe@configfs.service[0m - Load Kernel Module configfs...
+[    4.304081] systemd[1]: Starting modprobe@dm_mod.service - Load Kernel Module dm_mod...
+         Starting [0;1;39mmodprobe@dm_mod.service[0m - Load Kernel Module dm_mod...
+[    4.320610] systemd[1]: Starting modprobe@drm.service - Load Kernel Module drm...
+         Starting [0;1;39mmodprobe@drm.service[0m - Load Kernel Module drm...
+[    4.325997] systemd[1]: Starting modprobe@efi_pstore.service - Load Kernel Module efi_pstore...
+         Starting [0;1;39mmodprobe@efi_pstore.servi…[0m - Load Kernel Module efi_pstore...
+[    4.337056] systemd[1]: Starting modprobe@fuse.service - Load Kernel Module fuse...
+         Starting [0;1;39mmodprobe@fuse.service[0m - Load Kernel Module fuse...
+[    4.351081] systemd[1]: Starting modprobe@loop.service - Load Kernel Module loop...
+         Starting [0;1;39mmodprobe@loop.service[0m - Load Kernel Module loop...
+[    4.356725] systemd[1]: netplan-ovs-cleanup.service - OpenVSwitch configuration for cleanup was skipped because of an unmet condition check (ConditionFileIsExecutable=/usr/bin/ovs-vsctl).
+[    4.361243] systemd[1]: Starting systemd-fsck-root.service - File System Check on Root Device...
+         Starting [0;1;39msystemd-fsck-root.service[0m…File System Check on Root Device...
+[    4.367181] systemd[1]: Starting systemd-modules-load.service - Load Kernel Modules...
+         Starting [0;1;39msystemd-modules-load.service[0m - Load Kernel Modules...
+[    4.372131] systemd[1]: systemd-pcrmachine.service - TPM2 PCR Machine ID Measurement was skipped because of an unmet condition check (ConditionSecurity=measured-uki).
+[    4.375270] systemd[1]: systemd-tpm2-setup-early.service - TPM2 SRK Setup (Early) was skipped because of an unmet condition check (ConditionSecurity=measured-uki).
+[    4.383138] systemd[1]: Starting systemd-udev-trigger.service - Coldplug All udev Devices...
+         Starting [0;1;39msystemd-udev-trigger.service[0m - Coldplug All udev Devices...
+[    4.393348] systemd[1]: Started systemd-journald.service - Journal Service.
+[[0;32m  OK  [0m] Started [0;1;39msystemd-journald.service[0m - Journal Service.
+[[0;32m  OK  [0m] Mounted [0;1;39mdev-hugepages.mount[0m - Huge Pages File System.
+[[0;32m  OK  [0m] Mounted [0;1;39mdev-mqueue.mount[0m - POSIX Message Queue File System.
+[[0;32m  OK  [0m] Mounted [0;1;39msys-kernel-debug.mount[0m - Kernel Debug File System.
+[[0;32m  OK  [0m] Mounted [0;1;39msys-kernel-tracing.mount[0m - Kernel Trace File System.
+[[0;32m  OK  [0m] Finished [0;1;39mkeyboard-setup.service[0m - Set the console keyboard layout.
+[[0;32m  OK  [0m] Finished [0;1;39mkmod-static-nodes.service[0m…Create List of Static Device Nodes.
+[[0;32m  OK  [0m] Finished [0;1;39mlvm2-monitor.service[0m - Mo…using dmeventd or progress polling.
+[[0;32m  OK  [0m] Finished [0;1;39mmodprobe@configfs.service[0m - Load Kernel Module configfs.
+[[0;32m  OK  [0m] Finished [0;1;39mmodprobe@dm_mod.service[0m - Load Kernel Module dm_mod.
+[[0;32m  OK  [0m] Finished [0;1;39mmodprobe@drm.service[0m - Load Kernel Module drm.
+[[0;32m  OK  [0m] Finished [0;1;39mmodprobe@efi_pstore.service[0m - Load Kernel Module efi_pstore.
+[[0;32m  OK  [0m] Finished [0;1;39mmodprobe@fuse.service[0m - Load Kernel Module fuse.
+[[0;32m  OK  [0m] Finished [0;1;39mmodprobe@loop.service[0m - Load Kernel Module loop.
+[[0;32m  OK  [0m] Finished [0;1;39msystemd-fsck-root.service[0m - File System Check on Root Device.
+[[0;32m  OK  [0m] Finished [0;1;39msystemd-modules-load.service[0m - Load Kernel Modules.
+         Mounting [0;1;39msys-fs-fuse-connections.mount[0m - FUSE Control File System...
+         Mounting [0;1;39msys-kernel-config.mount[0m - Kernel Configuration File System...
+[[0;32m  OK  [0m] Started [0;1;39msystemd-fsckd.service[0m - Fi…stem Check Daemon to report status.
+         Starting [0;1;39msystemd-remount-fs.servic…[0munt Root and Kernel File Systems...
+         Starting [0;1;39msystemd-sysctl.service[0m - Apply Kernel Variables...
+         Starting [0;1;39msystemd-tmpfiles-setup-de…[0m Device Nodes in /dev gracefully...
+[    4.490439] EXT4-fs (vda1): re-mounted 92327a9a-dabf-4d28-a338-bc96b268f068 r/w.
+[[0;32m  OK  [0m] Finished [0;1;39msystemd-udev-trigger.service[0m - Coldplug All udev Devices.
+[[0;32m  OK  [0m] Mounted [0;1;39msys-fs-fuse-connections.mount[0m - FUSE Control File System.
+[[0;32m  OK  [0m] Mounted [0;1;39msys-kernel-config.mount[0m - Kernel Configuration File System.
+[[0;32m  OK  [0m] Finished [0;1;39msystemd-remount-fs.servic…[0mmount Root and Kernel File Systems.
+         Starting [0;1;39mmultipathd.service[0m - Devi…pper Multipath Device Controller...
+         Starting [0;1;39msystemd-journal-flush.ser…[0msh Journal to Persistent Storage...
+         Starting [0;1;39msystemd-random-seed.service[0m - Load/Save OS Random Seed...
+[[0;32m  OK  [0m] Finished [0;1;39msystemd-sysctl.service[0m - Apply Kernel Variables.
+[[0;32m  OK  [0m] Finished [0;1;39msystemd-tmpfiles-setup-de…[0mic Device Nodes in /dev gracefully.
+         Starting [0;1;39msystemd-sysusers.service[0m - Create System Users...
+[[0;32m  OK  [0m] Finished [0;1;39msystemd-journal-flush.ser…[0mlush Journal to Persistent Storage.
+[[0;32m  OK  [0m] Finished [0;1;39msystemd-sysusers.service[0m - Create System Users.
+         Starting [0;1;39msystemd-tmpfiles-setup-de…[0meate Static Device Nodes in /dev...
+[[0;32m  OK  [0m] Finished [0;1;39msystemd-random-seed.service[0m - Load/Save OS Random Seed.
+[[0;32m  OK  [0m] Finished [0;1;39msystemd-tmpfiles-setup-de…[0mCreate Static Device Nodes in /dev.
+         Starting [0;1;39msystemd-udevd.service[0m - R…ager for Device Events and Files...
+[[0;32m  OK  [0m] Started [0;1;39mmultipathd.service[0m - Devic…Mapper Multipath Device Controller.
+[[0;32m  OK  [0m] Reached target [0;1;39mlocal-fs-pre.target[0m…Preparation for Local File Systems.
+[[0;32m  OK  [0m] Started [0;1;39msystemd-udevd.service[0m - Ru…anager for Device Events and Files.
+[[0;32m  OK  [0m] Started [0;1;39msystemd-ask-password-conso…[0mequests to Console Directory Watch.
+[[0;32m  OK  [0m] Reached target [0;1;39mcryptsetup.target[0m - Local Encrypted Volumes.
+[[0;32m  OK  [0m] Found device [0;1;39mdev-ttyS0.device[0m - /dev/ttyS0.
+[[0;32m  OK  [0m] Found device [0;1;39mdev-disk-by\x2dlabel-…I.device[0m - /dev/disk/by-label/UEFI.
+         Starting [0;1;39msystemd-fsck@dev-disk-by\…[0mCheck on /dev/disk/by-label/UEFI...
+[[0;32m  OK  [0m] Found device [0;1;39mdev-disk-by\x2dlabel-…T.device[0m - /dev/disk/by-label/BOOT.
+         Starting [0;1;39msystemd-fsck@dev-disk-by\…[0mCheck on /dev/disk/by-label/BOOT...
+Checking in progress on 1 disk (0.0% complete)[[0;32m  OK  [0m] Finished [0;1;39msystemd-fsck@dev-disk-by\…[0mm Check on /dev/disk/by-label/UEFI.
+Checking in progress on 0 disks (100.0% complete)[[0;32m  OK  [0m] Finished [0;1;39msystemd-fsck@dev-disk-by\…[0mm Check on /dev/disk/by-label/BOOT.
+         Mounting [0;1;39mboot.mount[0m - /boot...
+[[0;32m  OK  [0m] Mounted [0;1;39mboot.mount[0m - /boot.
+         Mounting [0;1;39mboot-efi.mount[0m - /boot/efi...
+[[0;32m  OK  [0m] Mounted [0;1;39mboot-efi.mount[0m - /boot/efi.
+[[0;32m  OK  [0m] Reached target [0;1;39mlocal-fs.target[0m - Local File Systems.
+[[0;32m  OK  [0m] Listening on [0;1;39msystemd-sysext.socket[0m…tension Image Management (Varlink).
+         Starting [0;1;39mapparmor.service[0m - Load AppArmor profiles...
+         Starting [0;1;39mconsole-setup.service[0m - Set console font and keymap...
+         Starting [0;1;39mfinalrd.service[0m - Create …time dir for shutdown pivot root...
+         Starting [0;1;39mldconfig.service[0m - Rebuild Dynamic Linker Cache...
+         Starting [0;1;39mplymouth-read-write.servi…[0mymouth To Write Out Runtime Data...
+         Starting [0;1;39msystemd-binfmt.service[0m - Set Up Additional Binary Formats...
+         Starting [0;1;39msystemd-tmpfiles-setup.se…[0me Volatile Files and Directories...
+         Starting [0;1;39mufw.service[0m - Uncomplicated firewall...
+[[0;32m  OK  [0m] Finished [0;1;39mconsole-setup.service[0m - Set console font and keymap.
+[[0;32m  OK  [0m] Finished [0;1;39mfinalrd.service[0m - Create …untime dir for shutdown pivot root.
+[[0;32m  OK  [0m] Finished [0;1;39mplymouth-read-write.servi…[0mPlymouth To Write Out Runtime Data.
+[[0;32m  OK  [0m] Finished [0;1;39mufw.service[0m - Uncomplicated firewall.
+[[0;32m  OK  [0m] Finished [0;1;39msystemd-tmpfiles-setup.se…[0mate Volatile Files and Directories.
+[[0;32m  OK  [0m] Listening on [0;1;39msystemd-rfkill.socket[0m…ll Switch Status /dev/rfkill Watch.
+         Mounting [0;1;39mproc-sys-fs-binfmt_misc.m…[0mcutable File Formats File System...
+         Starting [0;1;39msystemd-journal-catalog-u…ervice[0m - Rebuild Journal Catalog...
+         Starting [0;1;39msystemd-machine-id-commit…[0mt a transient machine-id on disk...
+         Starting [0;1;39msystemd-resolved.service[0m - Network Name Resolution...
+         Starting [0;1;39msystemd-timesyncd.service[0m - Network Time Synchronization...
+         Starting [0;1;39msystemd-update-utmp.servi…[0mord System Boot/Shutdown in UTMP...
+[[0;32m  OK  [0m] Mounted [0;1;39mproc-sys-fs-binfmt_misc.mo…[0mxecutable File Formats File System.
+[[0;32m  OK  [0m] Finished [0;1;39msystemd-journal-catalog-u….service[0m - Rebuild Journal Catalog.
+[[0;32m  OK  [0m] Finished [0;1;39msystemd-binfmt.service[0m - Set Up Additional Binary Formats.
+[[0;32m  OK  [0m] Finished [0;1;39msystemd-machine-id-commit…[0mmit a transient machine-id on disk.
+[[0;32m  OK  [0m] Finished [0;1;39msystemd-update-utmp.servi…[0mecord System Boot/Shutdown in UTMP.
+[[0;32m  OK  [0m] Started [0;1;39msystemd-timesyncd.service[0m - Network Time Synchronization.
+[[0;32m  OK  [0m] Reached target [0;1;39mtime-set.target[0m - System Time Set.
+[[0;32m  OK  [0m] Started [0;1;39msystemd-resolved.service[0m - Network Name Resolution.
+[[0;32m  OK  [0m] Reached target [0;1;39mnss-lookup.target[0m - Host and Network Name Lookups.
+[[0;32m  OK  [0m] Finished [0;1;39mldconfig.service[0m - Rebuild Dynamic Linker Cache.
+         Starting [0;1;39msystemd-update-done.service[0m - Update is Completed...
+[[0;32m  OK  [0m] Finished [0;1;39msystemd-update-done.service[0m - Update is Completed.
+[[0;32m  OK  [0m] Finished [0;1;39mapparmor.service[0m - Load AppArmor profiles.
+         Starting [0;1;39msnapd.apparmor.service[0m - …iles managed internally by snapd...
+         Starting [0;1;39mcloud-init-local.service[0m …-init: Local Stage (pre-network)...
+[[0;32m  OK  [0m] Finished [0;1;39msnapd.apparmor.service[0m - …ofiles managed internally by snapd.
+[    6.621142] cloud-init[605]: Cloud-init v. 26.1-0ubuntu1~24.04.1 running 'init-local' at Thu, 20 Aug 2026 13:06:00 +0000. Up 6.60 seconds.
+[[0;32m  OK  [0m] Finished [0;1;39mcloud-init-local.service[0m …ud-init: Local Stage (pre-network).
+[[0;32m  OK  [0m] Reached target [0;1;39mnetwork-pre.target[0m - Preparation for Network.
+         Starting [0;1;39msystemd-networkd.service[0m - Network Configuration...
+[[0;32m  OK  [0m] Started [0;1;39msystemd-networkd.service[0m - Network Configuration.
+[[0;32m  OK  [0m] Reached target [0;1;39mnetwork.target[0m - Network.
+         Starting [0;1;39msystemd-networkd-wait-onl…[0mait for Network to be Configured...
+                                                   [   [0;31m*[0;1;31m*[0m[0;31m*[0m] Job systemd-networkd-wait-online.se…ice/start running (28s / no limit)
+M[K[    [0;31m*[0;1;31m*[0m] Job systemd-networkd-wait-online.se…ice/start running (28s / no limit)
+M[K[     [0;31m*[0m] Job systemd-networkd-wait-online.se…ice/start running (29s / no limit)
+M[K[    [0;31m*[0;1;31m*[0m] Job systemd-networkd-wait-online.se…ice/start running (29s / no limit)
+M[K[   [0;31m*[0;1;31m*[0m[0;31m*[0m] Job systemd-networkd-wait-online.se…ice/start running (30s / no limit)
+M[K[  [0;31m*[0;1;31m*[0m[0;31m* [0m] Job systemd-networkd-wait-online.se…ice/start running (30s / no limit)
+M[K[ [0;31m*[0;1;31m*[0m[0;31m*  [0m] Job systemd-networkd-wait-online.se…ice/start running (31s / no limit)
+M[K[[0;31m*[0;1;31m*[0m[0;31m*   [0m] Job systemd-networkd-wait-online.se…ice/start running (31s / no limit)
+M[K[[0;1;31m*[0m[0;31m*    [0m] Job systemd-networkd-wait-online.se…ice/start running (32s / no limit)
+M[K[[0m[0;31m*     [0m] Job systemd-networkd-wait-online.se…ice/start running (32s / no limit)
+M[K[[0;1;31m*[0m[0;31m*    [0m] Job systemd-networkd-wait-online.se…ice/start running (33s / no limit)
+M[K[[0;31m*[0;1;31m*[0m[0;31m*   [0m] Job systemd-networkd-wait-online.se…ice/start running (33s / no limit)
+M[K[ [0;31m*[0;1;31m*[0m[0;31m*  [0m] Job systemd-networkd-wait-online.se…ice/start running (33s / no limit)
+M[K[  [0;31m*[0;1;31m*[0m[0;31m* [0m] Job systemd-networkd-wait-online.se…ice/start running (34s / no limit)
+M[K[   [0;31m*[0;1;31m*[0m[0;31m*[0m] Job systemd-networkd-wait-online.se…ice/start running (34s / no limit)
+M[K[    [0;31m*[0;1;31m*[0m] Job systemd-networkd-wait-online.se…ice/start running (35s / no limit)
+M[K[     [0;31m*[0m] Job systemd-networkd-wait-online.se…ice/start running (35s / no limit)
+M[K[    [0;31m*[0;1;31m*[0m] Job systemd-networkd-wait-online.se…ice/start running (36s / no limit)
+M[K[   [0;31m*[0;1;31m*[0m[0;31m*[0m] Job systemd-networkd-wait-online.se…ice/start running (36s / no limit)
+M[K[  [0;31m*[0;1;31m*[0m[0;31m* [0m] Job systemd-networkd-wait-online.se…ice/start running (37s / no limit)
+M[K[ [0;31m*[0;1;31m*[0m[0;31m*  [0m] Job systemd-networkd-wait-online.se…ice/start running (37s / no limit)
+M[K[[0;31m*[0;1;31m*[0m[0;31m*   [0m] Job systemd-networkd-wait-online.se…ice/start running (38s / no limit)
+M[K[[0;1;31m*[0m[0;31m*    [0m] Job systemd-networkd-wait-online.se…ice/start running (38s / no limit)
+M[K[[0m[0;31m*     [0m] Job systemd-networkd-wait-online.se…ice/start running (39s / no limit)
+M[K[[0;1;31m*[0m[0;31m*    [0m] Job systemd-networkd-wait-online.se…ice/start running (39s / no limit)
+M[K[[0;31m*[0;1;31m*[0m[0;31m*   [0m] Job systemd-networkd-wait-online.se…ice/start running (40s / no limit)
+M[K[ [0;31m*[0;1;31m*[0m[0;31m*  [0m] Job systemd-networkd-wait-online.se…ice/start running (40s / no limit)
+M[K[  [0;31m*[0;1;31m*[0m[0;31m* [0m] Job systemd-networkd-wait-online.se…ice/start running (41s / no limit)
+M[K[   [0;31m*[0;1;31m*[0m[0;31m*[0m] Job systemd-networkd-wait-online.se…ice/start running (41s / no limit)
+M[K[    [0;31m*[0;1;31m*[0m] Job systemd-networkd-wait-online.se…ice/start running (42s / no limit)
+M[K[     [0;31m*[0m] Job systemd-networkd-wait-online.se…ice/start running (42s / no limit)
+M[K[    [0;31m*[0;1;31m*[0m] Job systemd-networkd-wait-online.se…ice/start running (43s / no limit)
+M[K[   [0;31m*[0;1;31m*[0m[0;31m*[0m] Job systemd-networkd-wait-online.se…ice/start running (43s / no limit)
+M[K[  [0;31m*[0;1;31m*[0m[0;31m* [0m] Job systemd-networkd-wait-online.se…ice/start running (44s / no limit)
+M[K[ [0;31m*[0;1;31m*[0m[0;31m*  [0m] Job systemd-networkd-wait-online.se…ice/start running (44s / no limit)
+M[K[[0;31m*[0;1;31m*[0m[0;31m*   [0m] Job systemd-networkd-wait-online.se…ice/start running (45s / no limit)
+M[K[[0;1;31m*[0m[0;31m*    [0m] Job systemd-networkd-wait-online.se…ice/start running (45s / no limit)
+M[K[[0m[0;31m*     [0m] Job systemd-networkd-wait-online.se…ice/start running (46s / no limit)
+M[K[[0;1;31m*[0m[0;31m*    [0m] Job systemd-networkd-wait-online.se…ice/start running (46s / no limit)
+M[K[[0;31m*[0;1;31m*[0m[0;31m*   [0m] Job systemd-networkd-wait-online.se…ice/start running (47s / no limit)
+M[K[ [0;31m*[0;1;31m*[0m[0;31m*  [0m] Job systemd-networkd-wait-online.se…ice/start running (47s / no limit)
+M[K[  [0;31m*[0;1;31m*[0m[0;31m* [0m] Job systemd-networkd-wait-online.se…ice/start running (48s / no limit)
+M[K[   [0;31m*[0;1;31m*[0m[0;31m*[0m] Job systemd-networkd-wait-online.se…ice/start running (48s / no limit)
+M[K[    [0;31m*[0;1;31m*[0m] Job systemd-networkd-wait-online.se…ice/start running (49s / no limit)
+M[K[     [0;31m*[0m] Job systemd-networkd-wait-online.se…ice/start running (49s / no limit)
+M[K[    [0;31m*[0;1;31m*[0m] Job systemd-networkd-wait-online.se…ice/start running (50s / no limit)
+M[K[   [0;31m*[0;1;31m*[0m[0;31m*[0m] Job systemd-networkd-wait-online.se…ice/start running (50s / no limit)
+M[K[  [0;31m*[0;1;31m*[0m[0;31m* [0m] Job systemd-networkd-wait-online.se…ice/start running (51s / no limit)
+M[K[ [0;31m*[0;1;31m*[0m[0;31m*  [0m] Job systemd-networkd-wait-online.se…ice/start running (51s / no limit)
+M[K[[0;31m*[0;1;31m*[0m[0;31m*   [0m] Job systemd-networkd-wait-online.se…ice/start running (52s / no limit)
+M[K[[0;1;31m*[0m[0;31m*    [0m] Job systemd-networkd-wait-online.se…ice/start running (52s / no limit)
+M[K[[0m[0;31m*     [0m] Job systemd-networkd-wait-online.se…ice/start running (53s / no limit)
+M[K[[0;1;31m*[0m[0;31m*    [0m] Job systemd-networkd-wait-online.se…ice/start running (53s / no limit)
+M[K[[0;31m*[0;1;31m*[0m[0;31m*   [0m] Job systemd-networkd-wait-online.se…ice/start running (54s / no limit)
+M[K[ [0;31m*[0;1;31m*[0m[0;31m*  [0m] Job systemd-networkd-wait-online.se…ice/start running (54s / no limit)
+M[K[  [0;31m*[0;1;31m*[0m[0;31m* [0m] Job systemd-networkd-wait-online.se…ice/start running (55s / no limit)
+M[K[   [0;31m*[0;1;31m*[0m[0;31m*[0m] Job systemd-networkd-wait-online.se…ice/start running (55s / no limit)
+M[K[    [0;31m*[0;1;31m*[0m] Job systemd-networkd-wait-online.se…ice/start running (56s / no limit)
+M[K[     [0;31m*[0m] Job systemd-networkd-wait-online.se…ice/start running (56s / no limit)
+M[K[    [0;31m*[0;1;31m*[0m] Job systemd-networkd-wait-online.se…ice/start running (57s / no limit)
+M[K[   [0;31m*[0;1;31m*[0m[0;31m*[0m] Job systemd-networkd-wait-online.se…ice/start running (57s / no limit)
+M[K[  [0;31m*[0;1;31m*[0m[0;31m* [0m] Job systemd-networkd-wait-online.se…ice/start running (58s / no limit)
+M[K[ [0;31m*[0;1;31m*[0m[0;31m*  [0m] Job systemd-networkd-wait-online.se…ice/start running (58s / no limit)
+M[K[[0;31m*[0;1;31m*[0m[0;31m*   [0m] Job systemd-networkd-wait-online.se…ice/start running (59s / no limit)
+M[K[[0;1;31m*[0m[0;31m*    [0m] Job systemd-networkd-wait-online.se…ice/start running (59s / no limit)
+M[K[[0m[0;31m*     [0m] Job systemd-networkd-wait-online.se…ce/start running (1min / no limit)
+M[K[[0;1;31m*[0m[0;31m*    [0m] Job systemd-networkd-wait-online.se…ce/start running (1min / no limit)
+M[K[[0;31m*[0;1;31m*[0m[0;31m*   [0m] Job systemd-networkd-wait-online.se…start running (1min 1s / no limit)
+M[K[ [0;31m*[0;1;31m*[0m[0;31m*  [0m] Job systemd-networkd-wait-online.se…start running (1min 1s / no limit)
+M[K[  [0;31m*[0;1;31m*[0m[0;31m* [0m] Job systemd-networkd-wait-online.se…start running (1min 2s / no limit)
+M[K[   [0;31m*[0;1;31m*[0m[0;31m*[0m] Job systemd-networkd-wait-online.se…start running (1min 2s / no limit)
+M[K[    [0;31m*[0;1;31m*[0m] Job systemd-networkd-wait-online.se…start running (1min 3s / no limit)
+M[K[     [0;31m*[0m] Job systemd-networkd-wait-online.se…start running (1min 3s / no limit)
+M[K[    [0;31m*[0;1;31m*[0m] Job systemd-networkd-wait-online.se…start running (1min 4s / no limit)
+M[K[   [0;31m*[0;1;31m*[0m[0;31m*[0m] Job systemd-networkd-wait-online.se…start running (1min 4s / no limit)
+M[K[  [0;31m*[0;1;31m*[0m[0;31m* [0m] Job systemd-networkd-wait-online.se…start running (1min 5s / no limit)
+M[K[ [0;31m*[0;1;31m*[0m[0;31m*  [0m] Job systemd-networkd-wait-online.se…start running (1min 5s / no limit)
+M[K[[0;31m*[0;1;31m*[0m[0;31m*   [0m] Job systemd-networkd-wait-online.se…start running (1min 6s / no limit)
+M[K[[0;1;31m*[0m[0;31m*    [0m] Job systemd-networkd-wait-online.se…start running (1min 6s / no limit)
+M[K[[0m[0;31m*     [0m] Job systemd-networkd-wait-online.se…start running (1min 7s / no limit)
+M[K[[0;1;31m*[0m[0;31m*    [0m] Job systemd-networkd-wait-online.se…start running (1min 7s / no limit)
+M[K[[0;31m*[0;1;31m*[0m[0;31m*   [0m] Job systemd-networkd-wait-online.se…start running (1min 8s / no limit)
+M[K[ [0;31m*[0;1;31m*[0m[0;31m*  [0m] Job systemd-networkd-wait-online.se…start running (1min 8s / no limit)
+M[K[  [0;31m*[0;1;31m*[0m[0;31m* [0m] Job systemd-networkd-wait-online.se…start running (1min 9s / no limit)
+M[K[   [0;31m*[0;1;31m*[0m[0;31m*[0m] Job systemd-networkd-wait-online.se…start running (1min 9s / no limit)
+M[K[    [0;31m*[0;1;31m*[0m] Job systemd-networkd-wait-online.se…tart running (1min 10s / no limit)
+M[K[     [0;31m*[0m] Job systemd-networkd-wait-online.se…tart running (1min 10s / no limit)
+M[K[    [0;31m*[0;1;31m*[0m] Job systemd-networkd-wait-online.se…tart running (1min 11s / no limit)
+M[K[   [0;31m*[0;1;31m*[0m[0;31m*[0m] Job systemd-networkd-wait-online.se…tart running (1min 11s / no limit)
+M[K[  [0;31m*[0;1;31m*[0m[0;31m* [0m] Job systemd-networkd-wait-online.se…tart running (1min 12s / no limit)
+M[K[ [0;31m*[0;1;31m*[0m[0;31m*  [0m] Job systemd-networkd-wait-online.se…tart running (1min 12s / no limit)
+M[K[[0;31m*[0;1;31m*[0m[0;31m*   [0m] Job systemd-networkd-wait-online.se…tart running (1min 13s / no limit)
+M[K[[0;1;31m*[0m[0;31m*    [0m] Job systemd-networkd-wait-online.se…tart running (1min 13s / no limit)
+M[K[[0m[0;31m*     [0m] Job systemd-networkd-wait-online.se…tart running (1min 14s / no limit)
+M[K[[0;1;31m*[0m[0;31m*    [0m] Job systemd-networkd-wait-online.se…tart running (1min 14s / no limit)
+M[K[[0;31m*[0;1;31m*[0m[0;31m*   [0m] Job systemd-networkd-wait-online.se…tart running (1min 15s / no limit)
+M[K[ [0;31m*[0;1;31m*[0m[0;31m*  [0m] Job systemd-networkd-wait-online.se…tart running (1min 15s / no limit)
+M[K[  [0;31m*[0;1;31m*[0m[0;31m* [0m] Job systemd-networkd-wait-online.se…tart running (1min 16s / no limit)
+M[K[   [0;31m*[0;1;31m*[0m[0;31m*[0m] Job systemd-networkd-wait-online.se…tart running (1min 16s / no limit)
+M[K[    [0;31m*[0;1;31m*[0m] Job systemd-networkd-wait-online.se…tart running (1min 17s / no limit)
+M[K[     [0;31m*[0m] Job systemd-networkd-wait-online.se…tart running (1min 17s / no limit)
+M[K[    [0;31m*[0;1;31m*[0m] Job systemd-networkd-wait-online.se…tart running (1min 18s / no limit)
+M[K[   [0;31m*[0;1;31m*[0m[0;31m*[0m] Job systemd-networkd-wait-online.se…tart running (1min 18s / no limit)
+M[K[  [0;31m*[0;1;31m*[0m[0;31m* [0m] Job systemd-networkd-wait-online.se…tart running (1min 19s / no limit)
+M[K[ [0;31m*[0;1;31m*[0m[0;31m*  [0m] Job systemd-networkd-wait-online.se…tart running (1min 19s / no limit)
+M[K[[0;31m*[0;1;31m*[0m[0;31m*   [0m] Job systemd-networkd-wait-online.se…tart running (1min 20s / no limit)
+M[K[[0;1;31m*[0m[0;31m*    [0m] Job systemd-networkd-wait-online.se…tart running (1min 20s / no limit)
+M[K[[0m[0;31m*     [0m] Job systemd-networkd-wait-online.se…tart running (1min 21s / no limit)
+M[K[[0;1;31m*[0m[0;31m*    [0m] Job systemd-networkd-wait-online.se…tart running (1min 21s / no limit)
+M[K[[0;31m*[0;1;31m*[0m[0;31m*   [0m] Job systemd-networkd-wait-online.se…tart running (1min 22s / no limit)
+M[K[ [0;31m*[0;1;31m*[0m[0;31m*  [0m] Job systemd-networkd-wait-online.se…tart running (1min 22s / no limit)
+M[K[  [0;31m*[0;1;31m*[0m[0;31m* [0m] Job systemd-networkd-wait-online.se…tart running (1min 23s / no limit)
+M[K[   [0;31m*[0;1;31m*[0m[0;31m*[0m] Job systemd-networkd-wait-online.se…tart running (1min 23s / no limit)
+M[K[    [0;31m*[0;1;31m*[0m] Job systemd-networkd-wait-online.se…tart running (1min 24s / no limit)
+M[K[     [0;31m*[0m] Job systemd-networkd-wait-online.se…tart running (1min 24s / no limit)
+M[K[    [0;31m*[0;1;31m*[0m] Job systemd-networkd-wait-online.se…tart running (1min 25s / no limit)
+M[K[   [0;31m*[0;1;31m*[0m[0;31m*[0m] Job systemd-networkd-wait-online.se…tart running (1min 25s / no limit)
+M[K[  [0;31m*[0;1;31m*[0m[0;31m* [0m] Job systemd-networkd-wait-online.se…tart running (1min 26s / no limit)
+M[K[ [0;31m*[0;1;31m*[0m[0;31m*  [0m] Job systemd-networkd-wait-online.se…tart running (1min 26s / no limit)
+M[K[[0;31m*[0;1;31m*[0m[0;31m*   [0m] Job systemd-networkd-wait-online.se…tart running (1min 27s / no limit)
+M[K[[0;1;31m*[0m[0;31m*    [0m] Job systemd-networkd-wait-online.se…tart running (1min 27s / no limit)
+M[K[[0m[0;31m*     [0m] Job systemd-networkd-wait-online.se…tart running (1min 28s / no limit)
+M[K[[0;1;31m*[0m[0;31m*    [0m] Job systemd-networkd-wait-online.se…tart running (1min 28s / no limit)
+M[K[[0;31m*[0;1;31m*[0m[0;31m*   [0m] Job systemd-networkd-wait-online.se…tart running (1min 29s / no limit)
+M[K[ [0;31m*[0;1;31m*[0m[0;31m*  [0m] Job systemd-networkd-wait-online.se…tart running (1min 29s / no limit)
+M[K[  [0;31m*[0;1;31m*[0m[0;31m* [0m] Job systemd-networkd-wait-online.se…tart running (1min 30s / no limit)
+M[K[   [0;31m*[0;1;31m*[0m[0;31m*[0m] Job systemd-networkd-wait-online.se…tart running (1min 30s / no limit)
+M[K[    [0;31m*[0;1;31m*[0m] Job systemd-networkd-wait-online.se…tart running (1min 31s / no limit)
+M[K[     [0;31m*[0m] Job systemd-networkd-wait-online.se…tart running (1min 31s / no limit)
+M[K[    [0;31m*[0;1;31m*[0m] Job systemd-networkd-wait-online.se…tart running (1min 32s / no limit)
+M[K[   [0;31m*[0;1;31m*[0m[0;31m*[0m] Job systemd-networkd-wait-online.se…tart running (1min 32s / no limit)
+M[K[  [0;31m*[0;1;31m*[0m[0;31m* [0m] Job systemd-networkd-wait-online.se…tart running (1min 33s / no limit)
+M[K[ [0;31m*[0;1;31m*[0m[0;31m*  [0m] Job systemd-networkd-wait-online.se…tart running (1min 33s / no limit)
+M[K[[0;31m*[0;1;31m*[0m[0;31m*   [0m] Job systemd-networkd-wait-online.se…tart running (1min 34s / no limit)
+M[K[[0;1;31m*[0m[0;31m*    [0m] Job systemd-networkd-wait-online.se…tart running (1min 34s / no limit)
+M[K[[0m[0;31m*     [0m] Job systemd-networkd-wait-online.se…tart running (1min 35s / no limit)
+M[K[[0;1;31m*[0m[0;31m*    [0m] Job systemd-networkd-wait-online.se…tart running (1min 35s / no limit)
+M[K[[0;31m*[0;1;31m*[0m[0;31m*   [0m] Job systemd-networkd-wait-online.se…tart running (1min 36s / no limit)
+M[K[ [0;31m*[0;1;31m*[0m[0;31m*  [0m] Job systemd-networkd-wait-online.se…tart running (1min 36s / no limit)
+M[K[  [0;31m*[0;1;31m*[0m[0;31m* [0m] Job systemd-networkd-wait-online.se…tart running (1min 37s / no limit)
+M[K[   [0;31m*[0;1;31m*[0m[0;31m*[0m] Job systemd-networkd-wait-online.se…tart running (1min 37s / no limit)
+M[K[    [0;31m*[0;1;31m*[0m] Job systemd-networkd-wait-online.se…tart running (1min 38s / no limit)
+M[K[     [0;31m*[0m] Job systemd-networkd-wait-online.se…tart running (1min 38s / no limit)
+M[K[    [0;31m*[0;1;31m*[0m] Job systemd-networkd-wait-online.se…tart running (1min 39s / no limit)
+M[K[   [0;31m*[0;1;31m*[0m[0;31m*[0m] Job systemd-networkd-wait-online.se…tart running (1min 39s / no limit)
+M[K[  [0;31m*[0;1;31m*[0m[0;31m* [0m] Job systemd-networkd-wait-online.se…tart running (1min 40s / no limit)
+M[K[ [0;31m*[0;1;31m*[0m[0;31m*  [0m] Job systemd-networkd-wait-online.se…tart running (1min 40s / no limit)
+M[K[[0;31m*[0;1;31m*[0m[0;31m*   [0m] Job systemd-networkd-wait-online.se…tart running (1min 41s / no limit)
+M[K[[0;1;31m*[0m[0;31m*    [0m] Job systemd-networkd-wait-online.se…tart running (1min 41s / no limit)
+M[K[[0m[0;31m*     [0m] Job systemd-networkd-wait-online.se…tart running (1min 42s / no limit)
+M[K[[0;1;31m*[0m[0;31m*    [0m] Job systemd-networkd-wait-online.se…tart running (1min 42s / no limit)
+M[K[[0;31m*[0;1;31m*[0m[0;31m*   [0m] Job systemd-networkd-wait-online.se…tart running (1min 43s / no limit)
+M[K[ [0;31m*[0;1;31m*[0m[0;31m*  [0m] Job systemd-networkd-wait-online.se…tart running (1min 43s / no limit)
+M[K[  [0;31m*[0;1;31m*[0m[0;31m* [0m] Job systemd-networkd-wait-online.se…tart running (1min 44s / no limit)
+M[K[   [0;31m*[0;1;31m*[0m[0;31m*[0m] Job systemd-networkd-wait-online.se…tart running (1min 44s / no limit)
+M[K[    [0;31m*[0;1;31m*[0m] Job systemd-networkd-wait-online.se…tart running (1min 45s / no limit)
+M[K[     [0;31m*[0m] Job systemd-networkd-wait-online.se…tart running (1min 45s / no limit)
+M[K[    [0;31m*[0;1;31m*[0m] Job systemd-networkd-wait-online.se…tart running (1min 46s / no limit)
+M[K[   [0;31m*[0;1;31m*[0m[0;31m*[0m] Job systemd-networkd-wait-online.se…tart running (1min 46s / no limit)
+M[K[  [0;31m*[0;1;31m*[0m[0;31m* [0m] Job systemd-networkd-wait-online.se…tart running (1min 47s / no limit)
+M[K[ [0;31m*[0;1;31m*[0m[0;31m*  [0m] Job systemd-networkd-wait-online.se…tart running (1min 47s / no limit)
+M[K[[0;31m*[0;1;31m*[0m[0;31m*   [0m] Job systemd-networkd-wait-online.se…tart running (1min 48s / no limit)
+M[K[[0;1;31m*[0m[0;31m*    [0m] Job systemd-networkd-wait-online.se…tart running (1min 48s / no limit)
+M[K[[0m[0;31m*     [0m] Job systemd-networkd-wait-online.se…tart running (1min 49s / no limit)
+M[K[[0;1;31m*[0m[0;31m*    [0m] Job systemd-networkd-wait-online.se…tart running (1min 49s / no limit)
+M[K[[0;31m*[0;1;31m*[0m[0;31m*   [0m] Job systemd-networkd-wait-online.se…tart running (1min 50s / no limit)
+M[K[ [0;31m*[0;1;31m*[0m[0;31m*  [0m] Job systemd-networkd-wait-online.se…tart running (1min 50s / no limit)
+M[K[  [0;31m*[0;1;31m*[0m[0;31m* [0m] Job systemd-networkd-wait-online.se…tart running (1min 51s / no limit)
+M[K[   [0;31m*[0;1;31m*[0m[0;31m*[0m] Job systemd-networkd-wait-online.se…tart running (1min 51s / no limit)
+M[K[    [0;31m*[0;1;31m*[0m] Job systemd-networkd-wait-online.se…tart running (1min 52s / no limit)
+M[K[     [0;31m*[0m] Job systemd-networkd-wait-online.se…tart running (1min 52s / no limit)
+M[K[    [0;31m*[0;1;31m*[0m] Job systemd-networkd-wait-online.se…tart running (1min 53s / no limit)
+M[K[   [0;31m*[0;1;31m*[0m[0;31m*[0m] Job systemd-networkd-wait-online.se…tart running (1min 53s / no limit)
+M[K[  [0;31m*[0;1;31m*[0m[0;31m* [0m] Job systemd-networkd-wait-online.se…tart running (1min 54s / no limit)
+M[K[ [0;31m*[0;1;31m*[0m[0;31m*  [0m] Job systemd-networkd-wait-online.se…tart running (1min 54s / no limit)
+M[K[[0;31m*[0;1;31m*[0m[0;31m*   [0m] Job systemd-networkd-wait-online.se…tart running (1min 55s / no limit)
+M[K[[0;1;31m*[0m[0;31m*    [0m] Job systemd-networkd-wait-online.se…tart running (1min 55s / no limit)
+M[K[[0m[0;31m*     [0m] Job systemd-networkd-wait-online.se…tart running (1min 56s / no limit)
+M[K[[0;1;31m*[0m[0;31m*    [0m] Job systemd-networkd-wait-online.se…tart running (1min 56s / no limit)
+M[K[[0;31m*[0;1;31m*[0m[0;31m*   [0m] Job systemd-networkd-wait-online.se…tart running (1min 57s / no limit)
+M[K[ [0;31m*[0;1;31m*[0m[0;31m*  [0m] Job systemd-networkd-wait-online.se…tart running (1min 57s / no limit)
+M[K[  [0;31m*[0;1;31m*[0m[0;31m* [0m] Job systemd-networkd-wait-online.se…tart running (1min 58s / no limit)
+M[K[   [0;31m*[0;1;31m*[0m[0;31m*[0m] Job systemd-networkd-wait-online.se…tart running (1min 58s / no limit)
+M[K[    [0;31m*[0;1;31m*[0m] Job systemd-networkd-wait-online.se…tart running (1min 59s / no limit)
+M[K[     [0;31m*[0m] Job systemd-networkd-wait-online.se…tart running (1min 59s / no limit)
+M[K[    [0;31m*[0;1;31m*[0m] Job systemd-networkd-wait-online.se…ce/start running (2min / no limit)
+M[K[   [0;31m*[0;1;31m*[0m[0;31m*[0m] Job systemd-networkd-wait-online.se…ce/start running (2min / no limit)
+M[K[[0;1;31mFAILED[0m] Failed to start [0;1;39msystemd-networkd-w…[0m Wait for Network to be Configured.
+[KSee 'systemctl status systemd-networkd-wait-online.service' for details.
+         Starting [0;1;39mcloud-init.service[0m - Cloud-init: Network Stage...
+[  127.984690] cloud-init[679]: Cloud-init v. 26.1-0ubuntu1~24.04.1 running 'init' at Thu, 20 Aug 2026 11:08:03 +0000. Up 127.96 seconds.
+[  127.998247] cloud-init[679]: ci-info: +++++++++++++++++++++++++++++++++++++Net device info++++++++++++++++++++++++++++++++++++++
+[  128.001101] cloud-init[679]: ci-info: +--------+------+---------------------------+---------------+--------+-------------------+
+[  128.004365] cloud-init[679]: ci-info: | Device |  Up  |          Address          |      Mask     | Scope  |     Hw-Address    |
+[  128.007514] cloud-init[679]: ci-info: +--------+------+---------------------------+---------------+--------+-------------------+
+[  128.010155] cloud-init[679]: ci-info: |  eth0  | True |         10.0.2.15         | 255.255.255.0 | global | 52:54:00:00:02:01 |
+[  128.013056] cloud-init[679]: ci-info: |  eth0  | True | fec0::5054:ff:fe00:201/64 |       .       |  site  | 52:54:00:00:02:01 |
+[  128.016188] cloud-init[679]: ci-info: |  eth0  | True | fe80::5054:ff:fe00:201/64 |       .       |  link  | 52:54:00:00:02:01 |
+[  128.018960] cloud-init[679]: ci-info: |  eth1  | True | fe80::5054:ff:fe00:202/64 |       .       |  link  | 52:54:00:00:02:02 |
+[  128.022818] cloud-init[679]: ci-info: |   lo   | True |         127.0.0.1         |   255.0.0.0   |  host  |         .         |
+[  128.025183] cloud-init[679]: ci-info: |   lo   | True |          ::1/128          |       .       |  host  |         .         |
+[  128.027371] cloud-init[679]: ci-info: +--------+------+---------------------------+---------------+--------+-------------------+
+[  128.029566] cloud-init[679]: ci-info: ++++++++++++++++++++++++++++Route IPv4 info+++++++++++++++++++++++++++++
+[  128.031754] cloud-init[679]: ci-info: +-------+-------------+----------+-----------------+-----------+-------+
+[  128.033911] cloud-init[679]: ci-info: | Route | Destination | Gateway  |     Genmask     | Interface | Flags |
+[  128.037282] cloud-init[679]: ci-info: +-------+-------------+----------+-----------------+-----------+-------+
+[  128.040462] cloud-init[679]: ci-info: |   0   |   0.0.0.0   | 10.0.2.2 |     0.0.0.0     |    eth0   |   UG  |
+[  128.042598] cloud-init[679]: ci-info: |   1   |   10.0.2.0  | 0.0.0.0  |  255.255.255.0  |    eth0   |   U   |
+[  128.045145] cloud-init[679]: ci-info: |   2   |   10.0.2.2  | 0.0.0.0  | 255.255.255.255 |    eth0   |   UH  |
+[  128.047335] cloud-init[679]: ci-info: |   3   |   10.0.2.3  | 0.0.0.0  | 255.255.255.255 |    eth0   |   UH  |
+[  128.050069] cloud-init[679]: ci-info: +-------+-------------+----------+-----------------+-----------+-------+
+[  128.052958] cloud-init[679]: ci-info: +++++++++++++++++++Route IPv6 info+++++++++++++++++++
+[  128.055603] cloud-init[679]: ci-info: +-------+-------------+---------+-----------+-------+
+[  128.057363] cloud-init[679]: ci-info: | Route | Destination | Gateway | Interface | Flags |
+[  128.059048] cloud-init[679]: ci-info: +-------+-------------+---------+-----------+-------+
+[  128.060697] cloud-init[679]: ci-info: |   0   |  fe80::/64  |    ::   |    eth0   |   U   |
+[  128.062285] cloud-init[679]: ci-info: |   1   |  fe80::/64  |    ::   |    eth1   |   U   |
+[  128.063879] cloud-init[679]: ci-info: |   2   |  fec0::/64  |    ::   |    eth0   |   Ue  |
+[  128.065480] cloud-init[679]: ci-info: |   3   |     ::/0    | fe80::2 |    eth0   |  UGe  |
+[  128.067037] cloud-init[679]: ci-info: |   5   |    local    |    ::   |    eth0   |   U   |
+[  128.068611] cloud-init[679]: ci-info: |   6   |    local    |    ::   |    eth1   |   U   |
+[  128.072248] cloud-init[679]: ci-info: |   7   |    local    |    ::   |    eth0   |   U   |
+[  128.074305] cloud-init[679]: ci-info: |   8   |  multicast  |    ::   |    eth0   |   U   |
+[  128.076483] cloud-init[679]: ci-info: |   9   |  multicast  |    ::   |    eth1   |   U   |
+[  128.078683] cloud-init[679]: ci-info: +-------+-------------+---------+-----------+-------+
+[  130.008786] cloud-init[679]: Generating public/private rsa key pair.
+[  130.010499] cloud-init[679]: Your identification has been saved in /etc/ssh/ssh_host_rsa_key
+[  130.012967] cloud-init[679]: Your public key has been saved in /etc/ssh/ssh_host_rsa_key.pub
+[  130.015419] cloud-init[679]: The key fingerprint is:
+[  130.017052] cloud-init[679]: SHA256:+TpJ64O3rsUuxJvbqwhOejpqf+zGr3HQ6A0Kz+FVFTE root@vm2
+[  130.020195] cloud-init[679]: The key's randomart image is:
+[  130.022554] cloud-init[679]: +---[RSA 3072]----+
+[  130.024309] cloud-init[679]: |         Eo      |
+[  130.025791] cloud-init[679]: |        . .      |
+[  130.027455] cloud-init[679]: |       .         |
+[  130.028798] cloud-init[679]: |      +  .       |
+[  130.030153] cloud-init[679]: | . . * .S        |
+[  130.031516] cloud-init[679]: |  = = *...       |
+[  130.033426] cloud-init[679]: |  o=o+ Boo.      |
+[  130.034567] cloud-init[679]: |.=.. *B+*.       |
+[  130.037394] cloud-init[679]: |*+o.=o*XO=       |
+[  130.039291] cloud-init[679]: +----[SHA256]-----+
+[  130.040860] cloud-init[679]: Generating public/private ecdsa key pair.
+[  130.042675] cloud-init[679]: Your identification has been saved in /etc/ssh/ssh_host_ecdsa_key
+[  130.045183] cloud-init[679]: Your public key has been saved in /etc/ssh/ssh_host_ecdsa_key.pub
+[  130.047790] cloud-init[679]: The key fingerprint is:
+[  130.049362] cloud-init[679]: SHA256:UtQFwm6JS+OkC9udzYI/GZoHAPfj1JPC8/bHyFOffXw root@vm2
+[  130.051431] cloud-init[679]: The key's randomart image is:
+[  130.053555] cloud-init[679]: +---[ECDSA 256]---+
+[  130.055647] cloud-init[679]: |       .o..o.    |
+[  130.057387] cloud-init[679]: |. .    ....      |
+[  130.058878] cloud-init[679]: | o o . +..       |
+[  130.060660] cloud-init[679]: |  . B O.+        |
+[  130.062159] cloud-init[679]: |   + X.=S        |
+[  130.063337] cloud-init[679]: |  . + *.  .      |
+[  130.064924] cloud-init[679]: |   + O O + . o . |
+[  130.066629] cloud-init[679]: |  . * B B o o . E|
+[  130.068044] cloud-init[679]: |     o.o o     ..|
+[  130.069710] cloud-init[679]: +----[SHA256]-----+
+[  130.071359] cloud-init[679]: Generating public/private ed25519 key pair.
+[  130.072836] cloud-init[679]: Your identification has been saved in /etc/ssh/ssh_host_ed25519_key
+[  130.075067] cloud-init[679]: Your public key has been saved in /etc/ssh/ssh_host_ed25519_key.pub
+[  130.076998] cloud-init[679]: The key fingerprint is:
+[  130.078231] cloud-init[679]: SHA256:Rv9xU+QkSngYlT6voxcA8p1Sd6/TiK+JeRuI35U48hk root@vm2
+[  130.080549] cloud-init[679]: The key's randomart image is:
+[  130.082515] cloud-init[679]: +--[ED25519 256]--+
+[  130.084145] cloud-init[679]: |          .=o.. o|
+[  130.085203] cloud-init[679]: |      . . +.+..= |
+[  130.087347] cloud-init[679]: |       o.+ =.. .o|
+[[0;32m  OK  [0m] Finished [0;1;39mcloud-init.service[0m - Cloud-init: Network Stage.
+[  130.090241] cloud-init[679]: |       .o.+ o  ..|
+[  130.092373] cloud-init[679]: |        S....+o+ |
+[  130.093537] cloud-init[679]: |       . . oo+=o.|
+[  130.094750] cloud-init[679]: |        . o E+o. |
+[  130.096146] cloud-init[679]: |         . *=B.  |
+[  130.097439] cloud-init[679]: |          =+B+   |
+[  130.098593] cloud-init[679]: +----[SHA256]-----+
+[[0;32m  OK  [0m] Reached target [0;1;39mcloud-config.target[0m - Cloud-config availability.
+[[0;32m  OK  [0m] Reached target [0;1;39mnetwork-online.target[0m - Network is Online.
+[[0;32m  OK  [0m] Reached target [0;1;39msysinit.target[0m - System Initialization.
+[[0;32m  OK  [0m] Started [0;1;39mapt-daily.timer[0m - Daily apt download activities.
+[[0;32m  OK  [0m] Started [0;1;39mapt-daily-upgrade.timer[0m - …y apt upgrade and clean activities.
+[[0;32m  OK  [0m] Started [0;1;39mdpkg-db-backup.timer[0m - Daily dpkg database backup timer.
+[[0;32m  OK  [0m] Started [0;1;39me2scrub_all.timer[0m - Period…Metadata Check for All Filesystems.
+[[0;32m  OK  [0m] Started [0;1;39mfstrim.timer[0m - Discard unused filesystem blocks once a week.
+[[0;32m  OK  [0m] Started [0;1;39mfwupd-refresh.timer[0m - Refresh fwupd metadata regularly.
+[[0;32m  OK  [0m] Started [0;1;39mlogrotate.timer[0m - Daily rotation of log files.
+[[0;32m  OK  [0m] Started [0;1;39mman-db.timer[0m - Daily man-db regeneration.
+[[0;32m  OK  [0m] Started [0;1;39mmotd-news.timer[0m - Message of the Day.
+[[0;32m  OK  [0m] Started [0;1;39msysstat-collect.timer[0m - Ru…y accounting tool every 10 minutes.
+[[0;32m  OK  [0m] Started [0;1;39msysstat-summary.timer[0m - Ge… of yesterday's process accounting.
+[[0;32m  OK  [0m] Started [0;1;39msystemd-tmpfiles-clean.tim…[0my Cleanup of Temporary Directories.
+[[0;32m  OK  [0m] Started [0;1;39mupdate-notifier-download.t…[0mhat failed at package install time.
+[[0;32m  OK  [0m] Started [0;1;39mupdate-notifier-motd.timer[0m… a new version of Ubuntu available.
+[[0;32m  OK  [0m] Reached target [0;1;39mpaths.target[0m - Path Units.
+[[0;32m  OK  [0m] Reached target [0;1;39mtimers.target[0m - Timer Units.
+[[0;32m  OK  [0m] Listening on [0;1;39mcloud-init-hotplugd.s…t[0m - cloud-init hotplug hook socket.
+[[0;32m  OK  [0m] Listening on [0;1;39mdbus.socket[0m - D-Bus System Message Bus Socket.
+[[0;32m  OK  [0m] Listening on [0;1;39miscsid.socket[0m - Open-iSCSI iscsid Socket.
+         Starting [0;1;39mlxd-installer.socket[0m - He…er to install lxd snap on demand...
+         Starting [0;1;39msnapd.socket[0m - Socket activation for snappy daemon...
+[[0;32m  OK  [0m] Listening on [0;1;39mssh.socket[0m - OpenBSD Secure Shell server socket.
+[[0;32m  OK  [0m] Listening on [0;1;39muuidd.socket[0m - UUID daemon activation socket.
+[[0;32m  OK  [0m] Reached target [0;1;39mremote-fs-pre.targe…[0mreparation for Remote File Systems.
+[[0;32m  OK  [0m] Reached target [0;1;39mremote-fs.target[0m - Remote File Systems.
+[[0;32m  OK  [0m] Finished [0;1;39mblk-availability.service[0m - Availability of block devices.
+[[0;32m  OK  [0m] Listening on [0;1;39mlxd-installer.socket[0m …lper to install lxd snap on demand.
+[[0;32m  OK  [0m] Listening on [0;1;39msnapd.socket[0m - Socket activation for snappy daemon.
+[[0;32m  OK  [0m] Reached target [0;1;39msockets.target[0m - Socket Units.
+[[0;32m  OK  [0m] Reached target [0;1;39mbasic.target[0m - Basic System.
+         Starting [0;1;39mapport.service[0m - automatic crash report generation...
+         Starting [0;1;39mcloud-config.service[0m - Cloud-init: Config Stage...
+[[0;32m  OK  [0m] Started [0;1;39mcron.service[0m - Regular background program processing daemon.
+         Starting [0;1;39mdbus.service[0m - D-Bus System Message Bus...
+[[0;32m  OK  [0m] Started [0;1;39mdmesg.service[0m - Save initial kernel messages after boot.
+         Starting [0;1;39me2scrub_reap.service[0m - Re…ne ext4 Metadata Check Snapshots...
+         Starting [0;1;39mgrub-common.service[0m - Record successful boot for GRUB...
+         Starting [0;1;39mpolkit.service[0m - Authorization Manager...
+         Starting [0;1;39mpollinate.service[0m - Polli…e pseudo random number generator...
+         Starting [0;1;39mrsyslog.service[0m - System Logging Service...
+[[0;32m  OK  [0m] Reached target [0;1;39mgetty-pre.target[0m - Preparation for Logins.
+         Starting [0;1;39msnapd.seeded.service[0m - Wait until snapd is fully seeded...
+         Starting [0;1;39msnapd.service[0m - Snap Daemon...
+         Starting [0;1;39msysstat.service[0m - Resets System Activity Logs...
+         Starting [0;1;39msystemd-logind.service[0m - User Login Management...
+         Starting [0;1;39msystemd-user-sessions.service[0m - Permit User Sessions...
+         Starting [0;1;39mudisks2.service[0m - Disk Manager...
+[[0;32m  OK  [0m] Started [0;1;39mdbus.service[0m - D-Bus System Message Bus.
+[[0;32m  OK  [0m] Finished [0;1;39me2scrub_reap.service[0m - Re…line ext4 Metadata Check Snapshots.
+[[0;32m  OK  [0m] Finished [0;1;39msysstat.service[0m - Resets System Activity Logs.
+[[0;32m  OK  [0m] Started [0;1;39msystemd-logind.service[0m - User Login Management.
+[[0;32m  OK  [0m] Finished [0;1;39msystemd-user-sessions.service[0m - Permit User Sessions.
+[[0;32m  OK  [0m] Started [0;1;39mrsyslog.service[0m - System Logging Service.
+         Starting [0;1;39mplymouth-quit-wait.servic…[0md until boot process finishes up...
+         Starting [0;1;39mplymouth-quit.service[0m - Terminate Plymouth Boot Screen...
+[[0;32m  OK  [0m] Started [0;1;39munattended-upgrades.service[0m - Unattended Upgrades Shutdown.
+[[0;32m  OK  [0m] Finished [0;1;39mapport.service[0m - automatic crash report generation.
+[[0;32m  OK  [0m] Finished [0;1;39mgrub-common.service[0m - Record successful boot for GRUB.
+[[0;32m  OK  [0m] Finished [0;1;39mplymouth-quit-wait.servic…[0mold until boot process finishes up.
+[[0;32m  OK  [0m] Finished [0;1;39mplymouth-quit.service[0m - Terminate Plymouth Boot Screen.
+         Starting [0;1;39mgrub-initrd-fallback.service[0m - GRUB failed boot detection...
+[[0;32m  OK  [0m] Started [0;1;39mserial-getty@ttyS0.service[0m - Serial Getty on ttyS0.
+         Starting [0;1;39msetvtrgb.service[0m - Set console scheme...
+[[0;32m  OK  [0m] Started [0;1;39mpolkit.service[0m - Authorization Manager.
+[[0;32m  OK  [0m] Finished [0;1;39msetvtrgb.service[0m - Set console scheme.
+[[0;32m  OK  [0m] Created slice [0;1;39msystem-getty.slice[0m - Slice /system/getty.
+         Starting [0;1;39mModemManager.service[0m - Modem Manager...
+[[0;32m  OK  [0m] Started [0;1;39mgetty@tty1.service[0m - Getty on tty1.
+[[0;32m  OK  [0m] Reached target [0;1;39mgetty.target[0m - Login Prompts.
+[[0;32m  OK  [0m] Finished [0;1;39mgrub-initrd-fallback.service[0m - GRUB failed boot detection.
+[[0;32m  OK  [0m] Started [0;1;39mudisks2.service[0m - Disk Manager.
+[[0;32m  OK  [0m] Started [0;1;39mModemManager.service[0m - Modem Manager.
+[  131.395750] cloud-init[944]: Cloud-init v. 26.1-0ubuntu1~24.04.1 running 'modules:config' at Thu, 20 Aug 2026 11:08:06 +0000. Up 131.33 seconds.
+[[0;32m  OK  [0m] Finished [0;1;39mpollinate.service[0m - Polli…the pseudo random number generator.
+[[0;32m  OK  [0m] Started [0;1;39msnapd.service[0m - Snap Daemon.
+[[0;32m  OK  [0m] Finished [0;1;39mcloud-config.service[0m - Cloud-init: Config Stage.
+         Starting [0;1;39msystemd-timedated.service[0m - Time & Date Service...
+[[0;32m  OK  [0m] Started [0;1;39msystemd-timedated.service[0m - Time & Date Service.
+[[0;32m  OK  [0m] Finished [0;1;39msnapd.seeded.service[0m - Wait until snapd is fully seeded.
+[[0;32m  OK  [0m] Reached target [0;1;39mmulti-user.target[0m - Multi-User System.
+[[0;32m  OK  [0m] Reached target [0;1;39mgraphical.target[0m - Graphical Interface.
+         Starting [0;1;39mcloud-final.service[0m - Cloud-init: Final Stage...
+         Starting [0;1;39msystemd-update-utmp-runle…[0m- Record Runlevel Change in UTMP...
+[[0;32m  OK  [0m] Finished [0;1;39msystemd-update-utmp-runle…e[0m - Record Runlevel Change in UTMP.
+[  132.545432] cloud-init[1014]: Cloud-init v. 26.1-0ubuntu1~24.04.1 running 'modules:final' at Thu, 20 Aug 2026 11:08:07 +0000. Up 132.51 seconds.
+         Starting [0;1;39mapt-news.service[0m - Update APT News...
+         Starting [0;1;39mesm-cache.service[0m - Update the local ESM caches...
+[  132.989048] cloud-init[1014]: Hit:1 http://archive.ubuntu.com/ubuntu noble InRelease
+[  132.993210] cloud-init[1014]: Get:2 http://security.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+[  133.086140] cloud-init[1014]: Get:3 http://archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+[  133.401616] cloud-init[1014]: Get:4 http://security.ubuntu.com/ubuntu noble-security/main amd64 Packages [952 kB]
+[  133.526417] cloud-init[1014]: Get:5 http://archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+[  133.577837] cloud-init[1014]: Get:6 http://archive.ubuntu.com/ubuntu noble/universe amd64 Packages [15.0 MB]
+[  134.017771] cloud-init[1014]: Get:7 http://security.ubuntu.com/ubuntu noble-security/main Translation-en [204 kB]
+[  134.081867] cloud-init[1014]: Get:8 http://security.ubuntu.com/ubuntu noble-security/main amd64 Components [46.4 kB]
+[  134.089480] cloud-init[1014]: Get:9 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1201 kB]
+[  134.542179] cloud-init[1014]: Get:10 http://security.ubuntu.com/ubuntu noble-security/universe Translation-en [240 kB]
+[  134.614067] cloud-init[1014]: Get:11 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Components [76.2 kB]
+[  134.639397] cloud-init[1014]: Get:12 http://security.ubuntu.com/ubuntu noble-security/universe amd64 c-n-f Metadata [24.2 kB]
+[  134.647976] cloud-init[1014]: Get:13 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [1357 kB]
+[  135.163927] cloud-init[1014]: Get:14 http://security.ubuntu.com/ubuntu noble-security/restricted Translation-en [312 kB]
+[  135.262950] cloud-init[1014]: Get:15 http://security.ubuntu.com/ubuntu noble-security/multiverse amd64 Packages [40.3 kB]
+[  135.274215] cloud-init[1014]: Get:16 http://security.ubuntu.com/ubuntu noble-security/multiverse Translation-en [10.9 kB]
+[  135.279606] cloud-init[1014]: Get:17 http://security.ubuntu.com/ubuntu noble-security/multiverse amd64 Components [208 B]
+[  135.284358] cloud-init[1014]: Get:18 http://security.ubuntu.com/ubuntu noble-security/multiverse amd64 c-n-f Metadata [468 B]
+
+Ubuntu 24.04.4 LTS vm2 ttyS0
+
+vm2 login: [  138.433690] cloud-init[1014]: Get:19 http://archive.ubuntu.com/ubuntu noble/universe Translation-en [5982 kB]
+[  139.749664] cloud-init[1014]: Get:20 http://archive.ubuntu.com/ubuntu noble/universe amd64 Components [3871 kB]
+[  140.595767] cloud-init[1014]: Get:21 http://archive.ubuntu.com/ubuntu noble/universe amd64 c-n-f Metadata [301 kB]
+[  140.645438] cloud-init[1014]: Get:22 http://archive.ubuntu.com/ubuntu noble/multiverse amd64 Packages [269 kB]
+[  140.708240] cloud-init[1014]: Get:23 http://archive.ubuntu.com/ubuntu noble/multiverse Translation-en [118 kB]
+[  140.726929] cloud-init[1014]: Get:24 http://archive.ubuntu.com/ubuntu noble/multiverse amd64 Components [35.0 kB]
+[  140.731152] cloud-init[1014]: Get:25 http://archive.ubuntu.com/ubuntu noble/multiverse amd64 c-n-f Metadata [8328 B]
+[  140.745844] cloud-init[1014]: Get:26 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1216 kB]
+[  140.980247] cloud-init[1014]: Get:27 http://archive.ubuntu.com/ubuntu noble-updates/main Translation-en [285 kB]
+[  141.031767] cloud-init[1014]: Get:28 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 Components [180 kB]
+[  141.099132] cloud-init[1014]: Get:29 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1683 kB]
+[  141.442143] cloud-init[1014]: Get:30 http://archive.ubuntu.com/ubuntu noble-updates/universe Translation-en [336 kB]
+[  141.505354] cloud-init[1014]: Get:31 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 Components [388 kB]
+[  141.569106] cloud-init[1014]: Get:32 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 c-n-f Metadata [34.9 kB]
+[  141.577239] cloud-init[1014]: Get:33 http://archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [1463 kB]
+[  141.957286] cloud-init[1014]: Get:34 http://archive.ubuntu.com/ubuntu noble-updates/restricted Translation-en [334 kB]
+[  142.131384] cloud-init[1014]: Get:35 http://archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Packages [45.4 kB]
+[  142.132438] cloud-init[1014]: Get:36 http://archive.ubuntu.com/ubuntu noble-updates/multiverse Translation-en [12.6 kB]
+[  142.132550] cloud-init[1014]: Get:37 http://archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Components [940 B]
+[  142.132727] cloud-init[1014]: Get:38 http://archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 c-n-f Metadata [656 B]
+[  142.134341] cloud-init[1014]: Get:39 http://archive.ubuntu.com/ubuntu noble-backports/main amd64 Packages [40.6 kB]
+[  142.150790] cloud-init[1014]: Get:40 http://archive.ubuntu.com/ubuntu noble-backports/main Translation-en [9172 B]
+[  142.152426] cloud-init[1014]: Get:41 http://archive.ubuntu.com/ubuntu noble-backports/main amd64 Components [5776 B]
+[  142.152932] cloud-init[1014]: Get:42 http://archive.ubuntu.com/ubuntu noble-backports/main amd64 c-n-f Metadata [368 B]
+[  142.162331] cloud-init[1014]: Get:43 http://archive.ubuntu.com/ubuntu noble-backports/universe amd64 Packages [31.0 kB]
+[  142.193360] cloud-init[1014]: Get:44 http://archive.ubuntu.com/ubuntu noble-backports/universe Translation-en [18.6 kB]
+[  142.197854] cloud-init[1014]: Get:45 http://archive.ubuntu.com/ubuntu noble-backports/universe amd64 Components [12.6 kB]
+[  142.209694] cloud-init[1014]: Get:46 http://archive.ubuntu.com/ubuntu noble-backports/universe amd64 c-n-f Metadata [1588 B]
+[  142.212042] cloud-init[1014]: Get:47 http://archive.ubuntu.com/ubuntu noble-backports/restricted amd64 Components [212 B]
+[  142.212211] cloud-init[1014]: Get:48 http://archive.ubuntu.com/ubuntu noble-backports/restricted amd64 c-n-f Metadata [116 B]
+[  142.217706] cloud-init[1014]: Get:49 http://archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 Packages [748 B]
+[  142.218621] cloud-init[1014]: Get:50 http://archive.ubuntu.com/ubuntu noble-backports/multiverse Translation-en [340 B]
+[  142.223264] cloud-init[1014]: Get:51 http://archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 Components [212 B]
+[  142.223697] cloud-init[1014]: Get:52 http://archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 c-n-f Metadata [116 B]
+[  148.149567] cloud-init[1014]: Fetched 36.6 MB in 10s (3643 kB/s)
+[  149.186278] cloud-init[1014]: Reading package lists...
+[  149.367731] cloud-init[1014]: Reading package lists...
+[  149.611197] cloud-init[1014]: Building dependency tree...
+[  149.613172] cloud-init[1014]: Reading state information...
+[  149.957101] cloud-init[1014]: tcpdump is already the newest version (4.99.4-3ubuntu4.24.04.1).
+[  149.958136] cloud-init[1014]: tcpdump set to manually installed.
+[  149.958413] cloud-init[1014]: The following additional packages will be installed:
+[  149.958998] cloud-init[1014]:   libcares2 libyang2t64
+[  149.965157] cloud-init[1014]: Suggested packages:
+[  149.965835] cloud-init[1014]:   frr-doc
+[  149.992373] cloud-init[1014]: The following NEW packages will be installed:
+[  149.995764] cloud-init[1014]:   frr frr-pythontools libcares2 libyang2t64
+[  150.136351] cloud-init[1014]: 0 upgraded, 4 newly installed, 0 to remove and 15 not upgraded.
+[  150.141449] cloud-init[1014]: Need to get 4907 kB of archives.
+[  150.145182] cloud-init[1014]: After this operation, 22.6 MB of additional disk space will be used.
+[  150.147044] cloud-init[1014]: Get:1 http://archive.ubuntu.com/ubuntu noble/main amd64 libcares2 amd64 1.27.0-1.0ubuntu1 [73.7 kB]
+[  150.228722] cloud-init[1014]: Get:2 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libyang2t64 amd64 2.1.30-2.1ubuntu0.1 [497 kB]
+[  150.352330] cloud-init[1014]: Get:3 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 frr amd64 8.4.4-1.1ubuntu6.7 [4301 kB]
+[  150.935552] cloud-init[1014]: Get:4 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 frr-pythontools all 8.4.4-1.1ubuntu6.7 [34.7 kB]
+[  151.249334] cloud-init[1014]: Fetched 4907 kB in 1s (5286 kB/s)
+[  151.276167] cloud-init[1014]: Selecting previously unselected package libcares2:amd64.
+[  151.445354] cloud-init[1014]: (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 75054 files and directories currently installed.)
+[  151.456059] cloud-init[1014]: Preparing to unpack .../libcares2_1.27.0-1.0ubuntu1_amd64.deb ...
+[  151.457774] cloud-init[1014]: Unpacking libcares2:amd64 (1.27.0-1.0ubuntu1) ...
+[  151.466932] cloud-init[1014]: Selecting previously unselected package libyang2t64:amd64.
+[  151.471676] cloud-init[1014]: Preparing to unpack .../libyang2t64_2.1.30-2.1ubuntu0.1_amd64.deb ...
+[  151.473969] cloud-init[1014]: Unpacking libyang2t64:amd64 (2.1.30-2.1ubuntu0.1) ...
+[  151.497127] cloud-init[1014]: Selecting previously unselected package frr.
+[  151.502598] cloud-init[1014]: Preparing to unpack .../frr_8.4.4-1.1ubuntu6.7_amd64.deb ...
+[  151.507573] cloud-init[1014]: Unpacking frr (8.4.4-1.1ubuntu6.7) ...
+[  151.694367] cloud-init[1014]: Selecting previously unselected package frr-pythontools.
+[  151.700174] cloud-init[1014]: Preparing to unpack .../frr-pythontools_8.4.4-1.1ubuntu6.7_all.deb ...
+[  151.701960] cloud-init[1014]: Unpacking frr-pythontools (8.4.4-1.1ubuntu6.7) ...
+[  151.728860] cloud-init[1014]: Setting up libcares2:amd64 (1.27.0-1.0ubuntu1) ...
+[  151.732121] cloud-init[1014]: Setting up libyang2t64:amd64 (2.1.30-2.1ubuntu0.1) ...
+[  151.734444] cloud-init[1014]: Setting up frr (8.4.4-1.1ubuntu6.7) ...
+[  151.802098] cloud-init[1014]: info: Selecting GID from range 100 to 999 ...
+[  151.806043] cloud-init[1014]: info: Adding group `frrvty' (GID 112) ...
+[  151.856270] cloud-init[1014]: info: Selecting GID from range 100 to 999 ...
+[  151.859202] cloud-init[1014]: info: Adding group `frr' (GID 113) ...
+[  151.904573] cloud-init[1014]: info: The home dir /nonexistent you specified can't be accessed: No such file or directory
+[  151.905483] cloud-init[1014]: 
+[  151.913807] cloud-init[1014]: info: Selecting UID from range 100 to 999 ...
+[  151.914534] cloud-init[1014]: 
+[  151.918490] cloud-init[1014]: info: Adding system user `frr' (UID 109) ...
+[  151.921990] cloud-init[1014]: info: Adding new user `frr' (UID 109) with group `frr' ...
+[  151.971587] cloud-init[1014]: info: Not creating `/nonexistent'.
+[  152.156862] cloud-init[1014]: Created symlink /etc/systemd/system/multi-user.target.wants/frr.service → /usr/lib/systemd/system/frr.service.
+         Starting [0;1;39mfrr.service[0m - FRRouting...
+[[0;32m  OK  [0m] Started [0;1;39mfrr.service[0m - FRRouting.
+[  152.575481] cloud-init[1014]: Setting up frr-pythontools (8.4.4-1.1ubuntu6.7) ...
+[  152.577957] cloud-init[1014]: Processing triggers for rsyslog (8.2312.0-3ubuntu9.3) ...
+         Stopping [0;1;39mrsyslog.service[0m - System Logging Service...
+[[0;32m  OK  [0m] Stopped [0;1;39mrsyslog.service[0m - System Logging Service.
+         Starting [0;1;39mrsyslog.service[0m - System Logging Service...
+[[0;32m  OK  [0m] Started [0;1;39mrsyslog.service[0m - System Logging Service.
+[  152.767567] cloud-init[1014]: Processing triggers for man-db (2.12.0-4build2) ...
+[  153.856864] cloud-init[1014]: Processing triggers for libc-bin (2.39-0ubuntu8.8) ...
+[  154.877134] cloud-init[1014]: Running kernel seems to be up-to-date.
+[  154.879624] cloud-init[1014]: No services need to be restarted.
+[  154.881218] cloud-init[1014]: No containers need to be restarted.
+[  154.882492] cloud-init[1014]: No user sessions are running outdated binaries.
+[  154.884036] cloud-init[1014]: No VM guests are running outdated hypervisor (qemu) binaries on this host.
+[  156.124114] cloud-init[1014]: + systemctl disable --now systemd-timesyncd
+[  156.138148] cloud-init[1014]: Removed "/etc/systemd/system/sysinit.target.wants/systemd-timesyncd.service".
+[  156.138884] cloud-init[1014]: Removed "/etc/systemd/system/dbus-org.freedesktop.timesync1.service".
+         Stopping [0;1;39msystemd-timesyncd.service[0m - Network Time Synchronization...
+[[0;32m  OK  [0m] Stopped [0;1;39msystemd-timesyncd.service[0m - Network Time Synchronization.
+[  156.345986] cloud-init[1014]: + timedatectl set-ntp false
+[  156.361279] cloud-init[1014]: + systemctl disable --now apt-daily.timer apt-daily-upgrade.timer unattended-upgrades
+[  156.365117] cloud-init[1014]: Synchronizing state of unattended-upgrades.service with SysV service script with /usr/lib/systemd/systemd-sysv-install.
+[  156.369143] cloud-init[1014]: Executing: /usr/lib/systemd/systemd-sysv-install disable unattended-upgrades
+[  156.817273] cloud-init[1014]: Removed "/etc/systemd/system/timers.target.wants/apt-daily-upgrade.timer".
+[  156.819249] cloud-init[1014]: Removed "/etc/systemd/system/timers.target.wants/apt-daily.timer".
+[  156.821469] cloud-init[1014]: Removed "/etc/systemd/system/multi-user.target.wants/unattended-upgrades.service".
+[[0;32m  OK  [0m] Stopped [0;1;39mapt-daily.timer[0m - Daily apt download activities.
+[[0;32m  OK  [0m] Stopped [0;1;39mapt-daily-upgrade.timer[0m - …y apt upgrade and clean activities.
+         Stopping [0;1;39munattended-upgrades.service[0m - Unattended Upgrades Shutdown...
+[[0;32m  OK  [0m] Stopped [0;1;39munattended-upgrades.service[0m - Unattended Upgrades Shutdown.
+[  157.082542] cloud-init[1014]: + mkdir -p /etc/systemd/system/serial-getty@ttyS0.service.d
+[  157.085850] cloud-init[1014]: + printf '[Service]\nExecStart=\nExecStart=-/sbin/agetty --autologin root --noclear %%I 115200 linux\n'
+[  157.088439] cloud-init[1014]: + systemctl daemon-reload
+[  157.322905] cloud-init[1014]: + systemctl restart serial-getty@ttyS0.service
+         Stopping [0;1;39mserial-getty@ttyS0.service[0m - Serial Getty on ttyS[[0;32m  OK  [0m] Stopped [0;1;39mserial-getty@ttyS0.service[0m - Serial Getty on ttyS0.
+[[0;32m  OK  [0m] Started [0;1;39mserial-getty@ttyS0.service[0m - Serial Getty on ttyS0.
+[  157.342226] cloud-init[1014]: + sed -i 's/^zebra=.*/zebra=yes/;s/^isisd=.*/isisd=yes/;s/^bfdd=.*/bfdd=yes/' /etc/frr/daemons
+[  157.347991] cloud-init[1014]: + cp /root/frr.conf /etc/frr/frr.conf
+[  157.356422] cloud-init[1014]: + chown frr:frr /etc/frr/frr.conf
+[  157.360858] cloud-init[1014]: + systemctl enable frr
+[  157.367240] cloud-init[1014]: Synchronizing state of frr.service with SysV service script with /usr/lib/systemd/systemd-sysv-install.
+[  157.369598] cloud-init[1014]: Executing: /usr/lib/systemd/systemd-sysv-install enable frr
+[  158.077142] cloud-init[1014]: + systemctl restart frr
+         Stopping [0;1;39mfrr.service[0m - FRRouting...
+[[0;32m  OK  [0m] Stopped [0;1;39mfrr.service[0m - FRRouting.
+         Starting [0;1;39mfrr.service[0m - FRRouting...
+
+Ubuntu 24.04.4 LTS vm2 ttyS0
+
+vm2 login: root (automatic login)
+
+Welcome to Ubuntu 24.04.4 LTS (GNU/Linux 6.8.0-137-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of Thu Aug 20 11:08:37 UTC 2026
+
+  System load:  0.35              Processes:             130
+  Usage of /:   27.7% of 6.71GB   Users logged in:       0
+  Memory usage: 26%               IPv4 address for eth0: 10.0.2.15
+  Swap usage:   0%                IPv6 address for eth0: fec0::5054:ff:fe00:201
+
+Expanded Security Maintenance for Applications is not enabled.
+
+21 updates can be applied immediately.
+21 of these updates are standard security updates.
+To see these additional updates run: apt list --upgradable
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+[?2004hroot@vm2:~# [  163.593356] cloud-init[1014]: + sleep 3
+[  166.598206] cloud-init[1014]: + vtysh -c 'show isis interface brief'
+[  166.640277] cloud-init[1014]: + touch /root/SETUP_DONE
+ci-info: no authorized SSH keys fingerprints found for user ubuntu.
+<14>Aug 20 11:08:41 cloud-init: #############################################################
+<14>Aug 20 11:08:41 cloud-init: -----BEGIN SSH HOST KEY FINGERPRINTS-----
+<14>Aug 20 11:08:41 cloud-init: 256 SHA256:UtQFwm6JS+OkC9udzYI/GZoHAPfj1JPC8/bHyFOffXw root@vm2 (ECDSA)
+<14>Aug 20 11:08:41 cloud-init: 256 SHA256:Rv9xU+QkSngYlT6voxcA8p1Sd6/TiK+JeRuI35U48hk root@vm2 (ED25519)
+<14>Aug 20 11:08:41 cloud-init: 3072 SHA256:+TpJ64O3rsUuxJvbqwhOejpqf+zGr3HQ6A0Kz+FVFTE root@vm2 (RSA)
+<14>Aug 20 11:08:41 cloud-init: -----END SSH HOST KEY FINGERPRINTS-----
+<14>Aug 20 11:08:41 cloud-init: #############################################################
+-----BEGIN SSH HOST KEY KEYS-----
+ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBEu8/tU/SvAB1KdNeCFvtHovziRpXOi8vEX74/YZg1r1UPBtkIg5GEHwyiypj9gUJiICouCsZw02G9mMu0Dt3UY= root@vm2
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA8+7s05GVAh54L3rYPJg6/FECCHsWK4hp9alvcslqrs root@vm2
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCO+P4AnYhSfj5SRcLOuGl/L+IFYqhefytVwI/0VX3TQOi02zl0IQJRnb53sWpviiRkxZcLFIfh1K1GG9RJLdyEd+3dt7bZ5KRpsrJIa4fBwsLF8D36Ela4t1Zsc4ngHsO1cB0nutSc9aVJSQevYnk4Huza98gZbbYpbeOzDp/9QqnHQwzT2R04ZyG4A2Favxh7+2ocZ796bI93Lp/7JAN3SSY6bdHu+E0akxzFWuuoTicXGVdHIEvG2YXC16tHKshEjWpy3moV9WQJktd9ByTtTgpt7vYjXNb91DckHscAcm81ScentfwVd29l8Sf021ABnpfIRDASaSByENvSo0AUXoXzjBDXw+g95nSu4wEJu0kJ3HdEQ4+/qj+e7zoOfDJLpydO7K8GrwpGlbNXyG44SDrR6PIhuEb5/b/PVbFZzisOuzxEp584x3BgMDBPiNKFQIov4Or1VF8kleYrhQBdHuAsHNFtj3nOGjZA6X00j38njzyQACkiRuoX4BJrvSE= root@vm2
+-----END SSH HOST KEY KEYS-----
+[  166.739542] cloud-init[1014]: Cloud-init v. 26.1-0ubuntu1~24.04.1 finished at Thu, 20 Aug 2026 11:08:41 +0000. Datasource DataSourceNoCloud [seed=/dev/sr0].  Up 166.72 seconds
+
+[?2004l[?2004hroot@vm2:~# hostname; ls /root/SETUP_DONE; systemctl is-active frr; grep -E "^(zebra|isisd|bfdd)=" /etc/frr/daemons; ip -br addr show eth1; ip -br addr show lo; echo ___E56297ND___$?
+[?2004lvm2
+/root/SETUP_DONE
+active
+[01;31m[Kisisd=[m[Kyes
+[01;31m[Kbfdd=[m[Kyes
+eth1             UP             10.0.0.2/30 fe80::5054:ff:fe00:202/64 
+lo               UNKNOWN        127.0.0.1/8 2.2.2.2/32 ::1/128 
+___E56297ND___0
+[?2004hroot@vm2:~# 
+[?2004l[?2004hroot@vm2:~# vtysh -c "show isis neighbor" ; echo "--DB--" ; vtysh -c "show isis database" ; echo "--RT--" ; vtysh -c "show ip route isis" ; echo "--BFD--" ; vtysh -c "show bfd peers brief" ; echo "--DATE--" ; date -u "+%F %T UTC"; echo ___E19532ND___$?
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm1                 eth1        2  Up            29       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00                  93   0x00000002  0x1761    1111    0/0/0
+vm2.00-00            *     93   0x00000002  0x4c1b    1091    0/0/0
+    2 LSPs
+
+--RT--
+Codes: K - kernel route, C - connected, S - static, R - RIP,
+       O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+I>* 1.1.1.1/32 [115/20] via 10.0.0.1, eth1, weight 1, 00:01:17
+I   10.0.0.0/30 [115/20] via 10.0.0.1, eth1 inactive, weight 1, 00:01:17
+--BFD--
+Session count: 0
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+--DATE--
+2026-08-20 11:10:20 UTC
+___E19532ND___0
+[?2004hroot@vm2:~# 
+[?2004l[?2004hroot@vm2:~# vtysh -c "show isis neighbor" ; echo "--DB--" ; vtysh -c "show isis database" ; echo "--RT--" ; vtysh -c "show ip route isis" ; echo "--BFD--" ; vtysh -c "show bfd peers brief" ; echo "--DATE--" ; date -u "+%F %T UTC"; echo ___E40686ND___$?
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm1                 eth1        2  Up            27       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00                  93   0x00000003  0x1562    1065    0/0/0
+vm2.00-00            *     93   0x00000003  0x4a1c    1020    0/0/0
+    2 LSPs
+
+--RT--
+Codes: K - kernel route, C - connected, S - static, R - RIP,
+       O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+I>* 1.1.1.1/32 [115/20] via 10.0.0.1, eth1, weight 1, 00:16:38
+I   10.0.0.0/30 [115/20] via 10.0.0.1, eth1 inactive, weight 1, 00:16:38
+--BFD--
+Session count: 0
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+--DATE--
+2026-08-20 11:25:42 UTC
+___E40686ND___0
+[?2004hroot@vm2:~# 
+[?2004l[?2004hroot@vm2:~# vtysh -c "show isis neighbor" ; echo "--DB--" ; vtysh -c "show isis database" ; echo "--RT--" ; vtysh -c "show ip route isis" ; echo "--BFD--" ; vtysh -c "show bfd peers brief" ; echo "--DATE--" ; date -u "+%F %T UTC"; echo ___E67158ND___$?
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm1                 eth1        2  Up            27       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00                  93   0x00000003  0x1562    1042    0/0/0
+vm2.00-00            *     93   0x00000003  0x4a1c     997    0/0/0
+    2 LSPs
+
+--RT--
+Codes: K - kernel route, C - connected, S - static, R - RIP,
+       O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+I>* 1.1.1.1/32 [115/20] via 10.0.0.1, eth1, weight 1, 00:17:05
+I   10.0.0.0/30 [115/20] via 10.0.0.1, eth1 inactive, weight 1, 00:17:05
+--BFD--
+Session count: 0
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+--DATE--
+2026-08-20 11:26:08 UTC
+___E67158ND___0
+[?2004hroot@vm2:~# 
+[?2004l[?2004hroot@vm2:~# vtysh -c "show isis neighbor" ; echo "--DB--" ; vtysh -c "show isis database" ; echo "--RT--" ; vtysh -c "show ip route isis" ; echo "--BFD--" ; vtysh -c "show bfd peers brief" ; echo "--DATE--" ; date -u "+%F %T UTC"; echo ___E72866ND___$?
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm1                 eth1        2  Up            30       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00                  93   0x00000003  0x1562    1062    0/0/0
+vm2.00-00            *     93   0x00000003  0x4a1c    1017    0/0/0
+    2 LSPs
+
+--RT--
+Codes: K - kernel route, C - connected, S - static, R - RIP,
+       O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+I>* 1.1.1.1/32 [115/20] via 10.0.0.1, eth1, weight 1, 00:16:45
+I   10.0.0.0/30 [115/20] via 10.0.0.1, eth1 inactive, weight 1, 00:16:45
+--BFD--
+Session count: 0
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+--DATE--
+2026-08-20 11:25:48 UTC
+___E72866ND___0
+[?2004hroot@vm2:~# 
+[?2004l[?2004hroot@vm2:~# vtysh -c "show isis neighbor" ; echo "--DB--" ; vtysh -c "show isis database" ; echo "--RT--" ; vtysh -c "show ip route isis" ; echo "--BFD--" ; vtysh -c "show bfd peers brief" ; echo "--DATE--" ; date -u "+%F %T UTC"; echo ___E85608ND___$?
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm1                 eth1        2  Up            28       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00                  93   0x00000003  0x1562    1049    0/0/0
+vm2.00-00            *     93   0x00000003  0x4a1c    1004    0/0/0
+    2 LSPs
+
+--RT--
+Codes: K - kernel route, C - connected, S - static, R - RIP,
+       O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+I>* 1.1.1.1/32 [115/20] via 10.0.0.1, eth1, weight 1, 00:16:58
+I   10.0.0.0/30 [115/20] via 10.0.0.1, eth1 inactive, weight 1, 00:16:58
+--BFD--
+Session count: 0
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+--DATE--
+2026-08-20 11:26:01 UTC
+___E85608ND___0
+[?2004hroot@vm2:~# 
+[?2004l[?2004hroot@vm2:~# vtysh -c "show isis neighbor" ; echo "--DB--" ; vtysh -c "show isis database" ; echo "--RT--" ; vtysh -c "show ip route isis" ; echo "--BFD--" ; vtysh -c "show bfd peers brief" ; echo "--DATE--" ; date -u "+%F %T UTC"; echo ___E33758ND___$?
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm1                 eth1        2  Up            29       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00                  93   0x00000003  0x1562    1001    0/0/0
+vm2.00-00            *     93   0x00000003  0x4a1c     956    0/0/0
+    2 LSPs
+
+--RT--
+Codes: K - kernel route, C - connected, S - static, R - RIP,
+       O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+I>* 1.1.1.1/32 [115/20] via 10.0.0.1, eth1, weight 1, 00:17:46
+I   10.0.0.0/30 [115/20] via 10.0.0.1, eth1 inactive, weight 1, 00:17:46
+--BFD--
+Session count: 0
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+--DATE--
+2026-08-20 11:26:49 UTC
+___E33758ND___0
+[?2004hroot@vm2:~# 
+[?2004l[?2004hroot@vm2:~# vtysh -c "show isis neighbor" ; echo "--DB--" ; vtysh -c "show isis database" ; echo "--RT--" ; vtysh -c "show ip route isis" ; echo "--BFD--" ; vtysh -c "show bfd peers brief" ; echo "--DATE--" ; date -u "+%F %T UTC"; echo ___E40928ND___$?
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm1                 eth1        2  Up            29       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00                  93   0x00000004  0x1363     941    0/0/0
+vm2.00-00            *     93   0x00000004  0x481d     934    0/0/0
+    2 LSPs
+
+--RT--
+Codes: K - kernel route, C - connected, S - static, R - RIP,
+       O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+I>* 1.1.1.1/32 [115/20] via 10.0.0.1, eth1, weight 1, 00:32:53
+I   10.0.0.0/30 [115/20] via 10.0.0.1, eth1 inactive, weight 1, 00:32:53
+--BFD--
+Session count: 0
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+--DATE--
+2026-08-20 11:41:56 UTC
+___E40928ND___0
+[?2004hroot@vm2:~# 
+[?2004l[?2004hroot@vm2:~# vtysh -c "show isis neighbor" ; echo "--DB--" ; vtysh -c "show isis database" ; echo "--RT--" ; vtysh -c "show ip route isis" ; echo "--BFD--" ; vtysh -c "show bfd peers brief" ; echo "--DATE--" ; date -u "+%F %T UTC"; echo ___E46905ND___$?
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm1                 eth1        2  Up            29       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00                  93   0x00000003  0x1562     997    0/0/0
+vm2.00-00            *     93   0x00000003  0x4a1c     952    0/0/0
+    2 LSPs
+
+--RT--
+Codes: K - kernel route, C - connected, S - static, R - RIP,
+       O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+I>* 1.1.1.1/32 [115/20] via 10.0.0.1, eth1, weight 1, 00:17:53
+I   10.0.0.0/30 [115/20] via 10.0.0.1, eth1 inactive, weight 1, 00:17:53
+--BFD--
+Session count: 0
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+--DATE--
+2026-08-20 11:26:56 UTC
+___E46905ND___0
+[?2004hroot@vm2:~# 
+[?2004l[?2004hroot@vm2:~# vtysh -c "show isis neighbor" ; echo "--DB--" ; vtysh -c "show isis database" ; echo "--RT--" ; vtysh -c "show ip route isis" ; echo "--BFD--" ; vtysh -c "show bfd peers brief" ; echo "--DATE--" ; date -u "+%F %T UTC"; echo ___E69756ND___$?
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm1                 eth1        2  Up            29       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00                  93   0x00000003  0x1562     874    0/0/0
+vm2.00-00            *     93   0x00000003  0x4a1c     829    0/0/0
+    2 LSPs
+
+--RT--
+Codes: K - kernel route, C - connected, S - static, R - RIP,
+       O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+I>* 1.1.1.1/32 [115/20] via 10.0.0.1, eth1, weight 1, 00:19:55
+I   10.0.0.0/30 [115/20] via 10.0.0.1, eth1 inactive, weight 1, 00:19:55
+--BFD--
+Session count: 0
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+--DATE--
+2026-08-20 11:28:58 UTC
+___E69756ND___0
+[?2004hroot@vm2:~# 
+[?2004l[?2004hroot@vm2:~# vtysh -c "show isis neighbor" ; echo "--DB--" ; vtysh -c "show isis database" ; echo "--RT--" ; vtysh -c "show ip route isis" ; echo "--BFD--" ; vtysh -c "show bfd peers brief" ; echo "--DATE--" ; date -u "+%F %T UTC"; echo ___E49330ND___$?
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm1                 eth1        2  Up            29       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00                  93   0x00000003  0x1562     795    0/0/0
+vm2.00-00            *     93   0x00000003  0x4a1c     750    0/0/0
+    2 LSPs
+
+--RT--
+Codes: K - kernel route, C - connected, S - static, R - RIP,
+       O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+I>* 1.1.1.1/32 [115/20] via 10.0.0.1, eth1, weight 1, 00:21:15
+I   10.0.0.0/30 [115/20] via 10.0.0.1, eth1 inactive, weight 1, 00:21:15
+--BFD--
+Session count: 0
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+--DATE--
+2026-08-20 11:30:18 UTC
+___E49330ND___0
+[?2004hroot@vm2:~# 
+[?2004l[?2004hroot@vm2:~# vtysh -c "show isis neighbor" ; echo "--DB--" ; vtysh -c "show isis database" ; echo "--RT--" ; vtysh -c "show ip route isis" ; echo "--BFD--" ; vtysh -c "show bfd peers brief" ; echo "--DATE--" ; date -u "+%F %T UTC"; echo ___E11545ND___$?
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm1                 eth1        2  Down          18       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00                  93   0x00000003  0x1562     782    0/0/0
+vm2.00-00            *     80   0x00000004  0x8908    1146    0/0/0
+    2 LSPs
+
+--RT--
+--BFD--
+Session count: 0
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+--DATE--
+2026-08-20 11:32:28 UTC
+___E11545ND___0
+[?2004hroot@vm2:~# 
+[?2004l[?2004hroot@vm2:~# vtysh -c "show isis neighbor" ; echo "--DB--" ; vtysh -c "show isis database" ; echo "--RT--" ; vtysh -c "show ip route isis" ; echo "--BFD--" ; vtysh -c "show bfd peers brief" ; echo "--DATE--" ; date -u "+%F %T UTC"; echo ___E24251ND___$?
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm1                 eth1        2  Up            27       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00                  61   0x00000004  0x5961    1144    0/0/0
+vm2.00-00            *     80   0x00000004  0x8908    1134    0/0/0
+    2 LSPs
+
+--RT--
+--BFD--
+Session count: 0
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+--DATE--
+2026-08-20 11:32:41 UTC
+___E24251ND___0
+[?2004hroot@vm2:~# 
+[?2004l[?2004hroot@vm2:~# vtysh -c "show isis neighbor" ; echo "--DB--" ; vtysh -c "show isis database" ; echo "--RT--" ; vtysh -c "show ip route isis" ; echo "--BFD--" ; vtysh -c "show bfd peers brief" ; echo "--DATE--" ; date -u "+%F %T UTC"; echo ___E17067ND___$?
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm1                 eth1        2  Up            28       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00                  93   0x00000005  0x1164     420    0/0/0
+vm2.00-00            *     93   0x00000005  0x461e     396    0/0/0
+    2 LSPs
+
+--RT--
+Codes: K - kernel route, C - connected, S - static, R - RIP,
+       O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+I>* 1.1.1.1/32 [115/20] via 10.0.0.1, eth1, weight 1, 00:13:04
+I   10.0.0.0/30 [115/20] via 10.0.0.1, eth1 inactive, weight 1, 00:13:04
+--BFD--
+Session count: 0
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+--DATE--
+2026-08-20 11:45:50 UTC
+___E17067ND___0
+[?2004hroot@vm2:~# 
+[?2004l[?2004hroot@vm2:~# vtysh -c "show isis neighbor" ; echo "--DB--" ; vtysh -c "show isis database" ; echo "--RT--" ; vtysh -c "show ip route isis" ; echo "--BFD--" ; vtysh -c "show bfd peers brief" ; echo "--DATE--" ; date -u "+%F %T UTC"; echo ___E32915ND___$?
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm1                 eth1        2  Up            29       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00                  93   0x00000005  0x1164     404    0/0/0
+vm2.00-00            *     93   0x00000005  0x461e     380    0/0/0
+    2 LSPs
+
+--RT--
+Codes: K - kernel route, C - connected, S - static, R - RIP,
+       O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+I>* 1.1.1.1/32 [115/20] via 10.0.0.1, eth1, weight 1, 00:13:20
+I   10.0.0.0/30 [115/20] via 10.0.0.1, eth1 inactive, weight 1, 00:13:20
+--BFD--
+Session count: 0
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+--DATE--
+2026-08-20 11:46:05 UTC
+___E32915ND___0
+[?2004hroot@vm2:~# 
+[?2004l[?2004hroot@vm2:~# vtysh -c "show isis neighbor" ; echo "--DB--" ; vtysh -c "show isis database" ; echo "--RT--" ; vtysh -c "show ip route isis" ; echo "--BFD--" ; vtysh -c "show bfd peers brief" ; echo "--DATE--" ; date -u "+%F %T UTC"; echo ___E72944ND___$?
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm1                 eth1        2  Up            30       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00                  93   0x00000005  0x1164     401    0/0/0
+vm2.00-00            *     93   0x00000005  0x461e     377    0/0/0
+    2 LSPs
+
+--RT--
+Codes: K - kernel route, C - connected, S - static, R - RIP,
+       O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+I>* 1.1.1.1/32 [115/20] via 10.0.0.1, eth1, weight 1, 00:13:29
+I   10.0.0.0/30 [115/20] via 10.0.0.1, eth1 inactive, weight 1, 00:13:29
+--BFD--
+Session count: 0
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+--DATE--
+2026-08-20 11:46:14 UTC
+___E72944ND___0
+[?2004hroot@vm2:~# 
+[?2004l[?2004hroot@vm2:~# vtysh -c "show isis neighbor" ; echo "--DB--" ; vtysh -c "show isis database" ; echo "--RT--" ; vtysh -c "show ip route isis" ; echo "--BFD--" ; vtysh -c "show bfd peers brief" ; echo "--DATE--" ; date -u "+%F %T UTC"; echo ___E90749ND___$?
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm1                 eth1        2  Up            29       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00                  93   0x00000005  0x1164     383    0/0/0
+vm2.00-00            *     93   0x00000005  0x461e     359    0/0/0
+    2 LSPs
+
+--RT--
+Codes: K - kernel route, C - connected, S - static, R - RIP,
+       O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+I>* 1.1.1.1/32 [115/20] via 10.0.0.1, eth1, weight 1, 00:13:46
+I   10.0.0.0/30 [115/20] via 10.0.0.1, eth1 inactive, weight 1, 00:13:46
+--BFD--
+Session count: 0
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+--DATE--
+2026-08-20 11:46:32 UTC
+___E90749ND___0
+[?2004hroot@vm2:~# 
+[?2004l[?2004hroot@vm2:~# vtysh -c "show isis neighbor" ; echo "--DB--" ; vtysh -c "show isis database" ; echo "--RT--" ; vtysh -c "show ip route isis" ; echo "--BFD--" ; vtysh -c "show bfd peers brief" ; echo "--DATE--" ; date -u "+%F %T UTC"; echo ___E39009ND___$?
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm1                 eth1        2  Up            27       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00                  93   0x00000005  0x1164     335    0/0/0
+vm2.00-00            *     93   0x00000005  0x461e     311    0/0/0
+    2 LSPs
+
+--RT--
+Codes: K - kernel route, C - connected, S - static, R - RIP,
+       O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+I>* 1.1.1.1/32 [115/20] via 10.0.0.1, eth1, weight 1, 00:14:35
+I   10.0.0.0/30 [115/20] via 10.0.0.1, eth1 inactive, weight 1, 00:14:35
+--BFD--
+Session count: 0
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+--DATE--
+2026-08-20 11:47:20 UTC
+___E39009ND___0
+[?2004hroot@vm2:~# 
+[?2004l[?2004hroot@vm2:~# vtysh -c "show isis neighbor" ; echo "--DB--" ; vtysh -c "show isis database" ; echo "--RT--" ; vtysh -c "show ip route isis" ; echo "--BFD--" ; vtysh -c "show bfd peers brief" ; echo "--DATE--" ; date -u "+%F %T UTC"; echo ___E54972ND___$?
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm1                 eth1        2  Up            28       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00                  93   0x00000005  0x1164     332    0/0/0
+vm2.00-00            *     93   0x00000005  0x461e     308    0/0/0
+    2 LSPs
+
+--RT--
+Codes: K - kernel route, C - connected, S - static, R - RIP,
+       O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+I>* 1.1.1.1/32 [115/20] via 10.0.0.1, eth1, weight 1, 00:14:39
+I   10.0.0.0/30 [115/20] via 10.0.0.1, eth1 inactive, weight 1, 00:14:39
+--BFD--
+Session count: 0
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+--DATE--
+2026-08-20 11:47:24 UTC
+___E54972ND___0
+[?2004hroot@vm2:~# 
+[?2004l[?2004hroot@vm2:~# vtysh -c "show isis neighbor" ; echo "--DB--" ; vtysh -c "show isis database" ; echo "--RT--" ; vtysh -c "show ip route isis" ; echo "--BFD--" ; vtysh -c "show bfd peers brief" ; echo "--DATE--" ; date -u "+%F %T UTC"; echo ___E77555ND___$?
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm1                 eth1        2  Up            29       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00                  93   0x00000006  0x0f65    1041    0/0/0
+vm2.00-00            *     93   0x00000006  0x441f    1077    0/0/0
+    2 LSPs
+
+--RT--
+Codes: K - kernel route, C - connected, S - static, R - RIP,
+       O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+I>* 1.1.1.1/32 [115/20] via 10.0.0.1, eth1, weight 1, 00:16:41
+I   10.0.0.0/30 [115/20] via 10.0.0.1, eth1 inactive, weight 1, 00:16:41
+--BFD--
+Session count: 0
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+--DATE--
+2026-08-20 11:49:26 UTC
+___E77555ND___0
+[?2004hroot@vm2:~# 
+[?2004l[?2004hroot@vm2:~# vtysh -c 'configure terminal' -c 'bfd' -c 'profile fast' -c 'transmit-interval 300' -c 'receive-interval 300' -c 'detect-multiplier 3' -c 'end' -c 'configure terminal' -c 'interface eth1' -c 'isis bfd' -c 'isis bfd profile fast' -c 'end' -c 'write memory'; echo ___E27539ND___$?
+[?2004lNote: this version of vtysh never writes vtysh.conf
+Building Configuration...
+Integrated configuration saved to /etc/frr/frr.conf
+[OK]
+___E27539ND___0
+[?2004hroot@vm2:~# 
+[?2004l[?2004hroot@vm2:~# vtysh -c 'show bfd peers'; echo ___E53256ND___$?
+[?2004lBFD Peers:
+	peer 10.0.0.1 local-address 10.0.0.2 vrf default interface eth1
+		ID: 2059297725
+		Remote ID: 1925936424
+		Active mode
+		Status: up
+		Uptime: 2 minute(s), 5 second(s)
+		Diagnostics: ok
+		Remote diagnostics: ok
+		Peer Type: dynamic
+		RTT min/avg/max: 0/0/0 usec
+		Local timers:
+			Detect-multiplier: 3
+			Receive interval: 300ms
+			Transmission interval: 300ms
+			Echo receive interval: 50ms
+			Echo transmission interval: disabled
+		Remote timers:
+			Detect-multiplier: 3
+			Receive interval: 300ms
+			Transmission interval: 300ms
+			Echo receive interval: 50ms
+
+___E53256ND___0
+[?2004hroot@vm2:~# 
+[?2004l[?2004hroot@vm2:~# vtysh -c "show isis neighbor" ; echo "--DB--" ; vtysh -c "show isis database" ; echo "--RT--" ; vtysh -c "show ip route isis" ; echo "--BFD--" ; vtysh -c "show bfd peers brief" ; echo "--DATE--" ; date -u "+%F %T UTC"; echo ___E85741ND___$?
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm1                 eth1        2  Up            27       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00                  93   0x00000006  0x0f65     833    0/0/0
+vm2.00-00            *     93   0x00000006  0x441f     869    0/0/0
+    2 LSPs
+
+--RT--
+Codes: K - kernel route, C - connected, S - static, R - RIP,
+       O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+I>* 1.1.1.1/32 [115/20] via 10.0.0.1, eth1, weight 1, 00:20:10
+I   10.0.0.0/30 [115/20] via 10.0.0.1, eth1 inactive, weight 1, 00:20:10
+--BFD--
+Session count: 1
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+2059297725 10.0.0.2                                 10.0.0.1                                up             
+--DATE--
+2026-08-20 11:52:55 UTC
+___E85741ND___0
+[?2004hroot@vm2:~# 
+[?2004l[?2004hroot@vm2:~# vtysh -c 'show bfd peers'; echo ___E88259ND___$?
+[?2004lBFD Peers:
+	peer 10.0.0.1 local-address 10.0.0.2 vrf default interface eth1
+		ID: 2059297725
+		Remote ID: 1925936424
+		Active mode
+		Status: up
+		Uptime: 2 minute(s), 40 second(s)
+		Diagnostics: ok
+		Remote diagnostics: ok
+		Peer Type: dynamic
+		RTT min/avg/max: 0/0/0 usec
+		Local timers:
+			Detect-multiplier: 3
+			Receive interval: 300ms
+			Transmission interval: 300ms
+			Echo receive interval: 50ms
+			Echo transmission interval: disabled
+		Remote timers:
+			Detect-multiplier: 3
+			Receive interval: 300ms
+			Transmission interval: 300ms
+			Echo receive interval: 50ms
+
+___E88259ND___0
+[?2004hroot@vm2:~# 
+[?2004l[?2004hroot@vm2:~# vtysh -c "show isis neighbor" ; echo "--DB--" ; vtysh -c "show isis database" ; echo "--RT--" ; vtysh -c "show ip route isis" ; echo "--BFD--" ; vtysh -c "show bfd peers brief" ; echo "--DATE--" ; date -u "+%F %T UTC"; echo ___E92579ND___$?
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm1                 eth1        2  Up            28       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00                  93   0x00000008  0x0b67    1145    0/0/0
+vm2.00-00            *     93   0x00000008  0x4021    1162    0/0/0
+    2 LSPs
+
+--RT--
+Codes: K - kernel route, C - connected, S - static, R - RIP,
+       O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+I>* 1.1.1.1/32 [115/20] via 10.0.0.1, eth1, weight 1, 00:00:37
+I   10.0.0.0/30 [115/20] via 10.0.0.1, eth1 inactive, weight 1, 00:00:37
+--BFD--
+Session count: 1
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+20773201   10.0.0.2                                 10.0.0.1                                up             
+--DATE--
+2026-08-20 11:54:11 UTC
+___E92579ND___0
+[?2004hroot@vm2:~# 
+[?2004l[?2004hroot@vm2:~# vtysh -c 'show bfd peers'; echo ___E95053ND___$?
+[?2004lBFD Peers:
+	peer 10.0.0.1 local-address 10.0.0.2 vrf default interface eth1
+		ID: 20773201
+		Remote ID: 2259603726
+		Active mode
+		Status: up
+		Uptime: 1 minute(s), 8 second(s)
+		Diagnostics: ok
+		Remote diagnostics: ok
+		Peer Type: dynamic
+		RTT min/avg/max: 0/0/0 usec
+		Local timers:
+			Detect-multiplier: 3
+			Receive interval: 300ms
+			Transmission interval: 300ms
+			Echo receive interval: 50ms
+			Echo transmission interval: disabled
+		Remote timers:
+			Detect-multiplier: 3
+			Receive interval: 300ms
+			Transmission interval: 300ms
+			Echo receive interval: 50ms
+
+___E95053ND___0
+[?2004hroot@vm2:~# 
+[?2004l[?2004hroot@vm2:~# vtysh -c "show isis neighbor" ; echo "--DB--" ; vtysh -c "show isis database" ; echo "--RT--" ; vtysh -c "show ip route isis" ; echo "--BFD--" ; vtysh -c "show bfd peers brief" ; echo "--DATE--" ; date -u "+%F %T UTC"; echo ___E12505ND___$?
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm1                 eth1        2  Up            28       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00                  93   0x00000008  0x0b67    1125    0/0/0
+vm2.00-00            *     93   0x00000008  0x4021    1142    0/0/0
+    2 LSPs
+
+--RT--
+Codes: K - kernel route, C - connected, S - static, R - RIP,
+       O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+I>* 1.1.1.1/32 [115/20] via 10.0.0.1, eth1, weight 1, 00:00:57
+I   10.0.0.0/30 [115/20] via 10.0.0.1, eth1 inactive, weight 1, 00:00:57
+--BFD--
+Session count: 1
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+20773201   10.0.0.2                                 10.0.0.1                                up             
+--DATE--
+2026-08-20 11:54:30 UTC
+___E12505ND___0
+[?2004hroot@vm2:~# 
+[?2004l[?2004hroot@vm2:~# vtysh -c 'show bfd peers'; echo ___E14953ND___$?
+[?2004lBFD Peers:
+	peer 10.0.0.1 local-address 10.0.0.2 vrf default interface eth1
+		ID: 20773201
+		Remote ID: 2259603726
+		Active mode
+		Status: up
+		Uptime: 1 minute(s), 28 second(s)
+		Diagnostics: ok
+		Remote diagnostics: ok
+		Peer Type: dynamic
+		RTT min/avg/max: 0/0/0 usec
+		Local timers:
+			Detect-multiplier: 3
+			Receive interval: 300ms
+			Transmission interval: 300ms
+			Echo receive interval: 50ms
+			Echo transmission interval: disabled
+		Remote timers:
+			Detect-multiplier: 3
+			Receive interval: 300ms
+			Transmission interval: 300ms
+			Echo receive interval: 50ms
+
+___E14953ND___0
+[?2004hroot@vm2:~# 
+[?2004l[?2004hroot@vm2:~# tail -20 /var/log/frr/frr.log; echo ___E4909ND___$?
+[?2004l2026-08-20T11:08:33.321738+00:00 vm2 zebra[1565]: [VXKFG-8SJRV][EC 4043309121] Client 'static' encountered an error and is shutting down.
+2026-08-20T11:08:33.321819+00:00 vm2 zebra[1565]: [JPSA8-5KYEA] client 28 disconnected 0 static routes removed from the rib
+2026-08-20T11:08:33.321909+00:00 vm2 zebra[1565]: [S929C-NZR3N] client 28 disconnected 0 static nhgs removed from the rib
+2026-08-20T11:08:33.427355+00:00 vm2 zebra[1565]: [XVBTQ-5QTVQ] Terminating on signal
+2026-08-20T11:08:33.434715+00:00 vm2 zebra[1565]: [QS0NJ-H5QKJ] Zebra final shutdown
+2026-08-20T11:08:33.591749+00:00 vm2 watchfrr[2048]: [T83RR-8SM5G] watchfrr 8.4.4 starting: vty@0
+2026-08-20T11:08:33.596227+00:00 vm2 watchfrr[2048]: [ZCJ3S-SPH5S] zebra state -> down : initial connection attempt failed
+2026-08-20T11:08:33.596274+00:00 vm2 watchfrr[2048]: [ZCJ3S-SPH5S] isisd state -> down : initial connection attempt failed
+2026-08-20T11:08:33.596303+00:00 vm2 watchfrr[2048]: [ZCJ3S-SPH5S] staticd state -> down : initial connection attempt failed
+2026-08-20T11:08:33.596361+00:00 vm2 watchfrr[2048]: [ZCJ3S-SPH5S] bfdd state -> down : initial connection attempt failed
+2026-08-20T11:08:33.596380+00:00 vm2 watchfrr[2048]: [YFT0P-5Q5YX] Forked background command [pid 2049]: /usr/lib/frr/watchfrr.sh restart all
+2026-08-20T11:08:33.801435+00:00 vm2 watchfrr[2048]: [ZJW5C-1EHNT] restart all process 2049 exited with non-zero status 13
+2026-08-20T11:08:38.568429+00:00 vm2 watchfrr[2048]: [QDG3Y-BY5TN] staticd state -> up : connect succeeded
+2026-08-20T11:08:38.571290+00:00 vm2 watchfrr[2048]: [QDG3Y-BY5TN] bfdd state -> up : connect succeeded
+2026-08-20T11:08:38.623104+00:00 vm2 watchfrr[2048]: [QDG3Y-BY5TN] zebra state -> up : connect succeeded
+2026-08-20T11:08:38.667118+00:00 vm2 watchfrr[2048]: [QDG3Y-BY5TN] isisd state -> up : connect succeeded
+2026-08-20T11:08:38.667164+00:00 vm2 watchfrr[2048]: [KWE5Q-QNGFC] all daemons up, doing startup-complete notify
+2026-08-20T11:32:16.740309+00:00 vm2 watchfrr[2048]: [YZRX4-ZXG0C][EC 100663315] Thread Starvation: {(thread *)0x60bfce6558e0 arg=0x0 timer  r=-117.984   systemd_send_watchdog() ((void *)0) from ../lib/systemd.c:88} was scheduled to pop greater than 4s ago
+2026-08-20T11:46:11.385591+00:00 vm2 watchfrr[2048]: [YZRX4-ZXG0C][EC 100663315] Thread Starvation: {(thread *)0x60bfce666280 arg=0x60bfce655a00 timer  r=-4.310     wakeup_send_echo() &(dmn)->t_wakeup from ../watchfrr/watchfrr.c:690} was scheduled to pop greater than 4s ago
+2026-08-20T11:50:16.926197+00:00 vm2 watchfrr[2048]: [WFP93-1D146] configuration write completed with exit code 0
+___E4909ND___0
+[?2004hroot@vm2:~# 
+[?2004l[?2004hroot@vm2:~# vtysh -c 'configure terminal' -c 'bfd' -c 'profile fast' -c 'transmit-interval 300' -c 'receive-interval 300' -c 'detect-multiplier 3' -c 'end' -c 'configure terminal' -c 'interface eth1' -c 'isis bfd' -c 'isis bfd profile fast' -c 'end' -c 'write memory'; echo ___E59248ND___$?
+[?2004lNote: this version of vtysh never writes vtysh.conf
+Building Configuration...
+Integrated configuration saved to /etc/frr/frr.conf
+[OK]
+___E59248ND___0
+[?2004hroot@vm2:~# 
+[?2004l[?2004hroot@vm2:~# vtysh -c 'show bfd peers'; echo ___E84924ND___$?
+[?2004lBFD Peers:
+	peer 10.0.0.1 local-address 10.0.0.2 vrf default interface eth1
+		ID: 2043750824
+		Remote ID: 1359347979
+		Active mode
+		Status: up
+		Uptime: 3 minute(s), 39 second(s)
+		Diagnostics: ok
+		Remote diagnostics: ok
+		Peer Type: dynamic
+		RTT min/avg/max: 0/0/0 usec
+		Local timers:
+			Detect-multiplier: 3
+			Receive interval: 300ms
+			Transmission interval: 300ms
+			Echo receive interval: 50ms
+			Echo transmission interval: disabled
+		Remote timers:
+			Detect-multiplier: 3
+			Receive interval: 300ms
+			Transmission interval: 300ms
+			Echo receive interval: 50ms
+
+___E84924ND___0
+[?2004hroot@vm2:~# 
+[?2004l[?2004hroot@vm2:~# vtysh -c "show isis neighbor" ; echo "--DB--" ; vtysh -c "show isis database" ; echo "--RT--" ; vtysh -c "show ip route isis" ; echo "--BFD--" ; vtysh -c "show bfd peers brief" ; echo "--DATE--" ; date -u "+%F %T UTC"; echo ___E17384ND___$?
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm1                 eth1        2  Up            28       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00                  93   0x0000000e  0xda91     973    0/0/0
+vm2.00-00            *     93   0x0000000d  0x3626     968    0/0/0
+    2 LSPs
+
+--RT--
+Codes: K - kernel route, C - connected, S - static, R - RIP,
+       O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+I>* 1.1.1.1/32 [115/20] via 10.0.0.1, eth1, weight 1, 00:03:43
+I   10.0.0.0/30 [115/20] via 10.0.0.1, eth1 inactive, weight 1, 00:03:43
+--BFD--
+Session count: 1
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+2043750824 10.0.0.2                                 10.0.0.1                                up             
+--DATE--
+2026-08-20 12:04:35 UTC
+___E17384ND___0
+[?2004hroot@vm2:~# 
+[?2004l[?2004hroot@vm2:~# vtysh -c 'show bfd peers'; echo ___E19819ND___$?
+[?2004lBFD Peers:
+	peer 10.0.0.1 local-address 10.0.0.2 vrf default interface eth1
+		ID: 2043750824
+		Remote ID: 1359347979
+		Active mode
+		Status: up
+		Uptime: 4 minute(s), 14 second(s)
+		Diagnostics: ok
+		Remote diagnostics: ok
+		Peer Type: dynamic
+		RTT min/avg/max: 0/0/0 usec
+		Local timers:
+			Detect-multiplier: 3
+			Receive interval: 300ms
+			Transmission interval: 300ms
+			Echo receive interval: 50ms
+			Echo transmission interval: disabled
+		Remote timers:
+			Detect-multiplier: 3
+			Receive interval: 300ms
+			Transmission interval: 300ms
+			Echo receive interval: 50ms
+
+___E19819ND___0
+[?2004hroot@vm2:~# 
+[?2004l[?2004hroot@vm2:~# vtysh -c "show isis neighbor" ; echo "--DB--" ; vtysh -c "show isis database" ; echo "--RT--" ; vtysh -c "show ip route isis" ; echo "--BFD--" ; vtysh -c "show bfd peers brief" ; echo "--DATE--" ; date -u "+%F %T UTC"; echo ___E41208ND___$?
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm1                 eth1        2  Up            28       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00                  80   0x0000000f  0x5e3a    1145    0/0/0
+vm2.00-00            *     80   0x0000000e  0x7512    1134    0/0/0
+    2 LSPs
+
+--RT--
+--BFD--
+Session count: 1
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+2457190823 10.0.0.2                                 10.0.0.1                                up             
+--DATE--
+2026-08-20 12:04:47 UTC
+___E41208ND___0
+[?2004hroot@vm2:~# 
+[?2004l[?2004hroot@vm2:~# vtysh -c 'show bfd peers'; echo ___E43661ND___$?
+[?2004lBFD Peers:
+	peer 10.0.0.1 local-address 10.0.0.2 vrf default interface eth1
+		ID: 2457190823
+		Remote ID: 2529162241
+		Active mode
+		Status: up
+		Uptime: 9 second(s)
+		Diagnostics: ok
+		Remote diagnostics: ok
+		Peer Type: dynamic
+		RTT min/avg/max: 0/0/0 usec
+		Local timers:
+			Detect-multiplier: 3
+			Receive interval: 300ms
+			Transmission interval: 300ms
+			Echo receive interval: 50ms
+			Echo transmission interval: disabled
+		Remote timers:
+			Detect-multiplier: 3
+			Receive interval: 300ms
+			Transmission interval: 300ms
+			Echo receive interval: 50ms
+
+___E43661ND___0
+[?2004hroot@vm2:~# 
+[?2004l[?2004hroot@vm2:~# vtysh -c "show isis neighbor" ; echo "--DB--" ; vtysh -c "show isis database" ; echo "--RT--" ; vtysh -c "show ip route isis" ; echo "--BFD--" ; vtysh -c "show bfd peers brief" ; echo "--DATE--" ; date -u "+%F %T UTC"; echo ___E66098ND___$?
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm1                 eth1        2  Up            28       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00                  93   0x00000010  0xd693    1093    0/0/0
+vm2.00-00            *     93   0x0000000f  0x3228    1083    0/0/0
+    2 LSPs
+
+--RT--
+Codes: K - kernel route, C - connected, S - static, R - RIP,
+       O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+I>* 1.1.1.1/32 [115/20] via 10.0.0.1, eth1, weight 1, 00:01:42
+I   10.0.0.0/30 [115/20] via 10.0.0.1, eth1 inactive, weight 1, 00:01:42
+--BFD--
+Session count: 1
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+2457190823 10.0.0.2                                 10.0.0.1                                up             
+--DATE--
+2026-08-20 12:06:52 UTC
+___E66098ND___0
+[?2004hroot@vm2:~# 
+[?2004l[?2004hroot@vm2:~# vtysh -c 'show bfd peers'; echo ___E68543ND___$?
+[?2004lBFD Peers:
+	peer 10.0.0.1 local-address 10.0.0.2 vrf default interface eth1
+		ID: 2457190823
+		Remote ID: 2529162241
+		Active mode
+		Status: up
+		Uptime: 2 minute(s), 14 second(s)
+		Diagnostics: ok
+		Remote diagnostics: ok
+		Peer Type: dynamic
+		RTT min/avg/max: 0/0/0 usec
+		Local timers:
+			Detect-multiplier: 3
+			Receive interval: 300ms
+			Transmission interval: 300ms
+			Echo receive interval: 50ms
+			Echo transmission interval: disabled
+		Remote timers:
+			Detect-multiplier: 3
+			Receive interval: 300ms
+			Transmission interval: 300ms
+			Echo receive interval: 50ms
+
+___E68543ND___0
+[?2004hroot@vm2:~# 
+[?2004l[?2004hroot@vm2:~# vtysh -c "show bfd peers" | grep -aE "Status|Uptime|Diagnostics"; echo ___E84574ND___$?
+[?2004l		[01;31m[KStatus[m[K: up
+		[01;31m[KUptime[m[K: 4 minute(s), 10 second(s)
+		[01;31m[KDiagnostics[m[K: ok
+___E84574ND___0
+[?2004hroot@vm2:~# 

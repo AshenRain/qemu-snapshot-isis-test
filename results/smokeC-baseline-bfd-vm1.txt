@@ -1,0 +1,22 @@
+[?2004lBFD Peers:
+	peer 10.0.0.2 local-address 10.0.0.1 vrf default interface eth1
+		ID: 1925936424
+		Remote ID: 2059297725
+		Active mode
+		Status: up
+		Uptime: 2 minute(s), 39 second(s)
+		Diagnostics: ok
+		Remote diagnostics: ok
+		Peer Type: dynamic
+		RTT min/avg/max: 0/0/0 usec
+		Local timers:
+			Detect-multiplier: 3
+			Receive interval: 300ms
+			Transmission interval: 300ms
+			Echo receive interval: 50ms
+			Echo transmission interval: disabled
+		Remote timers:
+			Detect-multiplier: 3
+			Receive interval: 300ms
+			Transmission interval: 300ms
+			Echo receive interval: 50ms

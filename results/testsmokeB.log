@@ -1,0 +1,210 @@
+[11:45:47] === TEST smokeB (cold restart): wait=20s post=10s ===
+[11:45:47] === BASELINE ===
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm2                 eth1        2  Up            28       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00            *     93   0x00000003  0x1562     795    0/0/0
+vm2.00-00                  93   0x00000003  0x4a1c     751    0/0/0
+    2 LSPs
+
+--RT--
+Codes: K - kernel route, C - connected, S - static, R - RIP,
+       O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+I>* 2.2.2.2/32 [115/20] via 10.0.0.2, eth1, weight 1, 00:21:11
+I   10.0.0.0/30 [115/20] via 10.0.0.2, eth1 inactive, weight 1, 00:21:11
+--BFD--
+Session count: 0
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+--DATE--
+2026-08-20 11:30:17 UTC
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm1                 eth1        2  Up            29       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00                  93   0x00000003  0x1562     795    0/0/0
+vm2.00-00            *     93   0x00000003  0x4a1c     750    0/0/0
+    2 LSPs
+
+--RT--
+Codes: K - kernel route, C - connected, S - static, R - RIP,
+       O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+I>* 1.1.1.1/32 [115/20] via 10.0.0.1, eth1, weight 1, 00:21:15
+I   10.0.0.0/30 [115/20] via 10.0.0.1, eth1 inactive, weight 1, 00:21:15
+--BFD--
+Session count: 0
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+--DATE--
+2026-08-20 11:30:18 UTC
+[11:45:50] === DELVM + SAVEVM snapsmokeB (parallel) ===
+ELAPSED_SEC=0.001
+d[K[Dde[K[D[Ddel[K[D[D[Ddelv[K[D[D[D[Ddelvm[K[D[D[D[D[Ddelvm [K[D[D[D[D[D[Ddelvm s[K[D[D[D[D[D[D[Ddelvm sn[K[D[D[D[D[D[D[D[Ddelvm sna[K[D[D[D[D[D[D[D[D[Ddelvm snap[K[D[D[D[D[D[D[D[D[D[Ddelvm snaps[K[D[D[D[D[D[D[D[D[D[D[Ddelvm snapsm[K[D[D[D[D[D[D[D[D[D[D[D[Ddelvm snapsmo[K[D[D[D[D[D[D[D[D[D[D[D[D[Ddelvm snapsmok[K[D[D[D[D[D[D[D[D[D[D[D[D[D[Ddelvm snapsmoke[K[D[D[D[D[D[D[D[D[D[D[D[D[D[D[Ddelvm snapsmokeB[K
+(qemu) 
+ELAPSED_SEC=0.000
+d[K[Dde[K[D[Ddel[K[D[D[Ddelv[K[D[D[D[Ddelvm[K[D[D[D[D[Ddelvm [K[D[D[D[D[D[Ddelvm s[K[D[D[D[D[D[D[Ddelvm sn[K[D[D[D[D[D[D[D[Ddelvm sna[K[D[D[D[D[D[D[D[D[Ddelvm snap[K[D[D[D[D[D[D[D[D[D[Ddelvm snaps[K[D[D[D[D[D[D[D[D[D[D[Ddelvm snapsm[K[D[D[D[D[D[D[D[D[D[D[D[Ddelvm snapsmo[K[D[D[D[D[D[D[D[D[D[D[D[D[Ddelvm snapsmok[K[D[D[D[D[D[D[D[D[D[D[D[D[D[Ddelvm snapsmoke[K[D[D[D[D[D[D[D[D[D[D[D[D[D[D[Ddelvm snapsmokeB[K
+(qemu) 
+vm1 savevm: ELAPSED_SEC=116.968
+vm2 savevm: ELAPSED_SEC=118.207
+[11:47:48] === KILL QEMU (graceful quit via monitor) ===
+ELAPSED_SEC=0.031
+q[K[Dqu[K[D[Dqui[K[D[D[Dquit[K
+
+ELAPSED_SEC=0.036
+q[K[Dqu[K[D[Dqui[K[D[D[Dquit[K
+
+qemu processes left: 0
+[11:47:56] host bridge/tap state while QEMU is down:
+br-isis          DOWN           e6:f5:15:fa:d3:28 <NO-CARRIER,BROADCAST,MULTICAST,UP> 
+tap1             DOWN           a6:a6:d5:36:55:15 <NO-CARRIER,BROADCAST,MULTICAST,UP> 
+tap2             DOWN           3e:77:f2:7b:c0:75 <NO-CARRIER,BROADCAST,MULTICAST,UP> 
+--- vm1 snapshots on disk ---
+Snapshot list:
+ID      TAG               VM_SIZE                DATE        VM_CLOCK     ICOUNT
+1       snap1             938 MiB 2026-08-20 13:27:14  0000:20:53.840         --
+2       snapsmokeB        938 MiB 2026-08-20 13:45:50  0000:24:19.283         --
+Format specific information:
+    compat: 1.1
+    compression type: zlib
+    lazy refcounts: false
+    refcount bits: 16
+    corrupt: false
+    extended l2: false
+Child node '/file':
+    filename: vm1.qcow2
+    protocol type: file
+    file length: 4.14 GiB (4443602944 bytes)
+    disk size: 4.14 GiB
+--- vm2 snapshots on disk ---
+Snapshot list:
+ID      TAG               VM_SIZE                DATE        VM_CLOCK     ICOUNT
+1       snap1             950 MiB 2026-08-20 13:27:14  0000:20:53.698         --
+2       snapsmokeB        950 MiB 2026-08-20 13:45:50  0000:24:18.926         --
+Format specific information:
+    compat: 1.1
+    compression type: zlib
+    lazy refcounts: false
+    refcount bits: 16
+    corrupt: false
+    extended l2: false
+Child node '/file':
+    filename: vm2.qcow2
+    protocol type: file
+    file length: 4.16 GiB (4467523584 bytes)
+    disk size: 4.16 GiB
+-rw-r--r-- 1 root root 4443602944 Aug 20 13:47 vm1.qcow2
+-rw-r--r-- 1 root root 4467523584 Aug 20 13:47 vm2.qcow2
+[11:47:57] === WAITING 20s with QEMU fully stopped ===
+[11:48:17] === COLD START with -loadvm snapsmokeB (parallel) ===
+vm1_qemu_start_sec=3.06
+vm2_qemu_start_sec=3.14
+[11:48:20] WALL_BOTH_COLDSTART_SEC=3.153
+[11:48:20] host date at restore: 2026-08-20 11:48:20 UTC
+VM status: running
+VM status: running
+[11:48:20] === state IMMEDIATELY after cold start ===
+[?2004lvtysh: error reading from zebra: Connection reset by peer (104)Warning: closing connection to zebra because of an I/O error!
+Warning: closing connection to isisd because of an I/O error!
+Warning: connecting to isisd...failed!
+vtysh: error reading from watchfrr: Connection reset by peer (104)Warning: closing connection to watchfrr because of an I/O error!
+vtysh: error reading from staticd: Connection reset by peer (104)Warning: closing connection to staticd because of an I/O error!
+Warning: closing connection to bfdd because of an I/O error!
+Warning: connecting to bfdd...failed!
+Warning: connecting to isisd...failed!
+isisd is not running
+--DB--
+Exiting: failed to connect to any daemons.
+--RT--
+Exiting: failed to connect to any daemons.
+--BFD--
+Exiting: failed to connect to any daemons.
+--DATE--
+2026-08-20 11:32:26 UTC
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm1                 eth1        2  Down          18       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00                  93   0x00000003  0x1562     782    0/0/0
+vm2.00-00            *     80   0x00000004  0x8908    1146    0/0/0
+    2 LSPs
+
+--RT--
+--BFD--
+Session count: 0
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+--DATE--
+2026-08-20 11:32:28 UTC
+[11:48:32] time to first guest response measured above
+[11:48:32] === +10s ===
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm2                 eth1        2  Up            29       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00            *     61   0x00000004  0x5961    1145    0/0/0
+vm2.00-00                  80   0x00000004  0x8908    1135    0/0/0
+    2 LSPs
+
+--RT--
+--BFD--
+Session count: 0
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+--DATE--
+2026-08-20 11:32:39 UTC
+[?2004lArea CORE:
+  System Id           Interface   L  State        Holdtime SNPA
+ vm1                 eth1        2  Up            27       2020.2020.2020
+--DB--
+Area CORE:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+vm1.00-00                  61   0x00000004  0x5961    1144    0/0/0
+vm2.00-00            *     80   0x00000004  0x8908    1134    0/0/0
+    2 LSPs
+
+--RT--
+--BFD--
+Session count: 0
+SessionId  LocalAddress                             PeerAddress                             Status         
+=========  ============                             ===========                             ======         
+--DATE--
+2026-08-20 11:32:41 UTC
+[11:48:45] host date: 2026-08-20 11:48:45 UTC
+[11:48:45] === connectivity check ===
+[?2004lPING 10.0.0.2 (10.0.0.2) 56(84) bytes of data.
+64 bytes from 10.0.0.2: icmp_seq=1 ttl=64 time=2.18 ms
+64 bytes from 10.0.0.2: icmp_seq=2 ttl=64 time=3.15 ms
+64 bytes from 10.0.0.2: icmp_seq=3 ttl=64 time=2.70 ms
+
+--- 10.0.0.2 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2004ms
+rtt min/avg/max/mdev = 2.175/2.676/3.154/0.400 ms
+PING 2.2.2.2 (2.2.2.2) 56(84) bytes of data.
+
+--- 2.2.2.2 ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss, time 1008ms
+[11:48:51] === TEST smokeB DONE ===
