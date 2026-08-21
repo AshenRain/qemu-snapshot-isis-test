@@ -1,98 +1,100 @@
-# Выживают ли сетевые протоколы восстановление QEMU из снапшота
+# Do routing protocols survive a QEMU snapshot restore?
 
-Эмпирическая проверка того, переживают ли живое соседство IS-IS и сессия BFD восстановление виртуальной машины из снапшота QEMU (`savevm` / `loadvm`) — включая полный холодный рестарт процесса QEMU.
+*[Русская версия](README_ru.md)*
 
-Мотивация: для обучения LLM-агента с подкреплением нужны тысячи прогонов сценариев на симуляторе сетевого оборудования, а полная загрузка виртуального роутера до сходимости протоколов занимает минуты. Идея — восстанавливать стенд из снапшота, где сеть уже сошлась. Прежде чем строить на этом архитектуру, нужно было убедиться, что протоколы это переживают.
+An empirical check of whether a live IS-IS adjacency and a BFD session survive restoring a virtual machine from a QEMU snapshot (`savevm` / `loadvm`) — including a full cold restart of the QEMU process.
 
-**Полный отчёт: [REPORT.md](REPORT.md).**
+The motivation: training an LLM agent with reinforcement learning needs thousands of scenario runs on a network device simulator, and booting a virtual router until its protocols converge takes minutes. The idea is to restore the lab from a snapshot in which the network has already converged. Before building an architecture on that assumption, it had to be verified that the protocols actually survive it.
 
-## Результаты
+**Full report: [REPORT.md](REPORT.md)** (in Russian).
 
-| Тест | Что проверялось | Итог |
+## Results
+
+| Test | What was checked | Outcome |
 |---|---|---|
-| **A** | `savevm` → 15 минут → `loadvm` внутри живого процесса QEMU | **пройден** — соседство Up, LSDB бит-в-бит, маршруты на месте |
-| **B** | `savevm` → полное завершение QEMU → 15 минут → холодный старт `-loadvm` | **пройден** — то же самое, без ручного вмешательства и без пересходимости |
-| **C** | То же с BFD 300 мс × 3, привязанным к IS-IS | **не выживает** — сессия рвётся, восстанавливается сама за ~3–4 с, маршруты за ~34 с |
+| **A** | `savevm` → 15 minutes → `loadvm` inside the live QEMU process | **passed** — adjacency Up, LSDB bit-for-bit identical, routes intact |
+| **B** | `savevm` → QEMU processes fully terminated → 15 minutes → cold start with `-loadvm` | **passed** — same result, with no manual intervention and no reconvergence |
+| **C** | Same, with BFD 300 ms × 3 bound to IS-IS | **does not survive** — the session drops, recovers on its own in ~3–4 s, routes in ~34 s |
 
-Ключевые цифры (2 vCPU, 1 ГБ RAM на узел, NVMe SSD):
+Key numbers (2 vCPU, 1 GB RAM per node, NVMe SSD):
 
-| Показатель | Значение |
+| Metric | Value |
 |---|---|
-| Время `loadvm`, разморозка в живом процессе | 3.0 / 3.2 с |
-| **Время холодного старта с `-loadvm`** | **3.25 / 3.38 с** |
-| Время `savevm` в установившемся режиме | 1.6–2.1 с |
-| Размер снапшота (`VM_SIZE`) | 917–950 МБ при 1024 МБ RAM |
-| Полная загрузка с нуля до сходимости, для сравнения | ~170 с |
+| `loadvm` inside a live QEMU process | 3.0 / 3.2 s |
+| **Cold start with `-loadvm`** | **3.25 / 3.38 s** |
+| `savevm` in steady state | 1.6–2.1 s |
+| Snapshot size (`VM_SIZE`) | 917–950 MB for 1024 MB of guest RAM |
+| Full boot to convergence, for comparison | ~170 s |
 
-Выигрыш по времени подготовки стенда — **примерно в 50 раз**.
+Lab preparation is roughly **50× faster**.
 
-## Главное обнаружение
+## The main finding
 
-Ограничение накладывает не длительность простоя между снимком и его использованием (она может быть любой — проверено на 15 минутах), а **длительность самой операции `savevm`**.
+The binding constraint is not how long the snapshot sits unused before it is restored — that can be anything, verified over 15 minutes — but **how long the `savevm` operation itself takes**.
 
-Пока QEMU пишет память на диск, гостевые vCPU стоят, но состояние часов, попадающее в снапшот, соответствует *концу* записи, тогда как последняя выполненная гостем инструкция — её *началу*. Восстановленный гость просыпается с таймерами, просроченными ровно на длительность записи.
+While QEMU writes guest memory to disk, the guest vCPUs are stopped, but the clock state captured in the snapshot corresponds to the *end* of that write, whereas the last instruction the guest actually executed corresponds to its *beginning*. A restored guest therefore wakes up with every timer overdue by exactly the duration of the write.
 
-Контрольный замер полного цикла:
+A controlled measurement of the full cycle:
 
 ```
-savevm (заморозка)              63.05 с
-простой с убитым QEMU           15.07 с
-запуск QEMU с -loadvm            1.96 с
+savevm (freeze)                 63.05 s
+downtime with QEMU killed       15.07 s
+QEMU startup with -loadvm        1.96 s
 ────────────────────────────────────────
-прошло на ХОСТЕ                 81.21 с
-насчитал ГОСТЬ (/proc/uptime)   64.11 с   ← ровно длительность savevm
+elapsed on the HOST             81.21 s
+counted by the GUEST (uptime)   64.11 s   ← exactly the savevm duration
 ```
 
-Простой и загрузку гость не заметил вовсе. Отсюда правило: **`savevm` должен быть короче самого короткого detect-таймера в стенде.**
+The guest did not notice the downtime or the restore at all. Hence the rule: **`savevm` must be shorter than the shortest detection timer in the lab.**
 
-| Заморозка | Порог, который задет | Последствие |
+| Freeze | Threshold crossed | Consequence |
 |---|---|---|
-| 1.6 с | holdtime IS-IS 30 с — не задет | ничего |
-| 2.1 с | detect time BFD **0.9 с** | разрыв сессии, флап соседства, 34 с до маршрутов |
-| 118 с | `WatchdogSec=60` у `frr.service` | systemd убил демоны FRR сигналом 6 |
+| 1.6 s | IS-IS holdtime of 30 s — not crossed | nothing |
+| 2.1 s | BFD detection time of **0.9 s** | session drops, adjacency flaps, 34 s until routes return |
+| 118 s | `WatchdogSec=60` on `frr.service` | systemd killed the FRR daemons with signal 6 |
 
-## Стенд
+## The lab
 
-Две VM QEMU (Ubuntu 24.04 cloud image + FRRouting 8.4.4), соединённые через tap-интерфейсы на хостовом Linux-бридже. IS-IS level-2-only point-to-point, `metric-style wide`, loopback'и `1.1.1.1/32` и `2.2.2.2/32` в качестве проверяемых маршрутов. Часы зафиксированы через `-rtc base=localtime,clock=vm`, синхронизация времени в гостях отключена.
+Two QEMU VMs (Ubuntu 24.04 cloud image + FRRouting 8.4.4) connected through tap interfaces on a host Linux bridge. IS-IS level-2-only point-to-point with `metric-style wide`, plus loopbacks `1.1.1.1/32` and `2.2.2.2/32` serving as the routes under test. Clocks are pinned with `-rtc base=localtime,clock=vm`, and time synchronisation inside the guests is disabled.
 
-Хост: Windows 11 + WSL2 (Ubuntu 26.04, вложенная виртуализация KVM), QEMU 10.2.1, NVMe SSD.
+Host: Windows 11 with WSL2 (Ubuntu 26.04, nested KVM), QEMU 10.2.1, NVMe SSD.
 
-Выбор tap+bridge вместо `-netdev socket` принципиален: бридж и tap-интерфейсы живут на хосте и переживают полное завершение QEMU, поэтому связность после холодного старта восстанавливается сама и порядок запуска узлов не важен. Проверено — проблем не возникло ни разу.
+Choosing tap + bridge over `-netdev socket` matters: the bridge and tap interfaces live on the host and survive a full QEMU shutdown, so connectivity comes back by itself after a cold start and node startup order is irrelevant. Confirmed — it never caused a problem.
 
-## Структура
+## Layout
 
 ```
-REPORT.md                  полный отчёт по всем пунктам задания
-Prompt_snapshot_test.md    исходное задание
+REPORT.md                  full report, in Russian
+README_ru.md               this page, in Russian
 scripts/
-  run-vm.sh                запуск VM, он же используется для холодного старта с -loadvm
-  testA.sh testB.sh testC.sh   сценарии тестов, параметризованы по длительности пауз
-  mon.py                   доступ к QEMU monitor через unix-сокет с замером времени
-  gc.py                    выполнение команд в госте через serial-консоль
-  snapshot.sh              съём эталонного состояния (neighbor / database / route / bfd / date)
+  run-vm.sh                launches a VM; also used for the cold start with -loadvm
+  testA.sh testB.sh testC.sh   test scenarios, parameterised by pause duration
+  mon.py                   QEMU monitor access over a unix socket, with timing
+  gc.py                    runs commands in a guest over the serial console
+  snapshot.sh              captures reference state (neighbor / database / route / bfd / date)
 results/
-  test{A,B,C}.log          логи прогонов с временными метками
-  {A,B,C}-baseline-*.txt   состояние до снимка
-  {A,B,C}-after0-*.txt     состояние сразу после восстановления
-  {A,B,C}-after1-*.txt     состояние через 2 минуты
-  C-bfdpoll-vm1.txt        поллинг BFD/IS-IS/маршрутов после старта, 60 сэмплов
-  vm{1,2}-console.log      полные логи последовательных консолей гостей
+  test{A,B,C}.log          run logs with timestamps
+  {A,B,C}-baseline-*.txt   state before the snapshot
+  {A,B,C}-after0-*.txt     state immediately after the restore
+  {A,B,C}-after1-*.txt     state two minutes later
+  C-bfdpoll-vm1.txt        BFD / IS-IS / route polling after the cold start, 60 samples
+  vm{1,2}-console.log      full serial console logs from both guests
 ```
 
-Команды в гостях выполнялись через serial-консоль, а не ssh: ssh-сессия рвётся при восстановлении, а сессия на serial живёт в памяти гостя и восстанавливается вместе с ней.
+Guest commands were issued over the serial console rather than ssh: an ssh session breaks on restore, whereas a serial console session lives in guest memory and is restored along with it.
 
-## Воспроизведение
+## Reproducing
 
-Нужен Linux-хост с KVM, QEMU и `cloud-image-utils`. Скрипты рассчитаны на рабочий каталог `/root/qsnap` с образами `vm1.qcow2` / `vm2.qcow2` и хостовым бриджем `br-isis` с интерфейсами `tap1` / `tap2`.
+Requires a Linux host with KVM, QEMU and `cloud-image-utils`. The scripts assume a working directory of `/root/qsnap` containing `vm1.qcow2` / `vm2.qcow2`, and a host bridge `br-isis` with `tap1` / `tap2` attached.
 
 ```bash
-TAG=A WAIT_SEC=900 POST_SEC=120 ./testA.sh   # разморозка в живом процессе
-TAG=B WAIT_SEC=900 POST_SEC=120 ./testB.sh   # холодный рестарт
-TAG=C WAIT_SEC=900 POST_SEC=120 ./testC.sh   # то же с BFD
+TAG=A WAIT_SEC=900 POST_SEC=120 ./testA.sh   # restore inside the live process
+TAG=B WAIT_SEC=900 POST_SEC=120 ./testB.sh   # cold restart
+TAG=C WAIT_SEC=900 POST_SEC=120 ./testC.sh   # same, with BFD
 ```
 
-Для быстрой проверки логики без долгих пауз — `WAIT_SEC=20 POST_SEC=15`.
+For a quick sanity check without the long pauses, use `WAIT_SEC=20 POST_SEC=15`.
 
-## Оговорки
+## Caveats
 
-Стенд работал в WSL2 с вложенной виртуализацией — поведение kvmclock на голом железе может отличаться, это стоит перепроверить отдельно. Один прогон был загрязнён уходом хоста в Modern Standby (подтверждено событием Kernel-Power 506); он переигран, но оставлен в отчёте, поскольку именно он показал сценарий с гибелью FRR по watchdog.
+The lab ran under WSL2 with nested virtualisation, where kvmclock may behave differently than on bare metal; that is worth verifying separately. One run was contaminated by the host entering Modern Standby (confirmed by Kernel-Power event 506); it was re-run, but is kept in the report because it is precisely the run that exposed the FRR watchdog failure mode.
